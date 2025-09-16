@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+
+{% block title %}Marks Simulation - Prakriti Pulse{% endblock %}
+
+{% block content %}
+<div class="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat relative" style="background-image: url('{{ url_for('static', filename='images/marks-simulation-bg.jpg') }}')">
+    <!-- Enhanced overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
+    
+    <!-- Floating elements -->
+    <div class="absolute top-16 left-8 w-4 h-4 bg-primary/20 rounded-full float-animation"></div>
+    <div class="absolute bottom-20 right-12 w-3 h-3 bg-accent/30 rounded-full bounce-gentle" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/4 right-1/5 w-2 h-2 bg-primary/40 rounded-full pulse-glow" style="animation-delay: 2s;"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-medium mb-4 border border-white/30">
+                <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                MARKS SIMULATION
+            </div>
+            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-3 drop-shadow-lg">
+                Ayurvedic <span class="text-accent">Marks Analysis</span>
+            </h1>
+            <p class="text-white/90 text-lg drop-shadow max-w-2xl mx-auto">
+                Explore the ancient art of reading body marks and their significance in Ayurvedic diagnosis
+            </p>
+        </div>
+
+        <!-- Interactive Marks Simulator -->
+        <div class="backdrop-blur-elegant border border-white/20 rounded-2xl p-8 shadow-2xl hover-lift">
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Body Diagram -->
+                <div class="space-y-6">
+                    <h2 class="text-xl font-semibold text-foreground mb-4">Body Marks Simulator</h2>
+                    
+                    <!-- Body Outline -->
+                    <div class="relative bg-card/50 rounded-lg p-6 border-2 border-dashed border-muted">
+                        <div class="text-center mb-4">
+                            <h3 class="font-semibold text-foreground">Select Body Area</h3>
+                            <p class="text-sm text-muted-foreground">Click on different areas to explore marks</p>
+                        </div>
+                        
+                        <!-- Simple body representation -->
+                        <div class="flex justify-center">
+                            <div class="relative">
+                                <!-- Head -->
+                                <div class="w-16 h-16 bg-primary/20 rounded-full mx-auto mb-2 cursor-pointer hover:bg-primary/30 transition-colors" 
+                                     data-area="head" onclick="selectBodyArea('head')">
+                                    <div class="w-full h-full flex items-center justify-center text-2xl">🧠</div>
+                                </div>
+                                
+                                <!-- Torso -->
+                                <div class="w-24 h-32 bg-primary/20 rounded-lg mx-auto mb-2 cursor-pointer hover:bg-primary/30 transition-colors" 
+                                     data-area="torso" onclick="selectBodyArea('torso')">
+                                    <div class="w-full h-full flex items-center justify-center text-2xl">💪</div>
+                                </div>
+                                
+                                <!-- Arms -->
+                                <div class="flex justify-between w-32 mx-auto mb-2">
+                                    <div class="w-8 h-16 bg-primary/20 rounded-lg cursor-pointer hover:bg-primary/30 transition-colors" 
+                                         data-area="left-arm" onclick="selectBodyArea('left-arm')">
+                                        <div class="w-full h-full flex items-center justify-center text-lg">🦾</div>
+                                    </div>
+                                    <div class="w-8 h-16 bg-primary/20 rounded-lg cursor-pointer hover:bg-primary/30 transition-colors" 
+                                         data-area="right-arm" onclick="selectBodyArea('right-arm')">
+                                        <div class="w-full h-full flex items-center justify-center text-lg">🦾</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Legs -->
+                                <div class="flex justify-between w-24 mx-auto">
+                                    <div class="w-8 h-20 bg-primary/20 rounded-lg cursor-pointer hover:bg-primary/30 transition-colors" 
+                                         data-area="left-leg" onclick="selectBodyArea('left-leg')">
+                                        <div class="w-full h-full flex items-center justify-center text-lg">🦵</div>
+                                    </div>
+                                    <div class="w-8 h-20 bg-primary/20 rounded-lg cursor-pointer hover:bg-primary/30 transition-colors" 
+                                         data-area="right-leg" onclick="selectBodyArea('right-leg')">
+                                        <div class="w-full h-full flex items-center justify-center text-lg">🦵</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mark Types -->
+                    <div class="space-y-4">
+                        <h3 class="font-semibold text-foreground">Select Mark Type</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="p-3 bg-muted/30 hover:bg-primary/20 rounded-lg text-sm transition-colors" 
+                                    onclick="selectMarkType('mole')">
+                                <span class="block text-lg mb-1">🔴</span>
+                                <span>Moles</span>
+                            </button>
+                            <button class="p-3 bg-muted/30 hover:bg-primary/20 rounded-lg text-sm transition-colors" 
+                                    onclick="selectMarkType('birthmark')">
+                                <span class="block text-lg mb-1">🟤</span>
+                                <span>Birthmarks</span>
+                            </button>
+                            <button class="p-3 bg-muted/30 hover:bg-primary/20 rounded-lg text-sm transition-colors" 
+                                    onclick="selectMarkType('scar')">
+                                <span class="block text-lg mb-1">⚪</span>
+                                <span>Scars</span>
+                            </button>
+                            <button class="p-3 bg-muted/30 hover:bg-primary/20 rounded-lg text-sm transition-colors" 
+                                    onclick="selectMarkType('discoloration')">
+                                <span class="block text-lg mb-1">🟡</span>
+                                <span>Discoloration</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Panel -->
+                <div class="space-y-6">
+                    <h2 class="text-xl font-semibold text-foreground mb-4">Ayurvedic Analysis</h2>
+                    
+                    <!-- Selected Area Info -->
+                    <div id="areaInfo" class="bg-card/50 rounded-lg p-4">
+                        <h3 class="font-semibold text-foreground mb-2">Selected Area: <span id="selectedArea">None</span></h3>
+                        <p class="text-sm text-muted-foreground">Click on a body area to see its significance</p>
+                    </div>
+
+                    <!-- Mark Analysis -->
+                    <div id="markAnalysis" class="bg-card/50 rounded-lg p-4 hidden">
+                        <h3 class="font-semibold text-foreground mb-3">Mark Analysis</h3>
+                        <div id="analysisContent" class="space-y-3">
+                            <!-- Analysis content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Dosha Connection -->
+                    <div id="doshaConnection" class="bg-card/50 rounded-lg p-4 hidden">
+                        <h3 class="font-semibold text-foreground mb-3">Dosha Connection</h3>
+                        <div id="doshaContent" class="space-y-2">
+                            <!-- Dosha content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div id="recommendations" class="bg-card/50 rounded-lg p-4 hidden">
+                        <h3 class="font-semibold text-foreground mb-3">Recommendations</h3>
+                        <div id="recommendationsContent" class="space-y-2">
+                            <!-- Recommendations will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Educational Content -->
+        <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card-ayurvedic">
+                <div class="text-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-xl">🔍</span>
+                    </div>
+                    <h3 class="font-semibold text-foreground">Ancient Wisdom</h3>
+                </div>
+                <p class="text-sm text-muted-foreground text-center">
+                    Ayurvedic practitioners have studied body marks for thousands of years, 
+                    understanding their connection to health and constitution.
+                </p>
+            </div>
+
+            <div class="card-ayurvedic">
+                <div class="text-center mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-xl">⚖️</span>
+                    </div>
+                    <h3 class="font-semibold text-foreground">Dosha Balance</h3>
+                </div>
+                <p class="text-sm text-muted-foreground text-center">
+                    Different marks can indicate imbalances in Vata, Pitta, or Kapha doshas, 
+                    helping guide treatment approaches.
+                </p>
+            </div>
+
+            <div class="card-ayurvedic">
+                <div class="text-center mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-xl">🌿</span>
+                    </div>
+                    <h3 class="font-semibold text-foreground">Holistic Approach</h3>
+                </div>
+                <p class="text-sm text-muted-foreground text-center">
+                    Mark analysis is part of a comprehensive assessment that includes 
+                    pulse, tongue, and overall constitution evaluation.
+                </p>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="mt-8 bg-accent/10 border border-accent/20 rounded-lg p-6">
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">📋</span>
+                <div>
+                    <h3 class="font-semibold text-foreground mb-2">Educational Purpose Only</h3>
+                    <p class="text-sm text-foreground">
+                        This marks simulation is for educational and entertainment purposes only. 
+                        It should not be used for medical diagnosis or treatment decisions. 
+                        Always consult with qualified healthcare practitioners for proper medical assessment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let selectedArea = null;
+    let selectedMarkType = null;
+
+    const areaSignificance = {
+        'head': {
+            name: 'Head',
+            significance: 'The head represents mental faculties, wisdom, and spiritual connection. Marks here often relate to mental constitution and cognitive patterns.',
+            dosha: 'Vata (Air & Space)',
+            characteristics: 'Associated with mental clarity, intuition, and spiritual awareness'
+        },
+        'torso': {
+            name: 'Torso',
+            significance: 'The torso houses vital organs and represents overall health and vitality. Marks here indicate internal constitution and organ health.',
+            dosha: 'Pitta (Fire & Water)',
+            characteristics: 'Related to digestive fire, metabolism, and emotional balance'
+        },
+        'left-arm': {
+            name: 'Left Arm',
+            significance: 'The left side represents feminine energy, intuition, and emotional processing. Marks here often relate to emotional constitution.',
+            dosha: 'Kapha (Earth & Water)',
+            characteristics: 'Associated with nurturing, stability, and emotional grounding'
+        },
+        'right-arm': {
+            name: 'Right Arm',
+            significance: 'The right side represents masculine energy, action, and logical processing. Marks here relate to active constitution.',
+            dosha: 'Pitta (Fire & Water)',
+            characteristics: 'Related to willpower, determination, and active energy'
+        },
+        'left-leg': {
+            name: 'Left Leg',
+            significance: 'The left leg represents grounding and stability. Marks here indicate foundation and support systems.',
+            dosha: 'Kapha (Earth & Water)',
+            characteristics: 'Associated with stability, patience, and physical foundation'
+        },
+        'right-leg': {
+            name: 'Right Leg',
+            significance: 'The right leg represents movement and progress. Marks here relate to forward momentum and action.',
+            dosha: 'Vata (Air & Space)',
+            characteristics: 'Related to movement, change, and dynamic energy'
+        }
+    };
+
+    const markTypes = {
+        'mole': {
+            name: 'Moles',
+            description: 'Moles are considered significant markers of past life karma and current constitution.',
+            analysis: 'The size, color, and location of moles can indicate specific dosha influences and life patterns.'
+        },
+        'birthmark': {
+            name: 'Birthmarks',
+            description: 'Birthmarks are believed to carry information from previous incarnations.',
+            analysis: 'These marks often indicate unresolved issues or special gifts from past lives.'
+        },
+        'scar': {
+            name: 'Scars',
+            description: 'Scars represent healing and transformation in the life journey.',
+            analysis: 'The location and appearance of scars can indicate areas of growth and life lessons.'
+        },
+        'discoloration': {
+            name: 'Discoloration',
+            description: 'Skin discoloration can indicate dosha imbalances or health conditions.',
+            analysis: 'Different colors and patterns may suggest specific constitutional needs.'
+        }
+    };
+
+    function selectBodyArea(area) {
+        selectedArea = area;
+        
+        // Update visual selection
+        document.querySelectorAll('[data-area]').forEach(el => {
+            el.classList.remove('bg-primary/40', 'ring-2', 'ring-primary');
+            el.classList.add('bg-primary/20');
+        });
+        
+        const selectedEl = document.querySelector(`[data-area="${area}"]`);
+        selectedEl.classList.remove('bg-primary/20');
+        selectedEl.classList.add('bg-primary/40', 'ring-2', 'ring-primary');
+        
+        // Update area info
+        const areaInfo = areaSignificance[area];
+        document.getElementById('selectedArea').textContent = areaInfo.name;
+        
+        // Show analysis if mark type is also selected
+        if (selectedMarkType) {
+            showAnalysis();
+        }
+    }
+
+    function selectMarkType(type) {
+        selectedMarkType = type;
+        
+        // Update visual selection
+        document.querySelectorAll('button').forEach(btn => {
+            btn.classList.remove('bg-primary/20', 'text-primary');
+            btn.classList.add('bg-muted/30');
+        });
+        
+        event.target.classList.remove('bg-muted/30');
+        event.target.classList.add('bg-primary/20', 'text-primary');
+        
+        // Show analysis if area is also selected
+        if (selectedArea) {
+            showAnalysis();
+        }
+    }
+
+    function showAnalysis() {
+        if (!selectedArea || !selectedMarkType) return;
+        
+        const areaInfo = areaSignificance[selectedArea];
+        const markInfo = markTypes[selectedMarkType];
+        
+        // Show mark analysis
+        document.getElementById('markAnalysis').classList.remove('hidden');
+        document.getElementById('analysisContent').innerHTML = `
+            <div class="space-y-2">
+                <h4 class="font-semibold text-primary">${markInfo.name}</h4>
+                <p class="text-sm text-foreground">${markInfo.description}</p>
+                <p class="text-sm text-muted-foreground">${markInfo.analysis}</p>
+            </div>
+        `;
+        
+        // Show dosha connection
+        document.getElementById('doshaConnection').classList.remove('hidden');
+        document.getElementById('doshaContent').innerHTML = `
+            <div class="space-y-2">
+                <h4 class="font-semibold text-primary">${areaInfo.dosha}</h4>
+                <p class="text-sm text-foreground">${areaInfo.characteristics}</p>
+                <p class="text-sm text-muted-foreground">${areaInfo.significance}</p>
+            </div>
+        `;
+        
+        // Show recommendations
+        document.getElementById('recommendations').classList.remove('hidden');
+        const recommendations = getRecommendations(selectedArea, selectedMarkType);
+        document.getElementById('recommendationsContent').innerHTML = `
+            <ul class="space-y-1 text-sm">
+                ${recommendations.map(rec => `<li class="text-foreground">• ${rec}</li>`).join('')}
+            </ul>
+        `;
+    }
+
+    function getRecommendations(area, markType) {
+        const recommendations = {
+            'head': [
+                'Practice meditation and mindfulness',
+                'Engage in activities that stimulate mental clarity',
+                'Consider herbs that support cognitive function'
+            ],
+            'torso': [
+                'Focus on digestive health and nutrition',
+                'Practice breathing exercises',
+                'Consider herbs that support internal organs'
+            ],
+            'left-arm': [
+                'Engage in creative and intuitive activities',
+                'Practice emotional processing techniques',
+                'Consider herbs that support emotional balance'
+            ],
+            'right-arm': [
+                'Focus on physical activity and movement',
+                'Engage in goal-oriented activities',
+                'Consider herbs that support active energy'
+            ],
+            'left-leg': [
+                'Practice grounding exercises',
+                'Focus on stability and routine',
+                'Consider herbs that support foundation'
+            ],
+            'right-leg': [
+                'Engage in forward-moving activities',
+                'Focus on progress and change',
+                'Consider herbs that support dynamic energy'
+            ]
+        };
+        
+        return recommendations[area] || ['Consult with an Ayurvedic practitioner for personalized recommendations'];
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add click handlers for mark type buttons
+        document.querySelectorAll('button[onclick*="selectMarkType"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                selectMarkType(this.onclick.toString().match(/'([^']+)'/)[1]);
+            });
+        });
+    });
+</script>
+{% endblock %}

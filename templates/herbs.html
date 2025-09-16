@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}Herbs Database - Prakriti Pulse{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Ayurvedic Herbs Database</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Explore our comprehensive collection of Ayurvedic herbs with detailed information about their properties, 
+                uses, and benefits for your wellness journey.
+            </p>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Herbs</label>
+                    <input type="text" id="search" placeholder="Search by name, Sanskrit name, or scientific name..."
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label for="rasa-filter" class="block text-sm font-medium text-gray-700 mb-2">Filter by Rasa (Taste)</label>
+                    <select id="rasa-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="">All Rasa</option>
+                        <option value="Sweet">Sweet</option>
+                        <option value="Sour">Sour</option>
+                        <option value="Salty">Salty</option>
+                        <option value="Pungent">Pungent</option>
+                        <option value="Bitter">Bitter</option>
+                        <option value="Astringent">Astringent</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="dosha-filter" class="block text-sm font-medium text-gray-700 mb-2">Filter by Dosha Effect</label>
+                    <select id="dosha-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="">All Doshas</option>
+                        <option value="vata">Vata Balancing</option>
+                        <option value="pitta">Pitta Balancing</option>
+                        <option value="kapha">Kapha Balancing</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Herbs Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="herbs-grid">
+            {% for herb in herbs %}
+            <div class="herb-card bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300" 
+                 data-name="{{ herb.herb_name_english|lower }} {{ herb.herb_name_sanskrit|lower }} {{ herb.scientific_name|lower }}"
+                 data-rasa="{{ herb.rasa|lower }}"
+                 data-vata="{{ herb.vata_effect|lower }}"
+                 data-pitta="{{ herb.pitta_effect|lower }}"
+                 data-kapha="{{ herb.kapha_effect|lower }}">
+                
+                <!-- Herb Header -->
+                <div class="text-center mb-4">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-3xl">🌿</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">{{ herb.herb_name_english }}</h3>
+                    <p class="text-gray-600 text-sm">{{ herb.herb_name_sanskrit }}</p>
+                    <p class="text-gray-500 text-xs">{{ herb.scientific_name }}</p>
+                </div>
+
+                <!-- Herb Properties -->
+                <div class="space-y-3 mb-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm font-medium text-gray-600">Rasa:</span>
+                        <span class="text-sm text-gray-800">{{ herb.rasa }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm font-medium text-gray-600">Virya:</span>
+                        <span class="text-sm text-gray-800">{{ herb.virya }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm font-medium text-gray-600">Vipaka:</span>
+                        <span class="text-sm text-gray-800">{{ herb.vipaka }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm font-medium text-gray-600">Part Used:</span>
+                        <span class="text-sm text-gray-800">{{ herb.part_used }}</span>
+                    </div>
+                </div>
+
+                <!-- Dosha Effects -->
+                <div class="mb-4">
+                    <h4 class="text-sm font-semibold text-gray-900 mb-2">Dosha Effects</h4>
+                    <div class="space-y-1 text-xs">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                            <span class="text-gray-700">Vata: {{ herb.vata_effect }}</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
+                            <span class="text-gray-700">Pitta: {{ herb.pitta_effect }}</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                            <span class="text-gray-700">Kapha: {{ herb.kapha_effect }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description Preview -->
+                {% if herb.description %}
+                <div class="mb-4">
+                    <p class="text-sm text-gray-600 line-clamp-3">{{ herb.description[:150] }}{% if herb.description|length > 150 %}...{% endif %}</p>
+                </div>
+                {% endif %}
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2">
+                    <a href="{{ url_for('herb_details', herb_id=herb.herb_id) }}" 
+                       class="flex-1 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold py-2 px-3 rounded-lg transition duration-200 text-center">
+                        View Details
+                    </a>
+                    <button onclick="addToFavorites({{ herb.herb_id }})" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-3 rounded-lg transition duration-200">
+                        ♥
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <div class="text-6xl mb-4">🔍</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">No Herbs Found</h3>
+            <p class="text-gray-600 mb-6">Try adjusting your search criteria or filters.</p>
+            <button onclick="clearFilters()" 
+                    class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200">
+                Clear Filters
+            </button>
+        </div>
+
+        <!-- Information Box -->
+        <div class="mt-12 bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl">ℹ️</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium text-blue-800">Understanding Herb Properties</h3>
+                    <div class="mt-2 text-blue-700 space-y-2">
+                        <p><strong>Rasa (Taste):</strong> The primary taste of the herb, which affects its therapeutic properties.</p>
+                        <p><strong>Virya (Potency):</strong> The heating or cooling effect of the herb on the body.</p>
+                        <p><strong>Vipaka (Post-digestive Effect):</strong> The taste that develops after digestion.</p>
+                        <p><strong>Prabhava (Special Action):</strong> Unique therapeutic effects beyond the normal properties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Search and filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search');
+    const rasaFilter = document.getElementById('rasa-filter');
+    const doshaFilter = document.getElementById('dosha-filter');
+    const herbsGrid = document.getElementById('herbs-grid');
+    const noResults = document.getElementById('no-results');
+    const herbCards = document.querySelectorAll('.herb-card');
+
+    function filterHerbs() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedRasa = rasaFilter.value.toLowerCase();
+        const selectedDosha = doshaFilter.value.toLowerCase();
+        
+        let visibleCount = 0;
+
+        herbCards.forEach(card => {
+            const name = card.dataset.name;
+            const rasa = card.dataset.rasa;
+            const vata = card.dataset.vata;
+            const pitta = card.dataset.pitta;
+            const kapha = card.dataset.kapha;
+            
+            const matchesSearch = name.includes(searchTerm);
+            const matchesRasa = !selectedRasa || rasa.includes(selectedRasa);
+            const matchesDosha = !selectedDosha || 
+                (selectedDosha === 'vata' && vata.includes('balance')) ||
+                (selectedDosha === 'pitta' && pitta.includes('balance')) ||
+                (selectedDosha === 'kapha' && kapha.includes('balance'));
+            
+            if (matchesSearch && matchesRasa && matchesDosha) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (visibleCount === 0) {
+            herbsGrid.style.display = 'none';
+            noResults.classList.remove('hidden');
+        } else {
+            herbsGrid.style.display = 'grid';
+            noResults.classList.add('hidden');
+        }
+    }
+
+    searchInput.addEventListener('input', filterHerbs);
+    rasaFilter.addEventListener('change', filterHerbs);
+    doshaFilter.addEventListener('change', filterHerbs);
+});
+
+function addToFavorites(herbId) {
+    // This would typically make an API call to save favorites
+    alert('Herb added to favorites! (This feature will be implemented in the future)');
+}
+
+function clearFilters() {
+    document.getElementById('search').value = '';
+    document.getElementById('rasa-filter').value = '';
+    document.getElementById('dosha-filter').value = '';
+    
+    // Show all cards
+    document.querySelectorAll('.herb-card').forEach(card => {
+        card.style.display = 'block';
+    });
+    
+    document.getElementById('herbs-grid').style.display = 'grid';
+    document.getElementById('no-results').classList.add('hidden');
+}
+</script>
+
+<style>
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>
+{% endblock %}

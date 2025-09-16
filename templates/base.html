@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Prakriti Pulse - Ayurvedic Wellness Platform{% endblock %}</title>
+    <meta name="description" content="Discover your Ayurvedic constitution and get personalized wellness recommendations based on 5000 years of ancient wisdom.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(200 20% 98%)',
+                        foreground: 'hsl(220 15% 20%)',
+                        card: 'hsl(0 0% 100%)',
+                        'card-foreground': 'hsl(220 15% 20%)',
+                        popover: 'hsl(0 0% 100%)',
+                        'popover-foreground': 'hsl(220 15% 20%)',
+                        primary: 'hsl(160 60% 50%)',
+                        'primary-foreground': 'hsl(0 0% 100%)',
+                        secondary: 'hsl(200 30% 85%)',
+                        'secondary-foreground': 'hsl(220 15% 20%)',
+                        muted: 'hsl(200 15% 95%)',
+                        'muted-foreground': 'hsl(220 10% 45%)',
+                        accent: 'hsl(280 70% 60%)',
+                        'accent-foreground': 'hsl(0 0% 100%)',
+                        destructive: 'hsl(0 70% 60%)',
+                        'destructive-foreground': 'hsl(0 0% 100%)',
+                        border: 'hsl(200 20% 90%)',
+                        input: 'hsl(200 20% 95%)',
+                        ring: 'hsl(160 60% 50%)',
+                    },
+                    borderRadius: {
+                        'lg': '1rem',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body class="bg-background text-foreground font-sans min-h-screen">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-muted shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="{{ url_for('home') }}" class="flex items-center gap-2 group">
+                    <span class="text-2xl">🌿</span>
+                    <span class="text-xl font-bold text-primary">Prakriti Pulse</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="{{ url_for('register') }}" class="flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors {% if request.endpoint == 'register' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-lg">👤</span>
+                        <span>Register</span>
+                    </a>
+                    <a href="{{ url_for('prakriti_quiz') }}" class="flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors {% if request.endpoint == 'prakriti_quiz' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-lg">🧘</span>
+                        <span>Prakriti Quiz</span>
+                    </a>
+                    <a href="{{ url_for('symptom_entry') }}" class="flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors {% if request.endpoint == 'symptom_entry' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-lg">🔍</span>
+                        <span>Symptoms</span>
+                    </a>
+                    <a href="{{ url_for('recommendations') }}" class="flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors {% if request.endpoint == 'recommendations' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-lg">💊</span>
+                        <span>Recommendations</span>
+                    </a>
+                    <a href="{{ url_for('herbs') }}" class="flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors {% if request.endpoint == 'herbs' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-lg">🌿</span>
+                        <span>Herbs</span>
+                    </a>
+                    <a href="{{ url_for('feedback') }}" class="flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors {% if request.endpoint == 'feedback' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-lg">💬</span>
+                        <span>Feedback</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-md hover:bg-muted transition-colors" aria-label="Toggle mobile menu">
+                    <div class="w-6 h-6 flex flex-col justify-center items-center">
+                        <span id="hamburger-1" class="bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm -translate-y-0.5"></span>
+                        <span id="hamburger-2" class="bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 opacity-100"></span>
+                        <span id="hamburger-3" class="bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm translate-y-0.5"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden transition-all duration-300 max-h-0 opacity-0 overflow-hidden">
+                <div class="py-4 space-y-2 border-t border-muted">
+                    <a href="{{ url_for('register') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'register' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-xl">👤</span>
+                        <span>Register</span>
+                    </a>
+                    <a href="{{ url_for('prakriti_quiz') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'prakriti_quiz' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-xl">🧘</span>
+                        <span>Prakriti Quiz</span>
+                    </a>
+                    <a href="{{ url_for('symptom_entry') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'symptom_entry' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-xl">🔍</span>
+                        <span>Symptoms</span>
+                    </a>
+                    <a href="{{ url_for('recommendations') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'recommendations' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-xl">💊</span>
+                        <span>Recommendations</span>
+                    </a>
+                    <a href="{{ url_for('herbs') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'herbs' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-xl">🌿</span>
+                        <span>Herbs</span>
+                    </a>
+                    <a href="{{ url_for('feedback') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'feedback' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-xl">💬</span>
+                        <span>Feedback</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                {% for category, message in messages %}
+                    <div class="mb-4 p-4 rounded-lg {% if category == 'error' %}bg-red-100 border border-red-400 text-red-700{% elif category == 'success' %}bg-green-100 border border-green-400 text-green-700{% elif category == 'warning' %}bg-yellow-100 border border-yellow-400 text-yellow-700{% else %}bg-blue-100 border border-blue-400 text-blue-700{% endif %}">
+                        <div class="flex items-center">
+                            <span class="text-lg mr-2">
+                                {% if category == 'error' %}❌{% elif category == 'success' %}✅{% elif category == 'warning' %}⚠️{% else %}ℹ️{% endif %}
+                            </span>
+                            <span>{{ message }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-muted/20 py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="text-2xl">🌿</span>
+                <span class="text-xl font-bold text-primary">Prakriti Pulse</span>
+            </div>
+            <p class="text-muted-foreground mb-4">
+                Discover your path to natural wellness through ancient Ayurvedic wisdom
+            </p>
+            <div class="flex justify-center items-center gap-6 text-muted-foreground text-sm">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+                    <span>5000+ Years of Wisdom</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-accent rounded-full"></span>
+                    <span>Personalized Assessment</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                    <span>Natural Recommendations</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const hamburger1 = document.getElementById('hamburger-1');
+            const hamburger2 = document.getElementById('hamburger-2');
+            const hamburger3 = document.getElementById('hamburger-3');
+            
+            if (menu.classList.contains('max-h-0')) {
+                menu.classList.remove('max-h-0', 'opacity-0');
+                menu.classList.add('max-h-96', 'opacity-100');
+                hamburger1.classList.add('rotate-45', 'translate-y-1');
+                hamburger2.classList.add('opacity-0');
+                hamburger3.classList.add('-rotate-45', '-translate-y-1');
+            } else {
+                menu.classList.add('max-h-0', 'opacity-0');
+                menu.classList.remove('max-h-96', 'opacity-100');
+                hamburger1.classList.remove('rotate-45', 'translate-y-1');
+                hamburger2.classList.remove('opacity-0');
+                hamburger3.classList.remove('-rotate-45', '-translate-y-1');
+            }
+        }
+
+        // Add fade-in animation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in, .fade-in-delay, .slide-up, .slide-up-delay');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 100);
+            });
+        });
+    </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

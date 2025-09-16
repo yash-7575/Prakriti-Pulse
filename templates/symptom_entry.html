@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Symptom Entry - Prakriti Pulse{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Symptom Assessment</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Select your current symptoms and their severity to receive personalized herb recommendations.
+            </p>
+        </div>
+
+        <!-- Symptom Entry Form -->
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <form method="POST" class="space-y-8">
+                <!-- Symptoms Selection -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Select Your Current Symptoms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {% for symptom in symptoms %}
+                        <div class="border border-gray-200 rounded-lg p-4 hover:bg-blue-50 transition-colors">
+                            <label class="flex items-start cursor-pointer">
+                                <input type="checkbox" name="symptoms" value="{{ symptom.symptom_id }}" 
+                                       class="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                       onchange="toggleSeverity(this, '{{ symptom.symptom_id }}')">
+                                <div class="flex-1">
+                                    <div class="font-medium text-gray-900">{{ symptom.symptom_name }}</div>
+                                    <div class="text-sm text-gray-500">{{ symptom.symptom_category }}</div>
+                                    {% if symptom.description %}
+                                    <div class="text-xs text-gray-400 mt-1">{{ symptom.description[:100] }}{% if symptom.description|length > 100 %}...{% endif %}</div>
+                                    {% endif %}
+                                </div>
+                            </label>
+                            
+                            <!-- Severity Selection (hidden by default) -->
+                            <div id="severity_{{ symptom.symptom_id }}" class="mt-3 hidden">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Severity Level</label>
+                                <select name="severity_{{ symptom.symptom_id }}" 
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select Severity</option>
+                                    <option value="Mild">Mild - Minor discomfort</option>
+                                    <option value="Moderate">Moderate - Noticeable impact</option>
+                                    <option value="Severe">Severe - Major impact on daily life</option>
+                                </select>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Additional Symptoms -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Additional Symptoms</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="additional_symptoms" class="block text-sm font-medium text-gray-700 mb-2">
+                                Describe any other symptoms not listed above
+                            </label>
+                            <textarea id="additional_symptoms" name="additional_symptoms" rows="3"
+                                      placeholder="Please describe any other symptoms you're experiencing..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duration -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Symptom Duration</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="radio" name="duration" value="acute" class="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300">
+                            <div>
+                                <div class="font-medium text-gray-900">Acute</div>
+                                <div class="text-sm text-gray-500">Less than 1 week</div>
+                            </div>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="radio" name="duration" value="subacute" class="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300">
+                            <div>
+                                <div class="font-medium text-gray-900">Subacute</div>
+                                <div class="text-sm text-gray-500">1-4 weeks</div>
+                            </div>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="radio" name="duration" value="chronic" class="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300">
+                            <div>
+                                <div class="font-medium text-gray-900">Chronic</div>
+                                <div class="text-sm text-gray-500">More than 4 weeks</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Triggers -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Potential Triggers</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="stress" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Stress</span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="diet" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Diet</span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="weather" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Weather</span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="sleep" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Sleep</span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="exercise" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Exercise</span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="hormones" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Hormones</span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="allergies" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Allergies</span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            <input type="checkbox" name="triggers" value="unknown" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <span class="text-sm text-gray-700">Unknown</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center pt-6">
+                    <button type="submit" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg">
+                        Submit Symptoms & Get Recommendations
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Information Box -->
+        <div class="mt-8 bg-cyan-50 border border-cyan-200 rounded-lg p-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl">🔍</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium text-cyan-800">Symptom Assessment</h3>
+                    <p class="mt-2 text-cyan-700">
+                        Accurate symptom reporting is crucial for effective herb recommendations. Be as specific as possible about 
+                        the severity and duration of your symptoms. This information helps our system match you with the most 
+                        appropriate Ayurvedic herbs and treatments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleSeverity(checkbox, symptomId) {
+    const severityDiv = document.getElementById('severity_' + symptomId);
+    if (checkbox.checked) {
+        severityDiv.classList.remove('hidden');
+    } else {
+        severityDiv.classList.add('hidden');
+        // Reset severity selection
+        const severitySelect = severityDiv.querySelector('select');
+        if (severitySelect) {
+            severitySelect.value = '';
+        }
+    }
+}
+</script>
+{% endblock %}
