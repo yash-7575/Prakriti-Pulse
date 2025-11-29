@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ayurvedic Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Ayurvedic Color Palette */
+    --background: 35 40% 96%;  /* Warm cream */
+    --foreground: 25 30% 15%;  /* Deep brown */
+
+    --card: 35 60% 98%;  /* Light cream card */
+    --card-foreground: 25 30% 15%;
+
+    --popover: 35 60% 98%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Primary - Sage Green */
+    --primary: 95 25% 45%;  /* Warm sage green */
+    --primary-foreground: 35 40% 96%;
+
+    /* Secondary - Earth Brown */
+    --secondary: 25 35% 75%;  /* Soft earth brown */
+    --secondary-foreground: 25 30% 15%;
+
+    /* Muted - Light earthy tones */
+    --muted: 35 25% 90%;
+    --muted-foreground: 25 20% 40%;
+
+    /* Accent - Golden yellow */
+    --accent: 45 85% 70%;  /* Warm gold */
+    --accent-foreground: 25 30% 15%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 35 40% 96%;
+
+    --border: 35 25% 85%;
+    --input: 35 25% 85%;
+    --ring: 95 25% 45%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 25 30% 8%;
+    --foreground: 35 40% 92%;
+    --card: 25 30% 10%;
+    --card-foreground: 35 40% 92%;
+    --popover: 25 30% 10%;
+    --popover-foreground: 35 40% 92%;
+    --primary: 95 25% 55%;
+    --primary-foreground: 25 30% 8%;
+    --secondary: 25 20% 20%;
+    --secondary-foreground: 35 40% 92%;
+    --muted: 25 15% 15%;
+    --muted-foreground: 35 20% 60%;
+    --accent: 45 75% 60%;
+    --accent-foreground: 25 30% 8%;
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 35 40% 92%;
+    --border: 25 15% 18%;
+    --input: 25 15% 18%;
+    --ring: 95 25% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Ayurvedic Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 rounded-lg px-6 py-3 font-medium shadow-lg hover:shadow-xl hover:scale-105;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 rounded-lg px-6 py-3 font-medium shadow-md hover:shadow-lg;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 rounded-lg px-6 py-3 font-medium shadow-md hover:shadow-lg hover:scale-105;
+  }
+
+  /* Form Elements */
+  .input-ayurvedic {
+    @apply bg-card/50 border-2 border-muted rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300;
+  }
+
+  .card-ayurvedic {
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  /* Dosha Colors */
+  .vata-accent {
+    --dosha-color: 220 70% 60%;  /* Sky blue */
+  }
+
+  .pitta-accent {
+    --dosha-color: 15 85% 65%;   /* Fire red-orange */
+  }
+
+  .kapha-accent {
+    --dosha-color: 95 45% 50%;   /* Earth green */
+  }
+
+  .dosha-card {
+    @apply card-ayurvedic;
+    border-color: hsl(var(--dosha-color));
+    background: linear-gradient(135deg, hsl(var(--dosha-color) / 0.05), transparent);
+  }
+}
+
+@layer utilities {
+  /* Enhanced Animation utilities */
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .slide-up-delay {
+    animation: slideUp 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  .slide-left {
+    animation: slideLeft 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .slide-right {
+    animation: slideRight 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+    opacity: 0;
+  }
+
+  .scale-in-delay {
+    animation: scaleIn 0.4s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .float-animation {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  .rotate-slow {
+    animation: rotateSlow 20s linear infinite;
+  }
+
+  .shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* Hover animations */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
+  }
+
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+  }
+
+  /* Background effects */
+  .bg-gradient-animated {
+    background: linear-gradient(-45deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)), hsl(var(--primary)));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  .backdrop-blur-elegant {
+    backdrop-filter: blur(10px) saturate(1.8);
+    background: hsl(var(--background) / 0.9);
+  }
+
+  /* Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.6), 0 0 50px hsl(var(--accent) / 0.2);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes bounceGentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes rotateSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}

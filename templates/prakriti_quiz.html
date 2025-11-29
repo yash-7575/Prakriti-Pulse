@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block title %}Prakriti Quiz - Prakriti Pulse{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Prakriti Assessment Quiz</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover your unique Ayurvedic constitution through this comprehensive assessment. 
+                Answer honestly for the most accurate results.
+            </p>
+        </div>
+
+        <!-- Quiz Form -->
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <form method="POST" class="space-y-8">
+                <!-- Question 1: Body Build -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">1. What best describes your body build?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_1" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Thin, light, and delicate frame</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_1" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Medium build, well-proportioned</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_1" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Large, solid, and well-developed frame</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 2: Skin Type -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">2. How would you describe your skin?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_2" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Dry, thin, cool to touch</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_2" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Smooth, warm, prone to rashes</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_2" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Thick, oily, cool and soft</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 3: Hair Type -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">3. What best describes your hair?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_3" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Dry, thin, curly, or frizzy</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_3" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Fine, straight, early graying or balding</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_3" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Thick, wavy, oily, lustrous</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 4: Appetite -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">4. How would you describe your appetite?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_4" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Irregular, sometimes forget to eat</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_4" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Strong, regular, can't skip meals</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_4" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Steady, can easily skip meals</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 5: Sleep Pattern -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">5. How would you describe your sleep?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_5" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Light, interrupted, difficulty falling asleep</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_5" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Moderate, sound, wake up easily</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_5" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Deep, heavy, hard to wake up</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 6: Energy Level -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">6. What best describes your energy pattern?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_6" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Bursts of energy, then fatigue</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_6" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Steady, intense energy</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_6" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Slow to start, steady endurance</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 7: Mental Activity -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">7. How would you describe your mental activity?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_7" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Quick, creative, restless mind</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_7" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Sharp, focused, decisive</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_7" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Calm, steady, methodical</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 8: Emotional Nature -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">8. What best describes your emotional nature?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_8" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Anxious, worrisome, changeable</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_8" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Intense, passionate, easily angered</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_8" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Calm, loving, attached</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 9: Weather Preference -->
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">9. What weather do you prefer?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_9" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Warm, humid weather</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_9" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Cool, dry weather</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_9" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Warm, dry weather</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 10: Digestion -->
+                <div class="pb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">10. How would you describe your digestion?</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_10" value="vata" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Irregular, prone to gas and bloating</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_10" value="pitta" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Strong, quick, prone to acidity</span>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-purple-50 cursor-pointer">
+                            <input type="radio" name="question_10" value="kapha" class="mr-3 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                            <span class="text-gray-700">Slow, steady, heavy feeling after meals</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center pt-6">
+                    <button type="submit" 
+                            class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg">
+                        Complete Assessment
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Information Box -->
+        <div class="mt-8 bg-indigo-50 border border-indigo-200 rounded-lg p-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl">🧘</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium text-indigo-800">Understanding Prakriti</h3>
+                    <p class="mt-2 text-indigo-700">
+                        Prakriti is your unique mind-body constitution determined at birth. It influences your physical characteristics, 
+                        mental tendencies, and susceptibility to certain health conditions. This assessment helps identify your dominant dosha(s) 
+                        for personalized wellness recommendations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

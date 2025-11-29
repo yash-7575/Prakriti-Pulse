@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Prakriti Results - Prakriti Pulse{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Your Prakriti Assessment Results</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover your unique Ayurvedic constitution and what it means for your health and wellness.
+            </p>
+        </div>
+
+        <!-- Results Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <!-- Dosha Scores -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Your Dosha Scores</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Vata Score -->
+                    <div class="text-center p-6 rounded-lg {% if dominant_dosha == 'vata' %}bg-purple-100 border-2 border-purple-300{% else %}bg-gray-50 border border-gray-200{% endif %}">
+                        <div class="text-4xl font-bold {% if dominant_dosha == 'vata' %}text-purple-600{% else %}text-gray-600{% endif %} mb-2">
+                            {{ vata_score }}
+                        </div>
+                        <div class="text-lg font-semibold text-gray-700">Vata</div>
+                        <div class="text-sm text-gray-500">Air & Space</div>
+                    </div>
+
+                    <!-- Pitta Score -->
+                    <div class="text-center p-6 rounded-lg {% if dominant_dosha == 'pitta' %}bg-orange-100 border-2 border-orange-300{% else %}bg-gray-50 border border-gray-200{% endif %}">
+                        <div class="text-4xl font-bold {% if dominant_dosha == 'pitta' %}text-orange-600{% else %}text-gray-600{% endif %} mb-2">
+                            {{ pitta_score }}
+                        </div>
+                        <div class="text-lg font-semibold text-gray-700">Pitta</div>
+                        <div class="text-sm text-gray-500">Fire & Water</div>
+                    </div>
+
+                    <!-- Kapha Score -->
+                    <div class="text-center p-6 rounded-lg {% if dominant_dosha == 'kapha' %}bg-blue-100 border-2 border-blue-300{% else %}bg-gray-50 border border-gray-200{% endif %}">
+                        <div class="text-4xl font-bold {% if dominant_dosha == 'kapha' %}text-blue-600{% else %}text-gray-600{% endif %} mb-2">
+                            {{ kapha_score }}
+                        </div>
+                        <div class="text-lg font-semibold text-gray-700">Kapha</div>
+                        <div class="text-sm text-gray-500">Water & Earth</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dominant Dosha -->
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold text-gray-900 mb-2">
+                    Your Dominant Dosha: 
+                    <span class="{% if dominant_dosha == 'vata' %}text-purple-600{% elif dominant_dosha == 'pitta' %}text-orange-600{% else %}text-blue-600{% endif %}">
+                        {{ dominant_dosha.title() }}
+                    </span>
+                </h3>
+                {% if profile %}
+                <p class="text-lg text-gray-600">{{ profile.constitution_type }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Profile Details -->
+            {% if profile %}
+            <div class="space-y-6">
+                <!-- Characteristics -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Key Characteristics</h4>
+                    <p class="text-gray-700">{{ profile.characteristics }}</p>
+                </div>
+
+                <!-- Common Ailments -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Common Ailments</h4>
+                    <p class="text-gray-700">{{ profile.common_ailments }}</p>
+                </div>
+
+                <!-- Recommended Lifestyle -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Recommended Lifestyle</h4>
+                    <p class="text-gray-700">{{ profile.recommended_lifestyle }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{{ url_for('symptom_entry') }}" 
+               class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg text-center">
+                Continue to Symptom Entry
+            </a>
+            <a href="{{ url_for('recommendations') }}" 
+               class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg text-center">
+                View Recommendations
+            </a>
+        </div>
+
+        <!-- Dosha Information -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Vata Information -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="text-center mb-4">
+                    <div class="text-3xl mb-2">🌪️</div>
+                    <h3 class="text-xl font-bold text-purple-600">Vata (Air & Space)</h3>
+                </div>
+                <p class="text-gray-600 text-sm">
+                    Governs movement, creativity, and communication. When balanced, Vata types are creative, 
+                    energetic, and enthusiastic. When imbalanced, they may experience anxiety, dry skin, and digestive issues.
+                </p>
+            </div>
+
+            <!-- Pitta Information -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="text-center mb-4">
+                    <div class="text-3xl mb-2">🔥</div>
+                    <h3 class="text-xl font-bold text-orange-600">Pitta (Fire & Water)</h3>
+                </div>
+                <p class="text-gray-600 text-sm">
+                    Governs digestion, metabolism, and intelligence. When balanced, Pitta types are intelligent, 
+                    focused, and strong leaders. When imbalanced, they may experience anger, inflammation, and digestive problems.
+                </p>
+            </div>
+
+            <!-- Kapha Information -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="text-center mb-4">
+                    <div class="text-3xl mb-2">🌊</div>
+                    <h3 class="text-xl font-bold text-blue-600">Kapha (Water & Earth)</h3>
+                </div>
+                <p class="text-gray-600 text-sm">
+                    Governs structure, stability, and lubrication. When balanced, Kapha types are calm, 
+                    loving, and strong. When imbalanced, they may experience weight gain, congestion, and lethargy.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

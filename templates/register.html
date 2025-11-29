@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Registration - Prakriti Pulse{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Patient Registration</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Create your profile to get personalized Ayurvedic recommendations based on your unique constitution and symptoms.
+            </p>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <form method="POST" class="space-y-8">
+                <!-- Basic Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="age" class="block text-sm font-medium text-gray-700 mb-2">
+                            Age <span class="text-red-500">*</span>
+                        </label>
+                        <input type="number" id="age" name="age" required min="1" max="120"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                    </div>
+
+                    <div>
+                        <label for="gender" class="block text-sm font-medium text-gray-700 mb-2">
+                            Gender <span class="text-red-500">*</span>
+                        </label>
+                        <select id="gender" name="gender" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Prakriti Type -->
+                <div>
+                    <label for="prakriti_type" class="block text-sm font-medium text-gray-700 mb-2">
+                        Prakriti Type (if known)
+                    </label>
+                    <select id="prakriti_type" name="prakriti_type"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="">Not sure - will take quiz</option>
+                        <option value="Vata">Vata</option>
+                        <option value="Pitta">Pitta</option>
+                        <option value="Kapha">Kapha</option>
+                        <option value="Vata-Pitta">Vata-Pitta</option>
+                        <option value="Pitta-Vata">Pitta-Vata</option>
+                        <option value="Kapha-Pitta">Kapha-Pitta</option>
+                        <option value="Vata-Kapha">Vata-Kapha</option>
+                        <option value="Pitta-Kapha">Pitta-Kapha</option>
+                    </select>
+                </div>
+
+                <!-- State Selection -->
+                <div>
+                    <label for="state" class="block text-sm font-medium text-gray-700 mb-2">
+                        State <span class="text-red-500">*</span>
+                    </label>
+                    <select id="state" name="state" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="">Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </div>
+
+                <!-- Symptom Severity -->
+                <div>
+                    <label for="symptom_severity" class="block text-sm font-medium text-gray-700 mb-2">
+                        Overall Symptom Severity <span class="text-red-500">*</span>
+                    </label>
+                    <select id="symptom_severity" name="symptom_severity" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="">Select Severity</option>
+                        <option value="Mild">Mild - Minor discomfort, doesn't interfere with daily activities</option>
+                        <option value="Moderate">Moderate - Noticeable discomfort, some impact on daily activities</option>
+                        <option value="High">High - Significant discomfort, major impact on daily activities</option>
+                    </select>
+                </div>
+
+                <!-- Treatment History -->
+                <div>
+                    <label for="treatment_history" class="block text-sm font-medium text-gray-700 mb-2">
+                        Treatment History
+                    </label>
+                    <textarea id="treatment_history" name="treatment_history" rows="4"
+                              placeholder="Please describe any previous treatments, medications, or therapies you have tried..."
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+                </div>
+
+                <!-- Effectiveness Rating -->
+                <div>
+                    <label for="effectiveness_rating" class="block text-sm font-medium text-gray-700 mb-2">
+                        Effectiveness Rating of Previous Treatments (0-1)
+                    </label>
+                    <input type="number" id="effectiveness_rating" name="effectiveness_rating" 
+                           min="0" max="1" step="0.1"
+                           placeholder="0.0 to 1.0 (0 = not effective, 1 = very effective)"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                </div>
+
+                <!-- Practitioner Notes -->
+                <div>
+                    <label for="practitioner_notes" class="block text-sm font-medium text-gray-700 mb-2">
+                        Practitioner Notes (if any)
+                    </label>
+                    <textarea id="practitioner_notes" name="practitioner_notes" rows="3"
+                              placeholder="Any additional notes from your healthcare provider..."
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center pt-6">
+                    <button type="submit" 
+                            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg">
+                        Register & Continue to Prakriti Quiz
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Information Box -->
+        <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl">ℹ️</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium text-blue-800">Why Register?</h3>
+                    <p class="mt-2 text-blue-700">
+                        Your registration helps us provide personalized Ayurvedic recommendations based on your unique constitution (Prakriti), 
+                        current symptoms, and health history. This information is essential for accurate herb recommendations and dosage suggestions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
