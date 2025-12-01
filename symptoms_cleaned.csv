@@ -1,0 +1,101 @@
+symptom_id,symptom_name,symptom_category,associated_dosha,severity_level,body_system,description,synonyms
+S0001,Headache,Neurological,Vata,Moderate,Neurological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Headache|Var-Headache
+S0002,Joint Pain,Musculoskeletal,Pitta,Severe,Musculoskeletal,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Joint Pain|Var-Joint Pain
+S0003,Indigestion,Digestive,Kapha,Mild,Digestive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Indigestion|Var-Indigestion
+S0004,Constipation,Digestive,Vata,Moderate,Digestive,Ayurvedic symptom primarily affecting Vata dosha,Alt-Constipation|Var-Constipation
+S0005,Diarrhea,Digestive,Pitta,Severe,Digestive,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Diarrhea|Var-Diarrhea
+S0006,Acidity,Digestive,Kapha,Mild,Digestive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Acidity|Var-Acidity
+S0007,Gas Formation,Digestive,Vata,Moderate,Digestive,Ayurvedic symptom primarily affecting Vata dosha,Alt-Gas Formation|Var-Gas Formation
+S0008,Nausea,Digestive,Pitta,Severe,Digestive,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Nausea|Var-Nausea
+S0009,Vomiting,Digestive,Kapha,Mild,Digestive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Vomiting|Var-Vomiting
+S0010,Loss of Appetite,Digestive,Vata,Moderate,Digestive,Ayurvedic symptom primarily affecting Vata dosha,Alt-Loss of Appetite|Var-Loss of Appetite
+S0011,Fatigue,General,Pitta,Severe,General,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Fatigue|Var-Fatigue
+S0012,Weakness,General,Kapha,Mild,General,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Weakness|Var-Weakness
+S0013,Insomnia,Neurological,Vata,Moderate,Neurological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Insomnia|Var-Insomnia
+S0014,Anxiety,Mental,Pitta,Severe,Mental,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Anxiety|Var-Anxiety
+S0015,Depression,Mental,Kapha,Mild,Mental,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Depression|Var-Depression
+S0016,Stress,Mental,Vata,Moderate,Mental,Ayurvedic symptom primarily affecting Vata dosha,Alt-Stress|Var-Stress
+S0017,High Blood Pressure,Cardiovascular,Pitta,Severe,Cardiovascular,Ayurvedic symptom primarily affecting Pitta dosha,Alt-High Blood Pressure|Var-High Blood Pressure
+S0018,Diabetes,Metabolic,Kapha,Mild,Metabolic,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Diabetes|Var-Diabetes
+S0019,Obesity,Metabolic,Vata,Moderate,Metabolic,Ayurvedic symptom primarily affecting Vata dosha,Alt-Obesity|Var-Obesity
+S0020,Weight Loss,Metabolic,Pitta,Severe,Metabolic,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Weight Loss|Var-Weight Loss
+S0021,Cough,Respiratory,Kapha,Mild,Respiratory,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Cough|Var-Cough
+S0022,Cold,Respiratory,Vata,Moderate,Respiratory,Ayurvedic symptom primarily affecting Vata dosha,Alt-Cold|Var-Cold
+S0023,Fever,General,Pitta,Severe,General,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Fever|Var-Fever
+S0024,Skin Rash,Dermatological,Kapha,Mild,Dermatological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Skin Rash|Var-Skin Rash
+S0025,Acne,Dermatological,Vata,Moderate,Dermatological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Acne|Var-Acne
+S0026,Eczema,Dermatological,Pitta,Severe,Dermatological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Eczema|Var-Eczema
+S0027,Psoriasis,Dermatological,Kapha,Mild,Dermatological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Psoriasis|Var-Psoriasis
+S0028,Hair Fall,Dermatological,Vata,Moderate,Dermatological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Hair Fall|Var-Hair Fall
+S0029,Dandruff,Dermatological,Pitta,Severe,Dermatological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Dandruff|Var-Dandruff
+S0030,Memory Loss,Neurological,Kapha,Mild,Neurological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Memory Loss|Var-Memory Loss
+S0031,Concentration Issues,Neurological,Vata,Moderate,Neurological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Concentration Issues|Var-Concentration Issues
+S0032,Back Pain,Musculoskeletal,Pitta,Severe,Musculoskeletal,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Back Pain|Var-Back Pain
+S0033,Neck Pain,Musculoskeletal,Kapha,Mild,Musculoskeletal,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Neck Pain|Var-Neck Pain
+S0034,Muscle Cramps,Musculoskeletal,Vata,Moderate,Musculoskeletal,Ayurvedic symptom primarily affecting Vata dosha,Alt-Muscle Cramps|Var-Muscle Cramps
+S0035,Arthritis,Musculoskeletal,Pitta,Severe,Musculoskeletal,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Arthritis|Var-Arthritis
+S0036,Gout,Musculoskeletal,Kapha,Mild,Musculoskeletal,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Gout|Var-Gout
+S0037,Kidney Stones,Urological,Vata,Moderate,Urological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Kidney Stones|Var-Kidney Stones
+S0038,UTI,Urological,Pitta,Severe,Urological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-UTI|Var-UTI
+S0039,Irregular Periods,Reproductive,Kapha,Mild,Reproductive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Irregular Periods|Var-Irregular Periods
+S0040,Heavy Menstrual Flow,Reproductive,Vata,Moderate,Reproductive,Ayurvedic symptom primarily affecting Vata dosha,Alt-Heavy Menstrual Flow|Var-Heavy Menstrual Flow
+S0041,PCOD,Reproductive,Pitta,Severe,Reproductive,Ayurvedic symptom primarily affecting Pitta dosha,Alt-PCOD|Var-PCOD
+S0042,Infertility,Reproductive,Kapha,Mild,Reproductive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Infertility|Var-Infertility
+S0043,Low Libido,Reproductive,Vata,Moderate,Reproductive,Ayurvedic symptom primarily affecting Vata dosha,Alt-Low Libido|Var-Low Libido
+S0044,Erectile Dysfunction,Reproductive,Pitta,Severe,Reproductive,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Erectile Dysfunction|Var-Erectile Dysfunction
+S0045,Premature Ejaculation,Reproductive,Kapha,Mild,Reproductive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Premature Ejaculation|Var-Premature Ejaculation
+S0046,Asthma,Respiratory,Vata,Moderate,Respiratory,Ayurvedic symptom primarily affecting Vata dosha,Alt-Asthma|Var-Asthma
+S0047,Bronchitis,Respiratory,Pitta,Severe,Respiratory,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Bronchitis|Var-Bronchitis
+S0048,Allergic Rhinitis,Respiratory,Kapha,Mild,Respiratory,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Allergic Rhinitis|Var-Allergic Rhinitis
+S0049,Sinusitis,Respiratory,Vata,Moderate,Respiratory,Ayurvedic symptom primarily affecting Vata dosha,Alt-Sinusitis|Var-Sinusitis
+S0050,Migraine,Neurological,Pitta,Severe,Neurological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Migraine|Var-Migraine
+S0051,Vertigo,Neurological,Kapha,Mild,Neurological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Vertigo|Var-Vertigo
+S0052,Tinnitus,ENT,Vata,Moderate,ENT,Ayurvedic symptom primarily affecting Vata dosha,Alt-Tinnitus|Var-Tinnitus
+S0053,Eye Strain,Ophthalmological,Pitta,Severe,Ophthalmological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Eye Strain|Var-Eye Strain
+S0054,Dry Eyes,Ophthalmological,Kapha,Mild,Ophthalmological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Dry Eyes|Var-Dry Eyes
+S0055,Night Blindness,Ophthalmological,Vata,Moderate,Ophthalmological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Night Blindness|Var-Night Blindness
+S0056,Liver Disorders,Hepatic,Pitta,Severe,Hepatic,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Liver Disorders|Var-Liver Disorders
+S0057,Jaundice,Hepatic,Kapha,Mild,Hepatic,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Jaundice|Var-Jaundice
+S0058,Hepatitis,Hepatic,Vata,Moderate,Hepatic,Ayurvedic symptom primarily affecting Vata dosha,Alt-Hepatitis|Var-Hepatitis
+S0059,Gallstones,Hepatic,Pitta,Severe,Hepatic,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Gallstones|Var-Gallstones
+S0060,Heart Palpitations,Cardiovascular,Kapha,Mild,Cardiovascular,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Heart Palpitations|Var-Heart Palpitations
+S0061,Chest Pain,Cardiovascular,Vata,Moderate,Cardiovascular,Ayurvedic symptom primarily affecting Vata dosha,Alt-Chest Pain|Var-Chest Pain
+S0062,Breathlessness,Cardiovascular,Pitta,Severe,Cardiovascular,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Breathlessness|Var-Breathlessness
+S0063,Headache Type-1,Neurological,Kapha,Mild,Neurological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Headache Type-1|Var-Headache Type-1
+S0064,Joint Pain Type-1,Musculoskeletal,Vata,Moderate,Musculoskeletal,Ayurvedic symptom primarily affecting Vata dosha,Alt-Joint Pain Type-1|Var-Joint Pain Type-1
+S0065,Indigestion Type-1,Digestive,Pitta,Severe,Digestive,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Indigestion Type-1|Var-Indigestion Type-1
+S0066,Constipation Type-1,Digestive,Kapha,Mild,Digestive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Constipation Type-1|Var-Constipation Type-1
+S0067,Diarrhea Type-1,Digestive,Vata,Moderate,Digestive,Ayurvedic symptom primarily affecting Vata dosha,Alt-Diarrhea Type-1|Var-Diarrhea Type-1
+S0068,Acidity Type-1,Digestive,Pitta,Severe,Digestive,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Acidity Type-1|Var-Acidity Type-1
+S0069,Gas Formation Type-1,Digestive,Kapha,Mild,Digestive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Gas Formation Type-1|Var-Gas Formation Type-1
+S0070,Nausea Type-1,Digestive,Vata,Moderate,Digestive,Ayurvedic symptom primarily affecting Vata dosha,Alt-Nausea Type-1|Var-Nausea Type-1
+S0071,Vomiting Type-1,Digestive,Pitta,Severe,Digestive,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Vomiting Type-1|Var-Vomiting Type-1
+S0072,Loss of Appetite Type-1,Digestive,Kapha,Mild,Digestive,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Loss of Appetite Type-1|Var-Loss of Appetite Type-1
+S0073,Fatigue Type-1,General,Vata,Moderate,General,Ayurvedic symptom primarily affecting Vata dosha,Alt-Fatigue Type-1|Var-Fatigue Type-1
+S0074,Weakness Type-1,General,Pitta,Severe,General,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Weakness Type-1|Var-Weakness Type-1
+S0075,Insomnia Type-1,Neurological,Kapha,Mild,Neurological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Insomnia Type-1|Var-Insomnia Type-1
+S0076,Anxiety Type-1,Mental,Vata,Moderate,Mental,Ayurvedic symptom primarily affecting Vata dosha,Alt-Anxiety Type-1|Var-Anxiety Type-1
+S0077,Depression Type-1,Mental,Pitta,Severe,Mental,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Depression Type-1|Var-Depression Type-1
+S0078,Stress Type-1,Mental,Kapha,Mild,Mental,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Stress Type-1|Var-Stress Type-1
+S0079,High Blood Pressure Type-1,Cardiovascular,Vata,Moderate,Cardiovascular,Ayurvedic symptom primarily affecting Vata dosha,Alt-High Blood Pressure Type-1|Var-High Blood Pressure Type-1
+S0080,Diabetes Type-1,Metabolic,Pitta,Severe,Metabolic,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Diabetes Type-1|Var-Diabetes Type-1
+S0081,Obesity Type-1,Metabolic,Kapha,Mild,Metabolic,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Obesity Type-1|Var-Obesity Type-1
+S0082,Weight Loss Type-1,Metabolic,Vata,Moderate,Metabolic,Ayurvedic symptom primarily affecting Vata dosha,Alt-Weight Loss Type-1|Var-Weight Loss Type-1
+S0083,Cough Type-1,Respiratory,Pitta,Severe,Respiratory,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Cough Type-1|Var-Cough Type-1
+S0084,Cold Type-1,Respiratory,Kapha,Mild,Respiratory,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Cold Type-1|Var-Cold Type-1
+S0085,Fever Type-1,General,Vata,Moderate,General,Ayurvedic symptom primarily affecting Vata dosha,Alt-Fever Type-1|Var-Fever Type-1
+S0086,Skin Rash Type-1,Dermatological,Pitta,Severe,Dermatological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Skin Rash Type-1|Var-Skin Rash Type-1
+S0087,Acne Type-1,Dermatological,Kapha,Mild,Dermatological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Acne Type-1|Var-Acne Type-1
+S0088,Eczema Type-1,Dermatological,Vata,Moderate,Dermatological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Eczema Type-1|Var-Eczema Type-1
+S0089,Psoriasis Type-1,Dermatological,Pitta,Severe,Dermatological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Psoriasis Type-1|Var-Psoriasis Type-1
+S0090,Hair Fall Type-1,Dermatological,Kapha,Mild,Dermatological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Hair Fall Type-1|Var-Hair Fall Type-1
+S0091,Dandruff Type-1,Dermatological,Vata,Moderate,Dermatological,Ayurvedic symptom primarily affecting Vata dosha,Alt-Dandruff Type-1|Var-Dandruff Type-1
+S0092,Memory Loss Type-1,Neurological,Pitta,Severe,Neurological,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Memory Loss Type-1|Var-Memory Loss Type-1
+S0093,Concentration Issues Type-1,Neurological,Kapha,Mild,Neurological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Concentration Issues Type-1|Var-Concentration Issues Type-1
+S0094,Back Pain Type-1,Musculoskeletal,Vata,Moderate,Musculoskeletal,Ayurvedic symptom primarily affecting Vata dosha,Alt-Back Pain Type-1|Var-Back Pain Type-1
+S0095,Neck Pain Type-1,Musculoskeletal,Pitta,Severe,Musculoskeletal,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Neck Pain Type-1|Var-Neck Pain Type-1
+S0096,Muscle Cramps Type-1,Musculoskeletal,Kapha,Mild,Musculoskeletal,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Muscle Cramps Type-1|Var-Muscle Cramps Type-1
+S0097,Arthritis Type-1,Musculoskeletal,Vata,Moderate,Musculoskeletal,Ayurvedic symptom primarily affecting Vata dosha,Alt-Arthritis Type-1|Var-Arthritis Type-1
+S0098,Gout Type-1,Musculoskeletal,Pitta,Severe,Musculoskeletal,Ayurvedic symptom primarily affecting Pitta dosha,Alt-Gout Type-1|Var-Gout Type-1
+S0099,Kidney Stones Type-1,Urological,Kapha,Mild,Urological,Ayurvedic symptom primarily affecting Kapha dosha,Alt-Kidney Stones Type-1|Var-Kidney Stones Type-1
+S0100,UTI Type-1,Urological,Vata,Moderate,Urological,Ayurvedic symptom primarily affecting Vata dosha,Alt-UTI Type-1|Var-UTI Type-1

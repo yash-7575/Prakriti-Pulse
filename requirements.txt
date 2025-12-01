@@ -8,3 +8,8 @@ click==8.1.7
 blinker==1.7.0
 mysql-connector-python==8.2.0
 python-dotenv==1.0.0
+torch==2.0.1
+numpy<2.0
+scikit-learn
+matplotlib
+seaborn

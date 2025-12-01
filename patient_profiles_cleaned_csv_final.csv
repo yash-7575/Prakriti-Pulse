@@ -1,0 +1,101 @@
+patient_id,age,gender,prakriti_type,current_symptoms,symptom_severity,treatment_history,effectiveness_rating,practitioner_notes
+PT0001,42,Female,P0067,"S0034, S0089, S0056",Moderate,Allopathic,3.8,Patient case 1 with detailed clinical observations
+PT0002,68,Male,P0023,"S0078, S0090, S0045, S0067",Severe,None,4.2,Patient case 2 with detailed clinical observations
+PT0003,35,Other,P0090,S0012,Mild,Ayurvedic,2.9,Patient case 3 with detailed clinical observations
+PT0004,29,Female,P0045,"S0023, S0056, S0089",Moderate,Mixed,4.7,Patient case 4 with detailed clinical observations
+PT0005,73,Male,P0078,"S0034, S0067",Severe,Allopathic,1.5,Patient case 5 with detailed clinical observations
+PT0006,51,Other,P0056,"S0045, S0078, S0090, S0012",Mild,None,3.4,Patient case 6 with detailed clinical observations
+PT0007,46,Female,P0089,S0023,Moderate,Ayurvedic,4.1,Patient case 7 with detailed clinical observations
+PT0008,38,Male,P0034,"S0056, S0089, S0034",Severe,Mixed,2.7,Patient case 8 with detailed clinical observations
+PT0009,62,Other,P0067,"S0067, S0045",Mild,Allopathic,4.8,Patient case 9 with detailed clinical observations
+PT0010,27,Female,P0023,"S0078, S0090, S0012, S0056",Moderate,None,3.1,Patient case 10 with detailed clinical observations
+PT0011,74,Male,P0090,S0023,Severe,Ayurvedic,4.5,Patient case 11 with detailed clinical observations
+PT0012,33,Other,P0045,"S0089, S0034",Mild,Mixed,1.9,Patient case 12 with detailed clinical observations
+PT0013,59,Female,P0078,"S0067, S0045, S0078",Moderate,Allopathic,3.6,Patient case 13 with detailed clinical observations
+PT0014,44,Male,P0056,S0090,Severe,None,4.3,Patient case 14 with detailed clinical observations
+PT0015,21,Other,P0089,"S0012, S0023, S0056, S0034",Mild,Ayurvedic,2.8,Patient case 15 with detailed clinical observations
+PT0016,67,Female,P0034,S0089,Moderate,Mixed,4.9,Patient case 16 with detailed clinical observations
+PT0017,36,Male,P0067,"S0067, S0045",Severe,Allopathic,1.7,Patient case 17 with detailed clinical observations
+PT0018,52,Other,P0023,"S0078, S0090, S0012",Mild,None,3.5,Patient case 18 with detailed clinical observations
+PT0019,41,Female,P0090,"S0023, S0056",Moderate,Ayurvedic,4.4,Patient case 19 with detailed clinical observations
+PT0020,28,Male,P0045,"S0089, S0034, S0067, S0078",Severe,Mixed,2.2,Patient case 20 with detailed clinical observations
+PT0021,71,Other,P0078,S0045,Mild,Allopathic,4.6,Patient case 21 with detailed clinical observations
+PT0022,49,Female,P0056,"S0090, S0012",Moderate,None,3.3,Patient case 22 with detailed clinical observations
+PT0023,34,Male,P0089,"S0023, S0056, S0089",Severe,Ayurvedic,1.4,Patient case 23 with detailed clinical observations
+PT0024,66,Other,P0034,S0034,Mild,Mixed,4.7,Patient case 24 with detailed clinical observations
+PT0025,25,Female,P0067,"S0067, S0045, S0078, S0090",Moderate,Allopathic,3.9,Patient case 25 with detailed clinical observations
+PT0026,58,Male,P0023,S0012,Severe,None,2.5,Patient case 26 with detailed clinical observations
+PT0027,43,Other,P0090,"S0023, S0056",Mild,Ayurvedic,4.1,Patient case 27 with detailed clinical observations
+PT0028,37,Female,P0045,"S0089, S0034, S0067",Moderate,Mixed,3.7,Patient case 28 with detailed clinical observations
+PT0029,69,Male,P0078,S0078,Severe,Allopathic,4.8,Patient case 29 with detailed clinical observations
+PT0030,31,Other,P0056,"S0045, S0090, S0012, S0023",Mild,None,1.6,Patient case 30 with detailed clinical observations
+PT0031,55,Female,P0089,S0056,Moderate,Ayurvedic,4.2,Patient case 31 with detailed clinical observations
+PT0032,24,Male,P0034,"S0089, S0034",Severe,Mixed,3.1,Patient case 32 with detailed clinical observations
+PT0033,75,Other,P0067,"S0067, S0045, S0078",Mild,Allopathic,4.5,Patient case 33 with detailed clinical observations
+PT0034,48,Female,P0023,S0090,Moderate,None,2.9,Patient case 34 with detailed clinical observations
+PT0035,39,Male,P0090,"S0012, S0023, S0056, S0089",Severe,Ayurvedic,4.4,Patient case 35 with detailed clinical observations
+PT0036,63,Other,P0045,S0034,Mild,Mixed,1.8,Patient case 36 with detailed clinical observations
+PT0037,32,Female,P0078,"S0067, S0045",Moderate,Allopathic,3.6,Patient case 37 with detailed clinical observations
+PT0038,57,Male,P0056,"S0078, S0090, S0012",Severe,None,4.7,Patient case 38 with detailed clinical observations
+PT0039,26,Other,P0089,S0023,Mild,Ayurvedic,2.3,Patient case 39 with detailed clinical observations
+PT0040,72,Female,P0034,"S0056, S0089, S0034, S0067",Moderate,Mixed,4.9,Patient case 40 with detailed clinical observations
+PT0041,45,Male,P0067,S0078,Severe,Allopathic,1.2,Patient case 41 with detailed clinical observations
+PT0042,30,Other,P0023,"S0045, S0090",Mild,None,3.8,Patient case 42 with detailed clinical observations
+PT0043,64,Female,P0090,"S0012, S0023, S0056",Moderate,Ayurvedic,4.3,Patient case 43 with detailed clinical observations
+PT0044,23,Male,P0045,S0089,Severe,Mixed,2.6,Patient case 44 with detailed clinical observations
+PT0045,70,Other,P0078,"S0034, S0067, S0045, S0078",Mild,Allopathic,4.1,Patient case 45 with detailed clinical observations
+PT0046,54,Female,P0056,S0090,Moderate,None,3.4,Patient case 46 with detailed clinical observations
+PT0047,40,Male,P0089,"S0012, S0023",Severe,Ayurvedic,4.6,Patient case 47 with detailed clinical observations
+PT0048,61,Other,P0034,"S0056, S0089, S0034",Mild,Mixed,1.7,Patient case 48 with detailed clinical observations
+PT0049,29,Female,P0067,S0067,Moderate,Allopathic,3.2,Patient case 49 with detailed clinical observations
+PT0050,76,Male,P0023,"S0045, S0078, S0090, S0012",Severe,None,4.8,Patient case 50 with detailed clinical observations
+PT0051,47,Other,P0090,S0023,Mild,Ayurvedic,2.1,Patient case 51 with detailed clinical observations
+PT0052,35,Female,P0045,"S0056, S0089",Moderate,Mixed,3.9,Patient case 52 with detailed clinical observations
+PT0053,68,Male,P0078,"S0034, S0067, S0045",Severe,Allopathic,4.5,Patient case 53 with detailed clinical observations
+PT0054,22,Other,P0056,S0078,Mild,None,2.7,Patient case 54 with detailed clinical observations
+PT0055,59,Female,P0089,"S0090, S0012, S0023, S0056",Moderate,Ayurvedic,4.2,Patient case 55 with detailed clinical observations
+PT0056,44,Male,P0034,S0089,Severe,Mixed,1.5,Patient case 56 with detailed clinical observations
+PT0057,33,Other,P0067,"S0034, S0067",Mild,Allopathic,3.7,Patient case 57 with detailed clinical observations
+PT0058,73,Female,P0023,"S0045, S0078, S0090",Moderate,None,4.4,Patient case 58 with detailed clinical observations
+PT0059,28,Male,P0090,S0012,Severe,Ayurvedic,2.8,Patient case 59 with detailed clinical observations
+PT0060,65,Other,P0045,"S0023, S0056, S0089, S0034",Mild,Mixed,4.1,Patient case 60 with detailed clinical observations
+PT0061,50,Female,P0078,S0067,Moderate,Allopathic,3.3,Patient case 61 with detailed clinical observations
+PT0062,38,Male,P0056,"S0045, S0078",Severe,None,4.9,Patient case 62 with detailed clinical observations
+PT0063,71,Other,P0089,"S0090, S0012, S0023",Mild,Ayurvedic,1.9,Patient case 63 with detailed clinical observations
+PT0064,27,Female,P0034,S0056,Moderate,Mixed,3.5,Patient case 64 with detailed clinical observations
+PT0065,60,Male,P0067,"S0089, S0034, S0067, S0045",Severe,Allopathic,4.7,Patient case 65 with detailed clinical observations
+PT0066,46,Other,P0023,S0078,Mild,None,2.4,Patient case 66 with detailed clinical observations
+PT0067,34,Female,P0090,"S0090, S0012",Moderate,Ayurvedic,4.0,Patient case 67 with detailed clinical observations
+PT0068,77,Male,P0045,"S0023, S0056, S0089",Severe,Mixed,3.6,Patient case 68 with detailed clinical observations
+PT0069,24,Other,P0078,S0034,Mild,Allopathic,4.8,Patient case 69 with detailed clinical observations
+PT0070,56,Female,P0056,"S0067, S0045, S0078, S0090",Moderate,None,1.3,Patient case 70 with detailed clinical observations
+PT0071,41,Male,P0089,S0012,Severe,Ayurvedic,4.3,Patient case 71 with detailed clinical observations
+PT0072,67,Other,P0034,"S0023, S0056",Mild,Mixed,2.9,Patient case 72 with detailed clinical observations
+PT0073,31,Female,P0067,"S0089, S0034, S0067",Moderate,Allopathic,3.8,Patient case 73 with detailed clinical observations
+PT0074,52,Male,P0023,"S0045, S0078",Severe,None,4.1,Patient case 74 with detailed clinical observations
+PT0075,43,Other,P0090,"S0090, S0012, S0023",Mild,Ayurvedic,2.6,Patient case 75 with detailed clinical observations
+PT0076,29,Female,P0045,S0056,Moderate,Mixed,4.3,Patient case 76 with detailed clinical observations
+PT0077,66,Male,P0078,"S0089, S0034",Severe,Allopathic,1.8,Patient case 77 with detailed clinical observations
+PT0078,37,Other,P0056,S0067,Mild,None,3.9,Patient case 78 with detailed clinical observations
+PT0079,58,Female,P0089,"S0045, S0078, S0090",Moderate,Ayurvedic,4.2,Patient case 79 with detailed clinical observations
+PT0080,25,Male,P0034,"S0012, S0023",Severe,Mixed,2.1,Patient case 80 with detailed clinical observations
+PT0081,74,Other,P0067,S0056,Mild,Allopathic,4.6,Patient case 81 with detailed clinical observations
+PT0082,48,Female,P0023,"S0089, S0034, S0067",Moderate,None,3.4,Patient case 82 with detailed clinical observations
+PT0083,39,Male,P0090,S0045,Severe,Ayurvedic,4.7,Patient case 83 with detailed clinical observations
+PT0084,61,Other,P0045,"S0078, S0090",Mild,Mixed,2.5,Patient case 84 with detailed clinical observations
+PT0085,32,Female,P0078,S0012,Moderate,Allopathic,3.7,Patient case 85 with detailed clinical observations
+PT0086,55,Male,P0056,"S0023, S0056, S0089",Severe,None,4.0,Patient case 86 with detailed clinical observations
+PT0087,26,Other,P0089,S0034,Mild,Ayurvedic,2.8,Patient case 87 with detailed clinical observations
+PT0088,72,Female,P0034,"S0067, S0045",Moderate,Mixed,4.5,Patient case 88 with detailed clinical observations
+PT0089,44,Male,P0067,S0078,Severe,Allopathic,1.6,Patient case 89 with detailed clinical observations
+PT0090,33,Other,P0023,"S0090, S0012, S0023",Mild,None,3.8,Patient case 90 with detailed clinical observations
+PT0091,69,Female,P0090,S0056,Moderate,Ayurvedic,4.4,Patient case 91 with detailed clinical observations
+PT0092,28,Male,P0045,"S0089, S0034",Severe,Mixed,2.3,Patient case 92 with detailed clinical observations
+PT0093,63,Other,P0078,S0067,Mild,Allopathic,4.1,Patient case 93 with detailed clinical observations
+PT0094,35,Female,P0056,"S0045, S0078, S0090",Moderate,None,3.2,Patient case 94 with detailed clinical observations
+PT0095,79,Male,P0089,S0012,Severe,Ayurvedic,4.8,Patient case 95 with detailed clinical observations
+PT0096,47,Other,P0034,"S0023, S0056",Mild,Mixed,2.7,Patient case 96 with detailed clinical observations
+PT0097,31,Female,P0067,S0089,Moderate,Allopathic,3.9,Patient case 97 with detailed clinical observations
+PT0098,56,Male,P0023,"S0034, S0067, S0045",Severe,None,4.3,Patient case 98 with detailed clinical observations
+PT0099,42,Other,P0090,S0078,Mild,Ayurvedic,2.4,Patient case 99 with detailed clinical observations
+PT0100,38,Female,P0045,"S0090, S0012",Moderate,Mixed,4.0,Patient case 100 with detailed clinical observations

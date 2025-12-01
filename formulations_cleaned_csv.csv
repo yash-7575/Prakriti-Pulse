@@ -1,0 +1,101 @@
+formulation_id,formulation_name,herb_ids,proportions,indication,preparation_method,classical_reference,modern_research,availability
+F0001,Triphala Churna,"H0016, H0017, H0008","40.0%, 30.0%, 30.0%",Therapeutic indication for formulation 1,Churna,Classical Text,Research study 1 validation,Widely Available
+F0002,Chyavanprash,"H0008, H0021, H0006, H0005, H0039","25.0%, 20.0%, 20.0%, 20.0%, 15.0%",Therapeutic indication for formulation 2,Lehya,Classical Text,Research study 2 validation,Limited
+F0003,Dashamoola Kwatha,"H0011, H0012, H0013, H0014, H0015","20.0%, 20.0%, 20.0%, 20.0%, 20.0%",Therapeutic indication for formulation 3,Kwatha,Classical Text,Research study 3 validation,Prescription Only
+F0004,Saraswatarishta,"H0003, H0019, H0020, H0036","30.0%, 25.0%, 25.0%, 20.0%",Therapeutic indication for formulation 4,Arishta,Classical Text,Research study 4 validation,Widely Available
+F0005,Brahmi Ghrita,"H0003, H0029, H0021, H0045","35.0%, 30.0%, 20.0%, 15.0%",Therapeutic indication for formulation 5,Ghrita,Classical Text,Research study 5 validation,Limited
+F0006,Mahasudarshan Churna,"H0014, H0004, H0001, H0006, H0022","25.0%, 20.0%, 20.0%, 18.0%, 17.0%",Therapeutic indication for formulation 6,Churna,Classical Text,Research study 6 validation,Prescription Only
+F0007,Panchatikta Ghrita,"H0004, H0014, H0015, H0032, H0013","20.0%, 20.0%, 20.0%, 20.0%, 20.0%",Therapeutic indication for formulation 7,Ghrita,Classical Text,Research study 7 validation,Widely Available
+F0008,Kalyanaka Ghrita,"H0003, H0010, H0029, H0021, H0037","22.0%, 22.0%, 22.0%, 17.0%, 17.0%",Therapeutic indication for formulation 8,Ghrita,Classical Text,Research study 8 validation,Limited
+F0009,Ashwagandharishta,"H0002, H0025, H0026, H0027","40.0%, 20.0%, 20.0%, 20.0%",Therapeutic indication for formulation 9,Arishta,Classical Text,Research study 9 validation,Prescription Only
+F0010,Drakshasava,"H0026, H0025, H0027, H0028","35.0%, 25.0%, 25.0%, 15.0%",Therapeutic indication for formulation 10,Arishta,Classical Text,Research study 10 validation,Widely Available
+F0011,Formulation-11,"H0051, H0052, H0053, H0054","28.5%, 25.1%, 24.2%, 22.2%",Therapeutic indication for formulation 11,Churna,Modern Research,Research study 11 validation,Limited
+F0012,Formulation-12,"H0055, H0056, H0057, H0058, H0059","23.4%, 21.8%, 20.5%, 18.9%, 15.4%",Therapeutic indication for formulation 12,Kwatha,Modern Research,Research study 12 validation,Prescription Only
+F0013,Formulation-13,"H0060, H0061","55.7%, 44.3%",Therapeutic indication for formulation 13,Arishta,Modern Research,Research study 13 validation,Widely Available
+F0014,Formulation-14,"H0062, H0063, H0064, H0065, H0066","22.3%, 21.1%, 19.8%, 18.6%, 18.2%",Therapeutic indication for formulation 14,Ghrita,Modern Research,Research study 14 validation,Limited
+F0015,Formulation-15,"H0067, H0068, H0069","38.9%, 31.2%, 29.9%",Therapeutic indication for formulation 15,Lehya,Modern Research,Research study 15 validation,Prescription Only
+F0016,Formulation-16,"H0070, H0071, H0072, H0073","28.7%, 25.4%, 23.8%, 22.1%",Therapeutic indication for formulation 16,Churna,Modern Research,Research study 16 validation,Widely Available
+F0017,Formulation-17,"H0074, H0075, H0076","41.2%, 30.5%, 28.3%",Therapeutic indication for formulation 17,Kwatha,Modern Research,Research study 17 validation,Limited
+F0018,Formulation-18,"H0077, H0078, H0079, H0080, H0081, H0082","19.8%, 18.7%, 17.6%, 16.5%, 14.9%, 12.5%",Therapeutic indication for formulation 18,Arishta,Modern Research,Research study 18 validation,Prescription Only
+F0019,Formulation-19,"H0083, H0084","58.1%, 41.9%",Therapeutic indication for formulation 19,Ghrita,Modern Research,Research study 19 validation,Widely Available
+F0020,Formulation-20,"H0085, H0086, H0087, H0088","27.2%, 25.8%, 24.3%, 22.7%",Therapeutic indication for formulation 20,Lehya,Modern Research,Research study 20 validation,Limited
+F0021,Formulation-21,"H0089, H0090","52.4%, 47.6%",Therapeutic indication for formulation 21,Churna,Modern Research,Research study 21 validation,Prescription Only
+F0022,Formulation-22,"H0091, H0092, H0093, H0094, H0095","21.9%, 21.3%, 20.1%, 18.7%, 18.0%",Therapeutic indication for formulation 22,Kwatha,Modern Research,Research study 22 validation,Widely Available
+F0023,Formulation-23,"H0096, H0097","49.2%, 50.8%",Therapeutic indication for formulation 23,Arishta,Modern Research,Research study 23 validation,Limited
+F0024,Formulation-24,"H0098, H0099, H0100","36.8%, 32.1%, 31.1%",Therapeutic indication for formulation 24,Ghrita,Modern Research,Research study 24 validation,Prescription Only
+F0025,Formulation-25,"H0001, H0002, H0003, H0004, H0005, H0006","18.4%, 17.8%, 17.2%, 16.6%, 15.3%, 14.7%",Therapeutic indication for formulation 25,Lehya,Modern Research,Research study 25 validation,Widely Available
+F0026,Formulation-26,"H0007, H0008, H0009, H0010","26.5%, 25.2%, 24.8%, 23.5%",Therapeutic indication for formulation 26,Churna,Modern Research,Research study 26 validation,Limited
+F0027,Formulation-27,"H0011, H0012","46.3%, 53.7%",Therapeutic indication for formulation 27,Kwatha,Modern Research,Research study 27 validation,Prescription Only
+F0028,Formulation-28,"H0013, H0014, H0015, H0016, H0017","21.4%, 20.8%, 19.7%, 19.1%, 19.0%",Therapeutic indication for formulation 28,Arishta,Modern Research,Research study 28 validation,Widely Available
+F0029,Formulation-29,"H0018, H0019","57.9%, 42.1%",Therapeutic indication for formulation 29,Ghrita,Modern Research,Research study 29 validation,Limited
+F0030,Formulation-30,"H0020, H0021, H0022, H0023","28.1%, 26.4%, 23.8%, 21.7%",Therapeutic indication for formulation 30,Lehya,Modern Research,Research study 30 validation,Prescription Only
+F0031,Formulation-31,"H0024, H0025","48.7%, 51.3%",Therapeutic indication for formulation 31,Churna,Modern Research,Research study 31 validation,Widely Available
+F0032,Formulation-32,"H0026, H0027, H0028, H0029","27.8%, 25.9%, 24.1%, 22.2%",Therapeutic indication for formulation 32,Kwatha,Modern Research,Research study 32 validation,Limited
+F0033,Formulation-33,"H0030, H0031, H0032","37.5%, 32.8%, 29.7%",Therapeutic indication for formulation 33,Arishta,Modern Research,Research study 33 validation,Prescription Only
+F0034,Formulation-34,"H0033, H0034, H0035, H0036, H0037, H0038","18.1%, 17.5%, 16.9%, 16.2%, 15.8%, 15.5%",Therapeutic indication for formulation 34,Ghrita,Modern Research,Research study 34 validation,Widely Available
+F0035,Formulation-35,"H0039, H0040","44.9%, 55.1%",Therapeutic indication for formulation 35,Lehya,Modern Research,Research study 35 validation,Limited
+F0036,Formulation-36,"H0041, H0042, H0043","35.2%, 33.1%, 31.7%",Therapeutic indication for formulation 36,Churna,Modern Research,Research study 36 validation,Prescription Only
+F0037,Formulation-37,"H0044, H0045, H0046, H0047, H0048","21.2%, 20.6%, 19.8%, 19.2%, 19.2%",Therapeutic indication for formulation 37,Kwatha,Modern Research,Research study 37 validation,Widely Available
+F0038,Formulation-38,"H0049, H0050","53.8%, 46.2%",Therapeutic indication for formulation 38,Arishta,Modern Research,Research study 38 validation,Limited
+F0039,Formulation-39,"H0051, H0052, H0053","36.9%, 32.4%, 30.7%",Therapeutic indication for formulation 39,Ghrita,Modern Research,Research study 39 validation,Prescription Only
+F0040,Formulation-40,"H0054, H0055, H0056, H0057, H0058, H0059","17.8%, 17.4%, 16.9%, 16.3%, 15.9%, 15.7%",Therapeutic indication for formulation 40,Lehya,Modern Research,Research study 40 validation,Widely Available
+F0041,Formulation-41,"H0060, H0061","45.6%, 54.4%",Therapeutic indication for formulation 41,Churna,Modern Research,Research study 41 validation,Limited
+F0042,Formulation-42,"H0062, H0063, H0064","38.1%, 31.5%, 30.4%",Therapeutic indication for formulation 42,Kwatha,Modern Research,Research study 42 validation,Prescription Only
+F0043,Formulation-43,"H0065, H0066, H0067, H0068, H0069","21.7%, 20.9%, 19.8%, 18.9%, 18.7%",Therapeutic indication for formulation 43,Arishta,Modern Research,Research study 43 validation,Widely Available
+F0044,Formulation-44,"H0070, H0071","51.2%, 48.8%",Therapeutic indication for formulation 44,Ghrita,Modern Research,Research study 44 validation,Limited
+F0045,Formulation-45,"H0072, H0073, H0074","37.3%, 32.7%, 30.0%",Therapeutic indication for formulation 45,Lehya,Modern Research,Research study 45 validation,Prescription Only
+F0046,Formulation-46,"H0075, H0076, H0077, H0078, H0079, H0080","18.2%, 17.6%, 17.1%, 16.5%, 15.8%, 14.8%",Therapeutic indication for formulation 46,Churna,Modern Research,Research study 46 validation,Widely Available
+F0047,Formulation-47,"H0081, H0082","56.4%, 43.6%",Therapeutic indication for formulation 47,Kwatha,Modern Research,Research study 47 validation,Limited
+F0048,Formulation-48,"H0083, H0084, H0085","39.2%, 31.8%, 29.0%",Therapeutic indication for formulation 48,Arishta,Modern Research,Research study 48 validation,Prescription Only
+F0049,Formulation-49,"H0086, H0087, H0088, H0089","26.1%, 25.4%, 24.7%, 23.8%",Therapeutic indication for formulation 49,Ghrita,Modern Research,Research study 49 validation,Widely Available
+F0050,Formulation-50,"H0090, H0091, H0092, H0093, H0094","21.3%, 20.7%, 19.8%, 19.1%, 19.1%",Therapeutic indication for formulation 50,Lehya,Modern Research,Research study 50 validation,Limited
+F0051,Formulation-51,"H0095, H0096","47.8%, 52.2%",Therapeutic indication for formulation 51,Churna,Modern Research,Research study 51 validation,Prescription Only
+F0052,Formulation-52,"H0097, H0098, H0099","35.7%, 33.2%, 31.1%",Therapeutic indication for formulation 52,Kwatha,Modern Research,Research study 52 validation,Widely Available
+F0053,Formulation-53,"H0100, H0001, H0002, H0003, H0004","21.8%, 20.4%, 19.7%, 19.1%, 19.0%",Therapeutic indication for formulation 53,Arishta,Modern Research,Research study 53 validation,Limited
+F0054,Formulation-54,"H0005, H0006","54.3%, 45.7%",Therapeutic indication for formulation 54,Ghrita,Modern Research,Research study 54 validation,Prescription Only
+F0055,Formulation-55,"H0007, H0008, H0009, H0010","26.8%, 25.1%, 24.6%, 23.5%",Therapeutic indication for formulation 55,Lehya,Modern Research,Research study 55 validation,Widely Available
+F0056,Formulation-56,"H0011, H0012","43.7%, 56.3%",Therapeutic indication for formulation 56,Churna,Modern Research,Research study 56 validation,Limited
+F0057,Formulation-57,"H0013, H0014, H0015, H0016, H0017","21.5%, 20.8%, 19.9%, 19.2%, 18.6%",Therapeutic indication for formulation 57,Kwatha,Modern Research,Research study 57 validation,Prescription Only
+F0058,Formulation-58,"H0018, H0019","58.7%, 41.3%",Therapeutic indication for formulation 58,Arishta,Modern Research,Research study 58 validation,Widely Available
+F0059,Formulation-59,"H0020, H0021, H0022","36.4%, 33.8%, 29.8%",Therapeutic indication for formulation 59,Ghrita,Modern Research,Research study 59 validation,Limited
+F0060,Formulation-60,"H0023, H0024, H0025, H0026, H0027, H0028","18.3%, 17.7%, 17.1%, 16.4%, 15.7%, 14.8%",Therapeutic indication for formulation 60,Lehya,Modern Research,Research study 60 validation,Prescription Only
+F0061,Formulation-61,"H0029, H0030","52.9%, 47.1%",Therapeutic indication for formulation 61,Churna,Modern Research,Research study 61 validation,Widely Available
+F0062,Formulation-62,"H0031, H0032, H0033","37.8%, 32.4%, 29.8%",Therapeutic indication for formulation 62,Kwatha,Modern Research,Research study 62 validation,Limited
+F0063,Formulation-63,"H0034, H0035, H0036, H0037, H0038","20.9%, 20.3%, 19.7%, 19.5%, 19.6%",Therapeutic indication for formulation 63,Arishta,Modern Research,Research study 63 validation,Prescription Only
+F0064,Formulation-64,"H0039, H0040","49.5%, 50.5%",Therapeutic indication for formulation 64,Ghrita,Modern Research,Research study 64 validation,Widely Available
+F0065,Formulation-65,"H0041, H0042, H0043","38.6%, 31.7%, 29.7%",Therapeutic indication for formulation 65,Lehya,Modern Research,Research study 65 validation,Limited
+F0066,Formulation-66,"H0044, H0045, H0046, H0047, H0048, H0049","17.9%, 17.3%, 16.8%, 16.2%, 15.9%, 15.9%",Therapeutic indication for formulation 66,Churna,Modern Research,Research study 66 validation,Prescription Only
+F0067,Formulation-67,"H0050, H0051","46.1%, 53.9%",Therapeutic indication for formulation 67,Kwatha,Modern Research,Research study 67 validation,Widely Available
+F0068,Formulation-68,"H0052, H0053, H0054","36.8%, 32.5%, 30.7%",Therapeutic indication for formulation 68,Arishta,Modern Research,Research study 68 validation,Limited
+F0069,Formulation-69,"H0055, H0056, H0057, H0058, H0059","21.4%, 20.6%, 19.8%, 19.1%, 19.1%",Therapeutic indication for formulation 69,Ghrita,Modern Research,Research study 69 validation,Prescription Only
+F0070,Formulation-70,"H0060, H0061","48.3%, 51.7%",Therapeutic indication for formulation 70,Lehya,Modern Research,Research study 70 validation,Widely Available
+F0071,Formulation-71,"H0062, H0063, H0064","38.4%, 31.9%, 29.7%",Therapeutic indication for formulation 71,Churna,Modern Research,Research study 71 validation,Limited
+F0072,Formulation-72,"H0065, H0066, H0067, H0068, H0069, H0070","18.0%, 17.4%, 16.9%, 16.3%, 15.7%, 15.7%",Therapeutic indication for formulation 72,Kwatha,Modern Research,Research study 72 validation,Prescription Only
+F0073,Formulation-73,"H0071, H0072","55.8%, 44.2%",Therapeutic indication for formulation 73,Arishta,Modern Research,Research study 73 validation,Widely Available
+F0074,Formulation-74,"H0073, H0074, H0075","37.1%, 33.2%, 29.7%",Therapeutic indication for formulation 74,Ghrita,Modern Research,Research study 74 validation,Limited
+F0075,Formulation-75,"H0076, H0077, H0078, H0079","26.7%, 25.9%, 24.1%, 23.3%",Therapeutic indication for formulation 75,Lehya,Modern Research,Research study 75 validation,Prescription Only
+F0076,Formulation-76,"H0080, H0081, H0082, H0083, H0084","21.1%, 20.5%, 19.8%, 19.3%, 19.3%",Therapeutic indication for formulation 76,Churna,Modern Research,Research study 76 validation,Widely Available
+F0077,Formulation-77,"H0085, H0086","51.4%, 48.6%",Therapeutic indication for formulation 77,Kwatha,Modern Research,Research study 77 validation,Limited
+F0078,Formulation-78,"H0087, H0088, H0089","35.9%, 32.8%, 31.3%",Therapeutic indication for formulation 78,Arishta,Modern Research,Research study 78 validation,Prescription Only
+F0079,Formulation-79,"H0090, H0091, H0092, H0093, H0094","20.6%, 20.2%, 19.8%, 19.7%, 19.7%",Therapeutic indication for formulation 79,Ghrita,Modern Research,Research study 79 validation,Widely Available
+F0080,Formulation-80,"H0095, H0096","45.2%, 54.8%",Therapeutic indication for formulation 80,Lehya,Modern Research,Research study 80 validation,Limited
+F0081,Formulation-81,"H0097, H0098, H0099, H0100","27.1%, 25.4%, 24.2%, 23.3%",Therapeutic indication for formulation 81,Churna,Modern Research,Research study 81 validation,Prescription Only
+F0082,Formulation-82,"H0001, H0002","44.8%, 55.2%",Therapeutic indication for formulation 82,Kwatha,Modern Research,Research study 82 validation,Widely Available
+F0083,Formulation-83,"H0003, H0004, H0005, H0006, H0007","21.2%, 20.7%, 20.1%, 19.4%, 18.6%",Therapeutic indication for formulation 83,Arishta,Modern Research,Research study 83 validation,Limited
+F0084,Formulation-84,"H0008, H0009","57.2%, 42.8%",Therapeutic indication for formulation 84,Ghrita,Modern Research,Research study 84 validation,Prescription Only
+F0085,Formulation-85,"H0010, H0011, H0012","35.8%, 34.1%, 30.1%",Therapeutic indication for formulation 85,Lehya,Modern Research,Research study 85 validation,Widely Available
+F0086,Formulation-86,"H0013, H0014, H0015, H0016, H0017, H0018","17.6%, 17.2%, 16.8%, 16.1%, 16.1%, 16.2%",Therapeutic indication for formulation 86,Churna,Modern Research,Research study 86 validation,Limited
+F0087,Formulation-87,"H0019, H0020","47.3%, 52.7%",Therapeutic indication for formulation 87,Kwatha,Modern Research,Research study 87 validation,Prescription Only
+F0088,Formulation-88,"H0021, H0022, H0023","36.2%, 33.5%, 30.3%",Therapeutic indication for formulation 88,Arishta,Modern Research,Research study 88 validation,Widely Available
+F0089,Formulation-89,"H0024, H0025, H0026, H0027, H0028","20.8%, 20.2%, 19.9%, 19.6%, 19.5%",Therapeutic indication for formulation 89,Ghrita,Modern Research,Research study 89 validation,Limited
+F0090,Formulation-90,"H0029, H0030","50.7%, 49.3%",Therapeutic indication for formulation 90,Lehya,Modern Research,Research study 90 validation,Prescription Only
+F0091,Formulation-91,"H0031, H0032, H0033","37.4%, 32.9%, 29.7%",Therapeutic indication for formulation 91,Churna,Modern Research,Research study 91 validation,Widely Available
+F0092,Formulation-92,"H0034, H0035, H0036, H0037, H0038, H0039","17.7%, 17.1%, 16.6%, 16.2%, 16.2%, 16.2%",Therapeutic indication for formulation 92,Kwatha,Modern Research,Research study 92 validation,Limited
+F0093,Formulation-93,"H0040, H0041","53.6%, 46.4%",Therapeutic indication for formulation 93,Arishta,Modern Research,Research study 93 validation,Prescription Only
+F0094,Formulation-94,"H0042, H0043, H0044","38.7%, 31.8%, 29.5%",Therapeutic indication for formulation 94,Ghrita,Modern Research,Research study 94 validation,Widely Available
+F0095,Formulation-95,"H0045, H0046, H0047, H0048, H0049","21.0%, 20.4%, 19.7%, 19.4%, 19.5%",Therapeutic indication for formulation 95,Lehya,Modern Research,Research study 95 validation,Limited
+F0096,Formulation-96,"H0050, H0051","49.1%, 50.9%",Therapeutic indication for formulation 96,Churna,Modern Research,Research study 96 validation,Prescription Only
+F0097,Formulation-97,"H0052, H0053, H0054","37.6%, 32.1%, 30.3%",Therapeutic indication for formulation 97,Kwatha,Modern Research,Research study 97 validation,Widely Available
+F0098,Formulation-98,"H0055, H0056, H0057, H0058, H0059, H0060","17.8%, 17.3%, 16.8%, 16.2%, 15.9%, 16.0%",Therapeutic indication for formulation 98,Arishta,Modern Research,Research study 98 validation,Limited
+F0099,Formulation-99,"H0061, H0062","56.1%, 43.9%",Therapeutic indication for formulation 99,Ghrita,Modern Research,Research study 99 validation,Prescription Only
+F0100,Formulation-100,"H0063, H0064, H0065","38.9%, 31.4%, 29.7%",Therapeutic indication for formulation 100,Lehya,Modern Research,Research study 100 validation,Widely Available
