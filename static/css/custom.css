@@ -573,3 +573,22 @@ html {
 .focus\:ring-green-500\/20:focus {
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
 }
+
+/* Chatbot specific styles */
+#chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#chat-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

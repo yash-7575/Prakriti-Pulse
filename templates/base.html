@@ -84,6 +84,10 @@
                         <span class="text-lg">💬</span>
                         <span>Feedback</span>
                     </a>
+                    <a href="{{ url_for('chatbot') }}" class="flex items-center gap-1 px-2 py-1 rounded-md font-medium transition-colors {% if request.endpoint == 'chatbot' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-lg">🤖</span>
+                        <span>Chatbot</span>
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -122,6 +126,10 @@
                     <a href="{{ url_for('feedback') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'feedback' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
                         <span class="text-xl">💬</span>
                         <span>Feedback</span>
+                    </a>
+                    <a href="{{ url_for('chatbot') }}" class="flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-colors {% if request.endpoint == 'chatbot' %}text-primary bg-primary/10{% else %}text-muted-foreground hover:text-primary{% endif %}">
+                        <span class="text-xl">🤖</span>
+                        <span>Chatbot</span>
                     </a>
                 </div>
             </div>

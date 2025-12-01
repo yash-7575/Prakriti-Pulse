@@ -10,6 +10,7 @@ A comprehensive Flask-based web application for personalized Ayurvedic herb reco
 - **Symptom Entry**: Comprehensive symptom tracking with severity levels
 - **Herb Recommendations**: AI-ready system for personalized herb suggestions
 - **Herb Database**: Detailed information about Ayurvedic herbs and their properties
+- **AI Assistant Chatbot**: Intelligent chat interface for guidance and support
 - **Feedback System**: User feedback collection for continuous improvement
 - **Admin Panel**: Database management for herbs, symptoms, and formulations
 
@@ -136,6 +137,25 @@ flask_app/
 - `POST /api/recommend` - Get recommendations (for AI integration)
 - `GET /api/symptoms` - Get all symptoms
 - `GET /api/herbs` - Get all herbs
+- `POST /api/chat` - Chatbot responses
+
+## 🤖 AI Assistant Chatbot
+
+The Prakriti Pulse application includes an intelligent chatbot to assist users with navigation, Ayurvedic information, and health guidance.
+
+### Features
+- **Navigation Assistance**: Helps users find the right sections of the application
+- **Ayurvedic Education**: Provides information about herbs, doshas, and wellness concepts
+- **Symptom Guidance**: Directs users to the symptom checker for personalized recommendations
+- **Herb Information**: Offers details about Ayurvedic herbs and their uses
+- **Prakriti Support**: Explains constitutional types and guides users to the assessment quiz
+
+### Access
+- Visit `/chatbot` to access the chat interface
+- Click the "Chatbot" link in the main navigation
+
+### API Endpoint
+- `POST /api/chat` - Accepts user messages and returns AI-generated responses
 
 ## 🧪 Testing
 
@@ -150,7 +170,8 @@ python test_database.py
 3. **Enter symptoms** at `/symptom_entry`
 4. **View recommendations** at `/recommendations`
 5. **Browse herbs** at `/herbs`
-6. **Provide feedback** at `/feedback`
+6. **Interact with chatbot** at `/chatbot`
+7. **Provide feedback** at `/feedback`
 
 ## 🔮 Future AI/ML Integration
 

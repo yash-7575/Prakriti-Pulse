@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block title %}Chatbot - Prakriti Pulse{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-background to-secondary/20 py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-4">Ayurvedic Wellness Assistant</h1>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Your personal Ayurvedic guide for herbs, symptoms, and wellness recommendations
+            </p>
+        </div>
+
+        <div class="card-ayurvedic max-w-2xl mx-auto">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span class="text-2xl">🤖</span>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-foreground">Prakriti Pulse Assistant</h2>
+                    <p class="text-sm text-muted-foreground">Always here to help</p>
+                </div>
+            </div>
+
+            <div id="chat-container" class="mb-6 h-96 overflow-y-auto p-4 bg-white/50 rounded-lg border border-muted">
+                <div class="flex mb-4">
+                    <div class="mr-3 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                            <span class="text-sm">🤖</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-[80%]">
+                        <p class="text-foreground">Hello! I'm your Ayurvedic assistant. How can I help you today? You can ask me about:</p>
+                        <ul class="mt-2 space-y-1">
+                            <li class="flex items-center gap-1 text-sm">
+                                <span class="text-primary">•</span>
+                                <span>Herbs and their benefits</span>
+                            </li>
+                            <li class="flex items-center gap-1 text-sm">
+                                <span class="text-primary">•</span>
+                                <span>Symptoms and remedies</span>
+                            </li>
+                            <li class="flex items-center gap-1 text-sm">
+                                <span class="text-primary">•</span>
+                                <span>Your Prakriti type</span>
+                            </li>
+                            <li class="flex items-center gap-1 text-sm">
+                                <span class="text-primary">•</span>
+                                <span>Ayurvedic wellness tips</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" id="user-input" 
+                       class="flex-1 input-ayurvedic" 
+                       placeholder="Ask about herbs, symptoms, or wellness...">
+                <button id="send-btn" class="btn-primary px-6 py-2">
+                    Send
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div class="card-ayurvedic text-center">
+                <div class="text-4xl mb-4">🌿</div>
+                <h3 class="font-semibold text-foreground mb-2">Herb Library</h3>
+                <p class="text-sm text-muted-foreground mb-3">
+                    Explore our collection of Ayurvedic herbs and their properties
+                </p>
+                <a href="{{ url_for('herbs') }}" class="text-primary text-sm font-medium hover:underline">
+                    Browse Herbs →
+                </a>
+            </div>
+            
+            <div class="card-ayurvedic text-center">
+                <div class="text-4xl mb-4">🧘</div>
+                <h3 class="font-semibold text-foreground mb-2">Prakriti Quiz</h3>
+                <p class="text-sm text-muted-foreground mb-3">
+                    Discover your unique constitution and characteristics
+                </p>
+                <a href="{{ url_for('prakriti_quiz') }}" class="text-primary text-sm font-medium hover:underline">
+                    Take Quiz →
+                </a>
+            </div>
+            
+            <div class="card-ayurvedic text-center">
+                <div class="text-4xl mb-4">🔍</div>
+                <h3 class="font-semibold text-foreground mb-2">Symptom Checker</h3>
+                <p class="text-sm text-muted-foreground mb-3">
+                    Identify symptoms and get personalized herb recommendations
+                </p>
+                <a href="{{ url_for('symptom_entry') }}" class="text-primary text-sm font-medium hover:underline">
+                    Check Symptoms →
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chatContainer = document.getElementById('chat-container');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    
+    // Function to add a message to the chat
+    function addMessage(sender, message, isHtml = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'flex mb-4 ' + (sender === 'user' ? 'justify-end' : 'justify-start');
+        
+        const messageContent = document.createElement('div');
+        messageContent.className = sender === 'user' 
+            ? 'bg-primary text-primary-foreground p-3 rounded-lg shadow-sm max-w-[80%]' 
+            : 'bg-white p-3 rounded-lg shadow-sm max-w-[80%]';
+        
+        if (isHtml) {
+            messageContent.innerHTML = message;
+        } else {
+            messageContent.textContent = message;
+        }
+        
+        if (sender === 'user') {
+            messageDiv.innerHTML = `
+                <div class="ml-3 flex-shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                        <span class="text-sm">👤</span>
+                    </div>
+                </div>
+            `;
+            messageDiv.appendChild(messageContent);
+        } else {
+            messageDiv.innerHTML = `
+                <div class="mr-3 flex-shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span class="text-sm">🤖</span>
+                    </div>
+                </div>
+            `;
+            messageDiv.appendChild(messageContent);
+        }
+        
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+    
+    // Function to send message to backend
+    async function sendMessage() {
+        const message = userInput.value.trim();
+        if (!message) return;
+        
+        // Add user message to chat
+        addMessage('user', message);
+        userInput.value = '';
+        
+        // Show typing indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.id = 'typing-indicator';
+        typingDiv.className = 'flex mb-4 justify-start';
+        typingDiv.innerHTML = `
+            <div class="mr-3 flex-shrink-0">
+                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span class="text-sm">🤖</span>
+                </div>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm">
+                <div class="flex space-x-1">
+                    <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                    <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+                </div>
+            </div>
+        `;
+        chatContainer.appendChild(typingDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        
+        try {
+            // Send message to backend
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message })
+            });
+            
+            // Remove typing indicator
+            document.getElementById('typing-indicator').remove();
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                addMessage('bot', data.response, true);
+            } else {
+                addMessage('bot', 'Sorry, I encountered an error. Please try again.');
+            }
+        } catch (error) {
+            // Remove typing indicator
+            document.getElementById('typing-indicator').remove();
+            addMessage('bot', 'Sorry, I encountered an error. Please try again.');
+        }
+    }
+    
+    // Event listeners
+    sendBtn.addEventListener('click', sendMessage);
+    
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+});
+</script>
+{% endblock %}
