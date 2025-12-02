@@ -1,11 +1,6 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, session
 import os
-from database_config import (
-    get_herbs, get_symptoms, get_prakriti_profiles, get_herb_symptom_relationships,
-    get_formulations, get_herbs_for_symptom, get_symptoms_for_herb, 
-    get_prakriti_profile_by_scores, add_patient_profile, get_patient_profiles,
-    DatabaseConfig
-)
+from database_config import DatabaseConfig
 import json
 from datetime import datetime
 
@@ -57,7 +52,7 @@ def register():
             effectiveness_float = float(effectiveness_rating) if effectiveness_rating else None
             
             # Add patient profile to database
-            result = add_patient_profile(
+            result = db.add_patient_profile(
                 age, gender, prakriti_type, symptoms_str, symptom_severity,
                 treatment_history, effectiveness_float, practitioner_notes
             )
@@ -73,7 +68,7 @@ def register():
     
     # Get symptoms for the form
     try:
-        symptoms = get_symptoms()
+        symptoms = db.get_symptoms()
         if symptoms is None:
             symptoms = []
     except Exception as e:
@@ -114,7 +109,7 @@ def prakriti_quiz():
             dominant_dosha = max(scores, key=scores.get)
             
             # Get prakriti profile
-            prakriti_profile = get_prakriti_profile_by_scores(vata_score, pitta_score, kapha_score)
+            prakriti_profile = db.get_prakriti_profile_by_scores(vata_score, pitta_score, kapha_score)
             
             if not prakriti_profile:
                 # Create a basic profile if exact match not found
@@ -174,7 +169,7 @@ def symptom_entry():
             flash(f'Error recording symptoms: {str(e)}', 'error')
     
     try:
-        symptoms = get_symptoms()
+        symptoms = db.get_symptoms()
         if symptoms is None:
             symptoms = []
     except Exception as e:
@@ -255,7 +250,7 @@ def recommendations():
         # Get herb recommendations for each symptom
         recommendations = []
         for symptom_id in selected_symptoms:
-            herbs = get_herbs_for_symptom(symptom_id)
+            herbs = db.get_herbs_for_symptom(symptom_id)
             if herbs:
                 recommendations.extend(herbs)
         
@@ -284,7 +279,7 @@ def herb_details(herb_id):
     """Herb Details Page - displays detailed information about a specific herb"""
     try:
         # Get herb details
-        herbs = get_herbs()
+        herbs = db.get_herbs()
         herb = next((h for h in herbs if h['herb_id'] == herb_id), None)
         
         if not herb:
@@ -292,7 +287,7 @@ def herb_details(herb_id):
             return redirect(url_for('herbs'))
         
         # Get symptoms this herb can help with
-        symptoms = get_symptoms_for_herb(herb_id)
+        symptoms = db.get_symptoms_for_herb(herb_id)
         
         return render_template('herb_details.html', herb=herb, symptoms=symptoms)
         
@@ -304,7 +299,7 @@ def herb_details(herb_id):
 def herbs():
     """Herbs Page - displays all available herbs"""
     try:
-        herbs_list = get_herbs()
+        herbs_list = db.get_herbs()
         if herbs_list is None:
             herbs_list = []
     except Exception as e:
@@ -395,9 +390,9 @@ def feedback():
 def admin():
     """Admin Data Entry Page - CRUD operations for herbs/symptoms/formulations"""
     try:
-        herbs_list = get_herbs()
-        symptoms_list = get_symptoms()
-        formulations_list = get_formulations()
+        herbs_list = db.get_herbs()
+        symptoms_list = db.get_symptoms()
+        formulations_list = db.get_formulations()
         
         return render_template('admin.html', 
                              herbs=herbs_list, 
@@ -453,7 +448,7 @@ def api_recommend():
 def api_symptoms():
     """API endpoint to get all symptoms"""
     try:
-        symptoms = get_symptoms()
+        symptoms = db.get_symptoms()
         return jsonify({
             'success': True,
             'symptoms': symptoms
@@ -468,7 +463,7 @@ def api_symptoms():
 def api_herbs():
     """API endpoint to get all herbs"""
     try:
-        herbs = get_herbs()
+        herbs = db.get_herbs()
         return jsonify({
             'success': True,
             'herbs': herbs

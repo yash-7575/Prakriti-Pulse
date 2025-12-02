@@ -1,0 +1,36 @@
+source_node_id,target_node_id,relationship_type,governance_strength,primary_governance,functional_relationship
+1,1,dosha_governs_body_part,High,TRUE,Movement and communication
+1,10,dosha_governs_body_part,High,TRUE,Nervous system functions
+2,2,dosha_governs_body_part,High,TRUE,Cardiovascular functions
+2,3,dosha_governs_body_part,High,TRUE,Digestive and metabolic functions
+2,11,dosha_governs_body_part,High,FALSE,Thermoregulation and transformation
+3,4,dosha_governs_body_part,High,TRUE,Respiratory functions
+3,7,dosha_governs_body_part,High,TRUE,Protection and stability
+3,9,dosha_governs_body_part,High,FALSE,Immune functions
+3,12,dosha_governs_body_part,High,FALSE,Reproductive functions
+1,8,dosha_governs_body_part,Medium,FALSE,Musculoskeletal functions
+1,5,dosha_governs_body_part,Medium,FALSE,Digestive functions
+2,5,dosha_governs_body_part,Medium,FALSE,Digestive functions
+2,6,dosha_governs_body_part,Medium,FALSE,Intestinal functions
+3,6,dosha_governs_body_part,Medium,FALSE,Intestinal functions
+3,11,dosha_governs_body_part,Medium,FALSE,Metabolic functions
+1,2,dosha_governs_body_part,Low,FALSE,Circulatory functions
+1,3,dosha_governs_body_part,Low,FALSE,Hepatic functions
+2,1,dosha_governs_body_part,Low,FALSE,Nervous system functions
+2,4,dosha_governs_body_part,Low,FALSE,Respiratory functions
+3,1,dosha_governs_body_part,Low,FALSE,Nervous system functions
+3,2,dosha_governs_body_part,Low,FALSE,Cardiovascular functions
+1,12,dosha_governs_body_part,Low,FALSE,Reproductive functions
+2,12,dosha_governs_body_part,Low,FALSE,Reproductive functions
+1,9,dosha_governs_body_part,Low,FALSE,Immune functions
+2,9,dosha_governs_body_part,Low,FALSE,Immune functions
+1,11,dosha_governs_body_part,Low,FALSE,Metabolic functions
+3,10,dosha_governs_body_part,Low,FALSE,Nervous system functions
+1,4,dosha_governs_body_part,Low,FALSE,Respiratory functions
+2,7,dosha_governs_body_part,Low,FALSE,Protection functions
+3,5,dosha_governs_body_part,Low,FALSE,Digestive functions
+1,6,dosha_governs_body_part,Low,FALSE,Intestinal functions
+2,8,dosha_governs_body_part,Low,FALSE,Musculoskeletal functions
+3,8,dosha_governs_body_part,Low,FALSE,Musculoskeletal functions
+1,7,dosha_governs_body_part,Low,FALSE,Protection functions
+2,10,dosha_governs_body_part,Low,FALSE,Nervous system functions
