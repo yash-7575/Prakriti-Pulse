@@ -1,0 +1,5 @@
+# Add your custom data here for the chatbot to learn from.
+# Each section can be separated by newlines.
+# Example:
+# Ayurveda is an ancient system of medicine from India.
+# Doshas are the three energies that govern the body: Vata, Pitta, and Kapha.

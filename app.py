@@ -20,6 +20,14 @@ try:
 except ImportError:
     print("RAG chatbot service not available. Install required packages with: pip install scikit-learn numpy scipy")
 
+# Import RL Service
+try:
+    from rl_service import rl_service
+    RL_AVAILABLE = True
+except ImportError:
+    print("RL service not available.")
+    RL_AVAILABLE = False
+
 app = Flask(__name__)
 
 # Configuration
@@ -479,6 +487,23 @@ def api_herbs():
             'error': str(e)
         }), 500
 
+@app.route('/api/feedback/chat', methods=['POST'])
+def api_chat_feedback():
+    """API endpoint for chat feedback (RL training)"""
+    try:
+        data = request.get_json()
+        query = data.get('query', '')
+        action = data.get('action', 0)
+        reward = data.get('reward', 0) # 1 for positive, -1 for negative
+        
+        if RL_AVAILABLE:
+            new_q = rl_service.update_feedback(query, action, reward)
+            return jsonify({'success': True, 'new_q': new_q})
+        
+        return jsonify({'success': False, 'error': 'RL not available'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 @app.route('/api/chat', methods=['POST'])
 def api_chat():
     """API endpoint for chatbot responses"""
@@ -500,32 +525,8 @@ def api_chat():
             'error': str(e)
         }), 500
 
-def get_chatbot_response(message):
-    """Generate chatbot response based on user message"""
-    message = message.lower().strip()
-    
-    # If RAG is available, use it for complex queries
-    if RAG_AVAILABLE and get_rag_chatbot_response is not None and len(message) > 10:
-        # Use RAG for detailed questions
-        try:
-            rag_response = get_rag_chatbot_response(message) if get_rag_chatbot_response is not None else None
-            if rag_response and not rag_response.startswith("I don't have specific information"):
-                return rag_response
-        except Exception as e:
-            print(f"Error using RAG chatbot: {e}")
-    
-    # Greeting responses
-    if any(greeting in message for greeting in ['hello', 'hi', 'hey', 'namaste']):
-        return "Hello! I'm your Ayurvedic assistant. How can I help you today? You can ask me about herbs, symptoms, or your Prakriti type."
-    
-    # Help responses
-    if any(help_word in message for help_word in ['help', 'what can you do', 'assist']):
-        return "I can help you with:<br>• Finding herbs for your symptoms<br>• Understanding Ayurvedic concepts like Doshas (Vata, Pitta, Kapha)<br>• Explaining herb properties and benefits<br>• Providing wellness tips<br>• Answering questions about Ayurvedic principles<br>Just ask me anything about Ayurveda!"
-    
-    # Prakriti/Vata/Pitta/Kapha related
-    if any(word in message for word in ['prakriti', 'constitution']):
-        return "Prakriti is your unique Ayurvedic constitution determined by the balance of Vata, Pitta, and Kapha energies. It's your natural state of balance that influences your physical and mental characteristics. Understanding your Prakriti helps personalize your health and wellness approach."
-    
+def _get_rule_based_response(message):
+    """Helper for rule-based responses"""
     if 'vata' in message:
         return "Vata is one of the three Doshas in Ayurveda, composed of Air and Ether elements. It governs movement, breathing, nerve impulses, and elimination. When balanced, Vata promotes creativity and vitality. When imbalanced, it can cause anxiety, insomnia, and digestive issues. Balancing Vata involves warm, nourishing foods and regular routines."
     
@@ -534,10 +535,22 @@ def get_chatbot_response(message):
     
     if 'kapha' in message:
         return "Kapha is one of the three Doshas in Ayurveda, composed of Earth and Water elements. It governs structure, stability, and immunity. When balanced, Kapha promotes strength and calmness. When imbalanced, it can cause weight gain, congestion, and lethargy. Light, warming foods and stimulating activities help balance Kapha."
-    
-    # Symptom related
-    if any(symptom_word in message for symptom_word in ['symptom', 'feel', 'pain', 'ache', 'sick', 'headache', 'fatigue', 'acidity']):
-        return "I can help you understand symptoms from an Ayurvedic perspective. For example, headaches are often related to Pitta imbalance, fatigue to Vata imbalance, and acidity to Pitta imbalance. Different herbs can help balance these conditions. Try asking about specific symptoms like 'What helps with headaches?' or 'How to reduce acidity naturally?'"
+
+    # Specific Symptom Advice
+    if 'headache' in message:
+        return "For headaches, Ayurveda recommends cooling herbs like Brahmi and Sandalwood paste application. Drinking warm water and avoiding spicy foods can also help. If it's a migraine, it might be related to Pitta imbalance."
+        
+    if 'acidity' in message or 'heartburn' in message:
+        return "For acidity, avoid spicy and sour foods. Cooling herbs like Amla, Coriander water, and Fennel seeds are very effective. Coconut water is also excellent for soothing the stomach lining."
+        
+    if 'fatigue' in message or 'tired' in message:
+        return "Fatigue is often a sign of Vata imbalance. Ashwagandha is the best herb for boosting energy and vitality. Ensure you're getting enough rest and eating warm, nourishing foods."
+        
+    if 'insomnia' in message or 'sleep' in message:
+        return "For better sleep, try drinking warm milk with a pinch of nutmeg before bed. Massaging your feet with warm sesame oil (Padabhyanga) is also very effective for calming Vata and inducing sleep."
+        
+    if 'joint pain' in message or 'arthritis' in message:
+        return "Joint pain can be due to Vata aggravation. Turmeric milk (Golden Milk) is a powerful anti-inflammatory. Gentle yoga and applying warm Mahanarayan oil can also provide relief."
     
     # Herb related
     if any(herb_word in message for herb_word in ['herb', 'medicine', 'remedy', 'treatment', 'ashwagandha', 'tulsi', 'triphala']):
@@ -550,20 +563,59 @@ def get_chatbot_response(message):
         else:
             return "Ayurveda offers many healing herbs with specific properties. Popular herbs include Ashwagandha for stress relief, Tulsi for immunity, Triphala for digestion, Brahmi for memory, and Turmeric for inflammation. Each herb has unique tastes (Rasa), energies (Virya), and post-digestive effects (Vipaka) that influence its actions."
     
+    # Generic Symptom Help (Fallback)
+    if any(symptom_word in message for symptom_word in ['symptom', 'feel', 'pain', 'ache', 'sick', 'illness', 'disease']):
+        return "I can help you understand symptoms from an Ayurvedic perspective. For example, headaches are often related to Pitta imbalance, fatigue to Vata imbalance, and acidity to Pitta imbalance. Different herbs can help balance these conditions. Try asking about specific symptoms like 'What helps with headaches?' or 'How to reduce acidity naturally?'"
+
     # Navigation
     if 'navigate' in message or 'find' in message:
         return "You can explore our Ayurvedic resources:<br>• Take the Prakriti Quiz to discover your constitution<br>• Check Symptoms to identify health concerns<br>• View Herbs to learn about medicinal plants<br>• Register to save your health journey<br>All these features help personalize your Ayurvedic wellness experience."
     
-    # Default response
-    # If RAG is available, try it as a fallback
-    if RAG_AVAILABLE and get_rag_chatbot_response is not None:
-        try:
-            rag_response = get_rag_chatbot_response(message) if get_rag_chatbot_response is not None else None
-            if rag_response and not rag_response.startswith("I don't have specific information"):
-                return rag_response
-        except Exception as e:
-            print(f"Error using RAG chatbot: {e}")
+    return None
+
+def get_chatbot_response(message):
+    """Generate chatbot response based on user message using RL"""
+    message = message.lower().strip()
     
+    # Default Action: 0 (RAG)
+    action = 0
+    if RL_AVAILABLE:
+        action, _ = rl_service.get_action(message)
+        print(f"RL Action Selected: {action}")
+    
+    rag_response = None
+    rule_response = None
+    
+    # Execute based on action
+    if action == 0: # Prefer RAG
+        if RAG_AVAILABLE and get_rag_chatbot_response is not None:
+            try:
+                rag_response = get_rag_chatbot_response(message)
+                if rag_response and not rag_response.startswith("I don't have specific information"):
+                    return rag_response
+            except Exception as e:
+                print(f"RAG Error: {e}")
+        
+        # Fallback to rules if RAG failed
+        rule_response = _get_rule_based_response(message)
+        if rule_response:
+            return rule_response
+            
+    elif action == 1: # Prefer Rules
+        rule_response = _get_rule_based_response(message)
+        if rule_response:
+            return rule_response
+            
+        # Fallback to RAG if rules failed
+        if RAG_AVAILABLE and get_rag_chatbot_response is not None:
+            try:
+                rag_response = get_rag_chatbot_response(message)
+                if rag_response and not rag_response.startswith("I don't have specific information"):
+                    return rag_response
+            except Exception as e:
+                print(f"RAG Error: {e}")
+
+    # Action 2 or Fallback
     return "I'm here to help with your Ayurvedic wellness journey. You can ask me specific questions about herbs, symptoms, or Doshas (Vata, Pitta, Kapha). For example:<br>• 'What helps with headaches?'<br>• 'Tell me about Pitta dosha'<br>• 'Benefits of Ashwagandha'<br>• 'How to balance Vata?'"
 
 # Error handlers
