@@ -1,0 +1,351 @@
+node_id,name,description,associated_dosha,body_location,severity_indicator,onset_speed,temperature_relation,aggr_spicy,aggr_fried,aggr_sour,relieving_factors,affected_dhatu,chronicity
+1,Fatigue,Feeling tired or lacking energy,Vata,Whole body,Medium,1,none,0,0,0,rest,meda,1
+2,Headache,Pain in the head,Pitta,Head,Low,0,none,0,0,0,rest,shukra,0
+3,Nausea,Feeling of sickness in the stomach,Pitta,Abdomen,Low,0,none,0,1,0,rest,mamsa,0
+4,Joint stiffness,Difficulty moving joints,Vata,Knee/Shoulder,Medium,1,none,0,0,0,oral rehydration,asthi,1
+5,Skin rash,Reddish skin irritation,Pitta,Skin,Low,0,none,0,0,0,rest,twak,0
+6,Cough,Expulsion of air from lungs,Kapha,Throat/Lungs,Low,0,none,0,0,0,oral rehydration,meda,0
+7,Memory lapses,Frequent forgetting,Vata,Brain,Low,0,none,0,0,0,rest,majja,0
+8,Weight gain,Increase in body weight,Kapha,Whole body,High,2,none,0,0,0,rest,asthi,2
+9,Acidity,Burning sensation in stomach,Pitta,Abdomen,Medium,1,none,1,0,1,cold compress,mamsa,1
+10,Anxiety,Fear and nervousness,Vata,Mind,Medium,1,none,0,0,0,herbal decoction,rasa,1
+11,Constipation,Difficulty passing stool,Vata,Colon,Medium,1,none,0,0,0,warm compress,asthi,1
+12,Depression,Sadness and hopelessness,Kapha,Mind,High,2,none,0,0,0,oral rehydration,rasa,2
+13,Insomnia,Difficulty sleeping,Vata,Brain,Medium,1,none,0,0,0,cold compress,meda,1
+14,Inflammation,Swelling and redness,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,rest,asthi,1
+15,Congestion,Blockage in respiratory tract,Kapha,Nose/Lungs,Low,0,none,0,0,0,herbal decoction,shukra,0
+16,Fever,Elevated body temperature,Pitta,Whole body,High,2,better_with_cold,0,0,0,warm compress,shukra,2
+17,Chills,Feeling cold despite warm environment,"Vata,Kapha",Unspecified,Medium,1,better_with_heat,0,0,0,warm compress,shukra,1
+18,Sweating,Excessive perspiration,Pitta,Whole body,Medium,1,none,0,0,0,herbal decoction,mamsa,1
+19,Dizziness,Loss of balance or faintness,Vata,Head,Medium,1,none,0,0,0,light food,majja,1
+20,Palpitations,Rapid or irregular heartbeat,"Vata,Pitta",Unspecified,High,2,none,0,0,0,cold compress,majja,2
+21,Shortness of breath,Difficulty breathing,Kapha,Lungs,High,2,none,0,0,0,light food,mamsa,2
+22,Chest pain,Discomfort in chest area,"Vata,Kapha",Unspecified,High,2,none,0,0,0,warm compress,shukra,2
+23,Abdominal pain,Pain in stomach region,"Pitta,Vata",Unspecified,Medium,1,none,0,0,0,warm compress,majja,1
+24,Bloating,Feeling of fullness in abdomen,Kapha,Abdomen,Low,0,none,0,1,0,herbal decoction,majja,0
+25,Diarrhea,Loose or watery stools,"Pitta,Kapha",Unspecified,Medium,1,none,0,0,0,rest,majja,1
+26,Vomiting,Forceful expulsion of stomach contents,"Pitta,Vata",Unspecified,High,2,none,0,1,0,cold compress,majja,2
+27,Yellowing of eyes/skin,Jaundice,Pitta,Liver,High,2,none,0,0,0,rest,rasa,2
+28,Dark urine,Concentrated urine color,Pitta,Kidneys,Medium,1,none,0,0,0,cold compress,shukra,1
+29,Frequent urination,Need to urinate often,Pitta,Kidneys,Medium,1,none,0,0,0,cooling diet,rasa,1
+30,Blood in urine,Hematuria,"Pitta,Vata",Unspecified,High,2,none,0,0,0,rest,rasa,2
+31,Swelling,Edema in body parts,Kapha,Whole body,Medium,1,none,0,0,0,oral rehydration,majja,1
+32,Muscle cramps,Sudden muscle contractions,Vata,Muscles,Medium,1,none,0,0,0,cooling diet,mamsa,1
+33,Tremors,Uncontrollable shaking,Vata,Nervous system,Medium,1,none,0,0,0,oral rehydration,meda,1
+34,Numbness,Loss of sensation,Vata,Nervous system,Medium,1,none,0,0,0,cooling diet,meda,1
+35,Tingling,Pins and needles sensation,Vata,Nervous system,Low,0,none,0,0,0,oral rehydration,majja,0
+36,Weakness,Lack of physical strength,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,herbal decoction,shukra,1
+37,Irritability,Easily annoyed or angered,Pitta,Mind,Medium,1,none,0,0,0,herbal decoction,asthi,1
+38,Confusion,Mental disorientation,"Pitta,Vata",Unspecified,High,2,none,0,0,0,herbal decoction,majja,2
+39,Delusions,False beliefs despite evidence,"Vata,Pitta",Unspecified,High,2,none,0,0,0,herbal decoction,mamsa,2
+40,Hallucinations,Sensing things that aren't there,"Vata,Pitta",Unspecified,High,2,none,0,0,0,light food,rasa,2
+41,Loss of appetite,Reduced desire to eat,"Vata,Pitta",Unspecified,Low,0,none,0,0,0,rest,meda,0
+42,Excessive thirst,Constant need to drink water,Pitta,Whole body,Medium,1,none,0,0,0,oral rehydration,rasa,1
+43,Dry mouth,Lack of saliva in mouth,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,warm compress,mamsa,0
+44,Bad breath,Unpleasant odor from mouth,Kapha,Oral cavity,Low,0,none,0,0,0,cooling diet,asthi,0
+45,Gum bleeding,Bleeding from gums,"Pitta,Vata",Unspecified,Low,0,none,0,0,0,herbal decoction,rasa,0
+46,Toothache,Pain in teeth,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,rest,rakta,1
+47,Sore throat,Pain or irritation in throat,Kapha,Throat,Low,0,none,0,0,0,cold compress,meda,0
+48,Nasal congestion,Blocked nose,Kapha,Nose,Low,0,none,0,0,0,warm compress,meda,0
+49,Sneezing,Involuntary expulsion through nose,"Kapha,Vata",Unspecified,Low,0,none,0,0,0,warm compress,meda,0
+50,Watery eyes,Excess tear production,Kapha,Eyes,Low,0,none,0,0,0,warm compress,rasa,0
+51,Earache,Pain in ears,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,herbal decoction,rakta,0
+52,Hearing loss,Reduced hearing ability,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,warm compress,rakta,1
+53,Vertigo,Sensation of spinning,Vata,Inner ear,High,2,none,0,0,0,warm compress,meda,2
+54,Blurred vision,Reduced visual clarity,Pitta,Eyes,Medium,1,none,0,0,0,oral rehydration,mamsa,1
+55,Double vision,Seeing two images,"Pitta,Vata",Unspecified,High,2,none,0,0,0,rest,majja,2
+56,Eye redness,Red appearance of eyes,Pitta,Eyes,Low,0,none,0,0,0,herbal decoction,rakta,0
+57,Eye discharge,Secretion from eyes,"Pitta,Kapha",Unspecified,Low,0,none,0,0,0,herbal decoction,majja,0
+58,Night blindness,Difficulty seeing in dark,Vata,Eyes,Medium,1,none,0,0,0,warm compress,rasa,1
+59,Sensitivity to light,Photophobia,Pitta,Eyes,Medium,1,none,0,0,0,light food,rasa,1
+60,Flashing lights,Visual disturbances,"Pitta,Vata",Unspecified,High,2,none,0,0,0,cold compress,majja,2
+61,Nosebleeds,Bleeding from nose,"Pitta,Vata",Unspecified,Medium,1,none,0,0,0,herbal decoction,rakta,1
+62,Snoring,Loud breathing during sleep,Kapha,Throat,Low,0,none,0,0,0,oral rehydration,rakta,0
+63,Sleep talking,Speaking during sleep,Vata,Mind,Low,0,none,0,0,0,light food,rasa,0
+64,Sleepwalking,Walking during sleep,Vata,Mind,Medium,1,none,0,0,0,warm compress,rakta,1
+65,Nightmares,Frightening dreams,Vata,Mind,Medium,1,none,0,0,0,cooling diet,rasa,1
+66,Bedwetting,Involuntary urination during sleep,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,warm compress,asthi,0
+67,Sniffles,Minor nasal discharge,Kapha,Nose,Low,0,none,0,0,0,rest,majja,0
+68,Wheezing,Whistling sound while breathing,Kapha,Lungs,Medium,1,none,0,0,0,oral rehydration,rasa,1
+69,Chest tightness,Constriction in chest,Kapha,Lungs,Medium,1,none,0,0,0,cooling diet,asthi,1
+70,Rapid breathing,Tachypnea,Kapha,Lungs,High,2,none,0,0,0,light food,meda,2
+71,Cyanosis,Bluish skin coloration,"Vata,Kapha",Unspecified,High,2,none,0,0,0,cooling diet,rasa,2
+72,Cold extremities,Cold hands and feet,"Vata,Kapha",Unspecified,Low,0,better_with_heat,0,0,0,light food,meda,0
+73,Hot flashes,Sudden heat sensation,Pitta,Upper body,Medium,1,better_with_cold,0,0,0,herbal decoction,majja,1
+74,Flushed face,Reddened facial skin,Pitta,Face,Low,0,better_with_cold,0,0,0,light food,meda,0
+75,Excessive sweating,Sweating beyond normal,Pitta,Whole body,Medium,1,none,0,0,0,warm compress,mamsa,1
+76,Dry skin,Lack of moisture in skin,Vata,Skin,Low,0,none,0,0,0,warm compress,twak,0
+77,Oily skin,Excess sebum production,Pitta,Skin,Low,0,none,0,0,0,cold compress,twak,0
+78,Itching,Pruritus,"Pitta,Kapha",Skin,Low,2,none,0,0,0,rest,rasa,0
+79,Hives,Welts on skin,"Vata,Pitta",Skin,Medium,2,none,0,0,0,light food,majja,0
+80,Eczema patches,Dry irritated skin patches,"Vata,Kapha",Skin,Medium,2,none,0,0,0,rest,meda,0
+81,Acne breakouts,Pimples on skin,"Pitta,Kapha",Skin,Low,2,none,0,0,0,warm compress,majja,0
+82,Skin peeling,Desquamation,"Vata,Pitta",Skin,Low,2,none,0,0,0,rest,shukra,0
+83,Bruising,Easily formed bruises,Vata,Blood vessels,Medium,1,none,0,0,0,warm compress,rakta,1
+84,Pale skin,Reduced skin coloration,"Vata,Kapha",Skin,Low,2,none,0,0,0,oral rehydration,meda,0
+85,Yellow skin,Yellowish skin tone,Pitta,Liver/Skin,Medium,1,none,0,0,0,oral rehydration,twak,1
+86,Blue lips,Cyanosis of lips,"Vata,Kapha",Mouth,High,2,none,0,0,0,cooling diet,majja,0
+87,Cracked lips,Dry fissured lips,"Vata,Kapha",Mouth,Low,2,none,0,0,0,rest,rasa,0
+88,Mouth ulcers,Sores in oral cavity,Pitta,Mouth,Medium,1,none,0,0,0,herbal decoction,shukra,1
+89,Tongue coating,White/yellow tongue,"Pitta,Kapha",Mouth,Low,2,none,0,0,0,light food,majja,0
+90,Bad taste,Metallic/bitter taste,Pitta,Mouth,Low,0,none,0,0,1,oral rehydration,meda,0
+91,Metallic taste,Metal-like taste in mouth,Vata,Mouth,Low,0,none,0,0,1,cooling diet,mamsa,0
+92,Bitter taste,Bitter flavor perception,Pitta,Mouth,Low,0,none,0,0,1,oral rehydration,mamsa,0
+93,Sweet taste,Excessive sweetness perception,Kapha,Mouth,Low,0,none,0,0,1,herbal decoction,asthi,0
+94,Astringent taste,Dry/puckering sensation,Vata,Mouth,Low,0,none,0,0,1,light food,mamsa,0
+95,Pungent taste,Spicy/burning sensation,Pitta,Mouth,Low,0,none,0,0,1,cooling diet,shukra,0
+96,Sour taste,Acidic taste perception,Pitta,Mouth,Low,0,none,0,0,1,cooling diet,asthi,0
+97,Salt taste,Salty flavor perception,Kapha,Mouth,Low,0,none,0,0,1,rest,mamsa,0
+98,Numb tongue,Loss of tongue sensation,Vata,Nervous system,Medium,1,none,0,0,0,oral rehydration,rasa,1
+99,Thick saliva,Dense salivary secretion,Kapha,Mouth,Low,0,none,0,0,0,rest,rasa,0
+100,Dry mouth,Lack of saliva production,Vata,Mouth,Low,0,none,0,0,0,rest,meda,0
+101,Excessive saliva,Saliva overproduction,Kapha,Mouth,Low,0,none,0,0,0,light food,mamsa,0
+102,Foul breath,Halitosis,Kapha,Mouth,Low,0,none,0,0,0,warm compress,majja,0
+103,Mouth sores,Lesions in oral cavity,Pitta,Mouth,Medium,1,none,0,0,0,warm compress,rakta,1
+104,Gum swelling,Inflamed gums,"Pitta,Kapha",Mouth,Low,2,none,0,0,0,oral rehydration,majja,0
+105,Tooth sensitivity,Pain from hot/cold substances,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,light food,meda,1
+106,Loose teeth,Mobility of teeth,"Vata,Kapha",Unspecified,High,2,none,0,0,0,cold compress,shukra,2
+107,Jaw pain,Pain in jaw area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,cooling diet,asthi,1
+108,Neck pain,Pain in neck region,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,oral rehydration,asthi,1
+109,Shoulder pain,Pain in shoulder area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,light food,rasa,1
+110,Elbow pain,Pain in elbow joint,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,rest,asthi,1
+111,Wrist pain,Pain in wrist area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,warm compress,rakta,1
+112,Hand pain,Pain in hand,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,warm compress,rakta,1
+113,Finger pain,Pain in fingers,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,warm compress,asthi,0
+114,Back pain,Pain in back region,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,rasa,2
+115,Waist pain,Pain in腰部,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,rest,rakta,1
+116,Hip pain,Pain in hip area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,herbal decoction,shukra,1
+117,Thigh pain,Pain in thigh,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,cooling diet,shukra,1
+118,Knee pain,Pain in knee joint,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,rasa,2
+119,Calf pain,Pain in calf muscle,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,light food,asthi,1
+120,Ankle pain,Pain in ankle,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,oral rehydration,majja,1
+121,Foot pain,Pain in foot,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,light food,meda,1
+122,Toe pain,Pain in toes,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,cold compress,rasa,0
+123,Menstrual cramps,Pain during menstruation,"Vata,Kapha",Unspecified,High,2,none,0,0,0,herbal decoction,majja,2
+124,Irregular periods,Abnormal menstrual cycle,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,herbal decoction,rakta,1
+125,Heavy bleeding,Excessive menstrual flow,"Pitta,Vata",Unspecified,High,2,none,0,0,0,herbal decoction,mamsa,2
+126,Light bleeding,Minimal menstrual flow,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,oral rehydration,meda,0
+127,Absent periods,No menstrual flow,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,shukra,2
+128,Painful periods,Dysmenorrhea,"Vata,Kapha",Unspecified,High,2,none,0,0,0,light food,rakta,2
+129,Early periods,Premature menstrual flow,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,light food,rakta,1
+130,Late periods,Delayed menstrual flow,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,rest,majja,1
+131,Spotting,Bleeding between periods,"Pitta,Vata",Unspecified,Medium,1,none,0,0,0,oral rehydration,rasa,1
+132,Premenstrual syndrome,Mood/physical changes before period,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,oral rehydration,rasa,1
+133,Hot flushes,Sudden heat waves,Pitta,Upper body,Medium,1,better_with_cold,0,0,0,cooling diet,mamsa,1
+134,Night sweats,Sweating during sleep,Pitta,Whole body,Medium,1,none,0,0,0,herbal decoction,rasa,1
+135,Vaginal dryness,Lack of lubrication,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,cooling diet,mamsa,0
+136,Vaginal itching,Pruritus in vaginal area,"Pitta,Kapha",Unspecified,Low,0,none,0,0,0,cooling diet,asthi,0
+137,Vaginal discharge,Secretion from vagina,Kapha,Vagina,Low,0,none,0,0,0,herbal decoction,rakta,0
+138,Breast tenderness,Soreness in breasts,"Vata,Kapha",Breasts,Low,2,none,0,0,0,cooling diet,asthi,0
+139,Breast lumps,Masses in breast tissue,"Vata,Kapha",Breasts,High,2,none,0,0,0,rest,asthi,0
+140,Nipple discharge,Secretion from nipples,Kapha,Breasts,Low,0,none,0,0,0,cold compress,rasa,0
+141,Low libido,Reduced sexual desire,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,light food,rasa,0
+142,Erectile dysfunction,Impotence,"Vata,Kapha",Unspecified,High,2,none,0,0,0,light food,meda,2
+143,Premature ejaculation,Early climax,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,herbal decoction,asthi,1
+144,Delayed ejaculation,Late climax,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,light food,rakta,1
+145,Painful intercourse,Dyspareunia,"Vata,Kapha",Unspecified,High,2,none,0,0,0,oral rehydration,rakta,2
+146,Vaginismus,Involuntary muscle contraction,"Vata,Kapha",Unspecified,High,2,none,0,0,0,warm compress,majja,2
+147,Infertility,Inability to conceive,"Vata,Kapha",Unspecified,High,2,none,0,0,0,cold compress,shukra,2
+148,Recurrent miscarriage,Repeated pregnancy loss,"Vata,Kapha",Unspecified,High,2,none,0,0,0,light food,shukra,2
+149,Morning sickness,Nausea during pregnancy,"Kapha,Vata",Unspecified,Medium,1,none,0,0,0,warm compress,meda,1
+150,Swelling during pregnancy,Edema in pregnancy,Kapha,Whole body,Medium,1,none,0,0,0,cold compress,asthi,1
+151,High blood pressure during pregnancy,Hypertension in pregnancy,"Vata,Pitta",Unspecified,High,2,none,0,0,0,herbal decoction,meda,2
+152,Gestational diabetes,Diabetes during pregnancy,"Pitta,Kapha",Unspecified,High,2,none,0,0,0,rest,mamsa,2
+153,Preterm labor,Early labor onset,"Vata,Kapha",Unspecified,High,2,none,0,0,0,herbal decoction,rasa,2
+154,Low amniotic fluid,Oligohydramnios,"Vata,Kapha",Unspecified,High,2,none,0,0,0,herbal decoction,rasa,2
+155,Excess amniotic fluid,Polyhydramnios,Kapha,Amniotic sac,High,2,none,0,0,0,herbal decoction,rakta,2
+156,Fetal growth restriction,Restricted fetal growth,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,rakta,2
+157,Preeclampsia,High blood pressure in pregnancy,"Vata,Pitta",Unspecified,High,2,none,0,0,0,light food,shukra,2
+158,Eclampsia,Seizures in pregnancy,"Vata,Pitta",Unspecified,High,2,none,0,0,0,oral rehydration,mamsa,2
+159,Postpartum depression,Depression after childbirth,"Vata,Kapha",Mind,High,2,none,0,0,0,light food,shukra,0
+160,Postpartum hemorrhage,Excessive bleeding after childbirth,"Vata,Pitta",Unspecified,High,2,none,0,0,0,rest,shukra,2
+161,Insufficient milk production,Low breast milk,"Vata,Kapha",Breasts,Medium,2,none,0,0,0,herbal decoction,shukra,0
+162,Excessive milk production,Overproduction of breast milk,Kapha,Breasts,Medium,1,none,0,0,0,light food,shukra,1
+163,Mastitis,Breast tissue infection,"Pitta,Vata",Breasts,High,2,none,0,0,0,warm compress,shukra,0
+164,Blocked milk ducts,Obstructed milk flow,"Vata,Kapha",Breasts,Medium,2,none,0,0,0,herbal decoction,majja,0
+165,Cracked nipples,Damaged nipple skin,"Vata,Kapha",Breasts,Low,2,none,0,0,0,warm compress,meda,0
+166,Engorgement,Overfull breasts,Kapha,Breasts,Medium,1,none,0,0,0,oral rehydration,majja,1
+167,Low sperm count,Oligospermia,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,rest,mamsa,0
+168,Poor sperm motility,Asthenospermia,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,rest,shukra,0
+169,Abnormal sperm morphology,Teratospermia,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,herbal decoction,asthi,0
+170,Erectile dysfunction,Impotence,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,cold compress,rasa,0
+171,Premature ejaculation,Early climax,"Vata,Pitta",Reproductive system,Medium,2,none,0,0,0,herbal decoction,asthi,0
+172,Delayed ejaculation,Late climax,"Vata,Kapha",Reproductive system,Medium,2,none,0,0,0,cold compress,shukra,0
+173,Retrograde ejaculation,Semen flows backward,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,oral rehydration,asthi,0
+174,Painful ejaculation,Discomfort during climax,"Vata,Kapha",Reproductive system,Medium,2,none,0,0,0,oral rehydration,rakta,0
+175,Low testosterone,Hypogonadism,"Vata,Kapha",Endocrine system,High,2,none,0,0,0,light food,shukra,0
+176,High prolactin,Hyperprolactinemia,"Pitta,Kapha",Endocrine system,High,2,none,0,0,0,oral rehydration,rasa,0
+177,Thyroid disorders,Thyroid dysfunction,"Kapha,Vata",Endocrine system,High,2,none,0,0,0,warm compress,rasa,0
+178,Adrenal disorders,Adrenal dysfunction,"Vata,Kapha",Endocrine system,High,2,none,0,0,0,herbal decoction,rasa,0
+179,Pituitary disorders,Pituitary dysfunction,"Vata,Pitta",Endocrine system,High,2,none,0,0,0,herbal decoction,shukra,0
+180,Parathyroid disorders,Calcium regulation issues,"Vata,Pitta",Endocrine system,High,2,none,0,0,0,warm compress,rakta,0
+181,Pancreatic disorders,Insulin/glucagon issues,"Pitta,Kapha",Endocrine system,High,2,none,0,0,0,herbal decoction,rasa,0
+182,Ovarian disorders,Ovary dysfunction,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,warm compress,asthi,0
+183,Testicular disorders,Testis dysfunction,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,light food,mamsa,0
+184,Prostate disorders,Prostate dysfunction,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,cold compress,asthi,0
+185,Uterine disorders,Uterus dysfunction,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,cold compress,rasa,0
+186,Cervical disorders,Cervix dysfunction,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,oral rehydration,majja,0
+187,Fallopian tube disorders,Tubo-ovarian issues,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,warm compress,shukra,0
+188,Vaginal disorders,Vagina dysfunction,"Vata,Kapha",Reproductive system,High,2,none,0,0,0,warm compress,rasa,0
+189,Bladder disorders,Urinary bladder issues,"Vata,Kapha",Urinary system,High,2,none,0,0,0,warm compress,meda,0
+190,Kidney disorders,Renal dysfunction,"Vata,Kapha",Urinary system,High,2,none,0,0,0,rest,rakta,0
+191,Ureter disorders,Urine tube issues,"Vata,Kapha",Urinary system,High,2,none,0,0,0,cooling diet,shukra,0
+192,Urethral disorders,Urinary outlet issues,"Vata,Kapha",Urinary system,High,2,none,0,0,0,warm compress,rasa,0
+193,Liver disorders,Hepatic dysfunction,"Pitta,Kapha",Digestive system,High,2,none,0,0,0,light food,majja,0
+194,Gallbladder disorders,Biliary dysfunction,"Pitta,Kapha",Digestive system,High,2,none,0,0,0,oral rehydration,mamsa,0
+195,Pancreas disorders,Enzyme production issues,"Pitta,Kapha",Digestive system,High,2,none,0,0,0,herbal decoction,meda,0
+196,Stomach disorders,Gastric dysfunction,"Pitta,Vata",Digestive system,High,2,none,0,0,0,warm compress,asthi,0
+197,Small intestine disorders,Enteric dysfunction,"Vata,Pitta",Digestive system,High,2,none,0,0,0,herbal decoction,meda,0
+198,Large intestine disorders,Colonic dysfunction,"Vata,Kapha",Digestive system,High,2,none,0,0,0,warm compress,meda,0
+199,Appendix disorders,Appendiceal dysfunction,"Vata,Kapha",Digestive system,High,2,none,0,0,0,warm compress,rakta,0
+200,Rectal disorders,Rectal dysfunction,"Vata,Kapha",Digestive system,High,2,none,0,0,0,warm compress,meda,0
+201,Fatigue,Feeling tired or lacking energy,Vata,Whole body,Medium,1,none,0,0,0,herbal decoction,shukra,1
+202,Headache,Pain in the head,Pitta,Head,Low,0,none,0,0,0,warm compress,asthi,0
+203,Nausea,Feeling of sickness in the stomach,Pitta,Abdomen,Low,0,none,0,1,0,warm compress,rasa,0
+204,Joint stiffness,Difficulty moving joints,Vata,Knee/Shoulder,Medium,1,none,0,0,0,warm compress,mamsa,1
+205,Skin rash,Reddish skin irritation,Pitta,Skin,Low,0,none,0,0,0,light food,twak,0
+206,Cough,Expulsion of air from lungs,Kapha,Throat/Lungs,Low,0,none,0,0,0,light food,asthi,0
+207,Memory lapses,Frequent forgetting,Vata,Brain,Low,0,none,0,0,0,rest,mamsa,0
+208,Weight gain,Increase in body weight,Kapha,Whole body,High,2,none,0,0,0,rest,rasa,2
+209,Acidity,Burning sensation in stomach,Pitta,Abdomen,Medium,1,none,1,0,1,cooling diet,meda,1
+210,Anxiety,Fear and nervousness,Vata,Mind,Medium,1,none,0,0,0,rest,shukra,1
+211,Constipation,Difficulty passing stool,Vata,Colon,Medium,1,none,0,0,0,herbal decoction,asthi,1
+212,Depression,Sadness and hopelessness,Kapha,Mind,High,2,none,0,0,0,rest,shukra,2
+213,Insomnia,Difficulty sleeping,Vata,Brain,Medium,1,none,0,0,0,warm compress,asthi,1
+214,Inflammation,Swelling and redness,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,light food,shukra,1
+215,Congestion,Blockage in respiratory tract,Kapha,Nose/Lungs,Low,0,none,0,0,0,warm compress,shukra,0
+216,Fever,Elevated body temperature,Pitta,Whole body,High,2,better_with_cold,0,0,0,light food,majja,2
+217,Chills,Feeling cold despite warm environment,"Vata,Kapha",Unspecified,Medium,1,better_with_heat,0,0,0,oral rehydration,asthi,1
+218,Sweating,Excessive perspiration,Pitta,Whole body,Medium,1,none,0,0,0,rest,shukra,1
+219,Dizziness,Loss of balance or faintness,Vata,Head,Medium,1,none,0,0,0,cold compress,rasa,1
+220,Palpitations,Rapid or irregular heartbeat,"Vata,Pitta",Unspecified,High,2,none,0,0,0,cold compress,meda,2
+221,Shortness of breath,Difficulty breathing,Kapha,Lungs,High,2,none,0,0,0,warm compress,asthi,2
+222,Chest pain,Discomfort in chest area,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,shukra,2
+223,Abdominal pain,Pain in stomach region,"Pitta,Vata",Unspecified,Medium,1,none,0,0,0,herbal decoction,mamsa,1
+224,Bloating,Feeling of fullness in abdomen,Kapha,Abdomen,Low,0,none,0,1,0,cold compress,rasa,0
+225,Diarrhea,Loose or watery stools,"Pitta,Kapha",Unspecified,Medium,1,none,0,0,0,rest,rasa,1
+226,Vomiting,Forceful expulsion of stomach contents,"Pitta,Vata",Unspecified,High,2,none,0,1,0,herbal decoction,shukra,2
+227,Yellowing of eyes/skin,Jaundice,Pitta,Liver,High,2,none,0,0,0,cold compress,asthi,2
+228,Dark urine,Concentrated urine color,Pitta,Kidneys,Medium,1,none,0,0,0,cold compress,rasa,1
+229,Frequent urination,Need to urinate often,Pitta,Kidneys,Medium,1,none,0,0,0,rest,meda,1
+230,Blood in urine,Hematuria,"Pitta,Vata",Unspecified,High,2,none,0,0,0,herbal decoction,mamsa,2
+231,Swelling,Edema in body parts,Kapha,Whole body,Medium,1,none,0,0,0,light food,rakta,1
+232,Muscle cramps,Sudden muscle contractions,Vata,Muscles,Medium,1,none,0,0,0,cooling diet,mamsa,1
+233,Tremors,Uncontrollable shaking,Vata,Nervous system,Medium,1,none,0,0,0,cold compress,meda,1
+234,Numbness,Loss of sensation,Vata,Nervous system,Medium,1,none,0,0,0,herbal decoction,mamsa,1
+235,Tingling,Pins and needles sensation,Vata,Nervous system,Low,0,none,0,0,0,warm compress,asthi,0
+236,Weakness,Lack of physical strength,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,herbal decoction,rakta,1
+237,Irritability,Easily annoyed or angered,Pitta,Mind,Medium,1,none,0,0,0,rest,rasa,1
+238,Confusion,Mental disorientation,"Pitta,Vata",Unspecified,High,2,none,0,0,0,cooling diet,shukra,2
+239,Delusions,False beliefs despite evidence,"Vata,Pitta",Unspecified,High,2,none,0,0,0,cold compress,rasa,2
+240,Hallucinations,Sensing things that aren't there,"Vata,Pitta",Unspecified,High,2,none,0,0,0,light food,shukra,2
+241,Loss of appetite,Reduced desire to eat,"Vata,Pitta",Unspecified,Low,0,none,0,0,0,oral rehydration,majja,0
+242,Excessive thirst,Constant need to drink water,Pitta,Whole body,Medium,1,none,0,0,0,cold compress,rakta,1
+243,Dry mouth,Lack of saliva in mouth,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,rest,rakta,0
+244,Bad breath,Unpleasant odor from mouth,Kapha,Oral cavity,Low,0,none,0,0,0,rest,asthi,0
+245,Gum bleeding,Bleeding from gums,"Pitta,Vata",Unspecified,Low,0,none,0,0,0,cold compress,asthi,0
+246,Toothache,Pain in teeth,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,herbal decoction,shukra,1
+247,Sore throat,Pain or irritation in throat,Kapha,Throat,Low,0,none,0,0,0,rest,meda,0
+248,Nasal congestion,Blocked nose,Kapha,Nose,Low,0,none,0,0,0,cooling diet,majja,0
+249,Sneezing,Involuntary expulsion through nose,"Kapha,Vata",Unspecified,Low,0,none,0,0,0,herbal decoction,rakta,0
+250,Watery eyes,Excess tear production,Kapha,Eyes,Low,0,none,0,0,0,warm compress,rakta,0
+251,Earache,Pain in ears,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,oral rehydration,mamsa,0
+252,Hearing loss,Reduced hearing ability,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,rest,asthi,1
+253,Vertigo,Sensation of spinning,Vata,Inner ear,High,2,none,0,0,0,oral rehydration,meda,2
+254,Blurred vision,Reduced visual clarity,Pitta,Eyes,Medium,1,none,0,0,0,light food,shukra,1
+255,Double vision,Seeing two images,"Pitta,Vata",Unspecified,High,2,none,0,0,0,oral rehydration,rakta,2
+256,Eye redness,Red appearance of eyes,Pitta,Eyes,Low,0,none,0,0,0,herbal decoction,mamsa,0
+257,Eye discharge,Secretion from eyes,"Pitta,Kapha",Unspecified,Low,0,none,0,0,0,herbal decoction,meda,0
+258,Night blindness,Difficulty seeing in dark,Vata,Eyes,Medium,1,none,0,0,0,cold compress,rasa,1
+259,Sensitivity to light,Photophobia,Pitta,Eyes,Medium,1,none,0,0,0,herbal decoction,shukra,1
+260,Flashing lights,Visual disturbances,"Pitta,Vata",Unspecified,High,2,none,0,0,0,cold compress,rasa,2
+261,Nosebleeds,Bleeding from nose,"Pitta,Vata",Unspecified,Medium,1,none,0,0,0,warm compress,shukra,1
+262,Snoring,Loud breathing during sleep,Kapha,Throat,Low,0,none,0,0,0,warm compress,majja,0
+263,Sleep talking,Speaking during sleep,Vata,Mind,Low,0,none,0,0,0,cold compress,shukra,0
+264,Sleepwalking,Walking during sleep,Vata,Mind,Medium,1,none,0,0,0,rest,asthi,1
+265,Nightmares,Frightening dreams,Vata,Mind,Medium,1,none,0,0,0,warm compress,shukra,1
+266,Bedwetting,Involuntary urination during sleep,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,cold compress,majja,0
+267,Sniffles,Minor nasal discharge,Kapha,Nose,Low,0,none,0,0,0,warm compress,asthi,0
+268,Wheezing,Whistling sound while breathing,Kapha,Lungs,Medium,1,none,0,0,0,cold compress,rasa,1
+269,Chest tightness,Constriction in chest,Kapha,Lungs,Medium,1,none,0,0,0,cold compress,majja,1
+270,Rapid breathing,Tachypnea,Kapha,Lungs,High,2,none,0,0,0,oral rehydration,rakta,2
+271,Cyanosis,Bluish skin coloration,"Vata,Kapha",Unspecified,High,2,none,0,0,0,cold compress,asthi,2
+272,Cold extremities,Cold hands and feet,"Vata,Kapha",Unspecified,Low,0,better_with_heat,0,0,0,light food,majja,0
+273,Hot flashes,Sudden heat sensation,Pitta,Upper body,Medium,1,better_with_cold,0,0,0,light food,rakta,1
+274,Flushed face,Reddened facial skin,Pitta,Face,Low,0,better_with_cold,0,0,0,cooling diet,majja,0
+275,Excessive sweating,Sweating beyond normal,Pitta,Whole body,Medium,1,none,0,0,0,herbal decoction,majja,1
+276,Dry skin,Lack of moisture in skin,Vata,Skin,Low,0,none,0,0,0,light food,twak,0
+277,Oily skin,Excess sebum production,Pitta,Skin,Low,0,none,0,0,0,oral rehydration,twak,0
+278,Itching,Pruritus,"Pitta,Kapha",Skin,Low,2,none,0,0,0,light food,shukra,0
+279,Hives,Welts on skin,"Vata,Pitta",Skin,Medium,2,none,0,0,0,light food,rasa,0
+280,Eczema patches,Dry irritated skin patches,"Vata,Kapha",Skin,Medium,2,none,0,0,0,warm compress,asthi,0
+281,Acne breakouts,Pimples on skin,"Pitta,Kapha",Skin,Low,2,none,0,0,0,cold compress,asthi,0
+282,Skin peeling,Desquamation,"Vata,Pitta",Skin,Low,2,none,0,0,0,herbal decoction,meda,0
+283,Bruising,Easily formed bruises,Vata,Blood vessels,Medium,1,none,0,0,0,cooling diet,rakta,1
+284,Pale skin,Reduced skin coloration,"Vata,Kapha",Skin,Low,2,none,0,0,0,oral rehydration,rasa,0
+285,Yellow skin,Yellowish skin tone,Pitta,Liver/Skin,Medium,1,none,0,0,0,light food,twak,1
+286,Blue lips,Cyanosis of lips,"Vata,Kapha",Mouth,High,2,none,0,0,0,oral rehydration,rasa,0
+287,Cracked lips,Dry fissured lips,"Vata,Kapha",Mouth,Low,2,none,0,0,0,herbal decoction,majja,0
+288,Mouth ulcers,Sores in oral cavity,Pitta,Mouth,Medium,1,none,0,0,0,herbal decoction,asthi,1
+289,Tongue coating,White/yellow tongue,"Pitta,Kapha",Mouth,Low,2,none,0,0,0,cooling diet,rasa,0
+290,Bad taste,Metallic/bitter taste,Pitta,Mouth,Low,0,none,0,0,1,oral rehydration,asthi,0
+291,Metallic taste,Metal-like taste in mouth,Vata,Mouth,Low,0,none,0,0,1,oral rehydration,mamsa,0
+292,Bitter taste,Bitter flavor perception,Pitta,Mouth,Low,0,none,0,0,1,light food,asthi,0
+293,Sweet taste,Excessive sweetness perception,Kapha,Mouth,Low,0,none,0,0,1,warm compress,mamsa,0
+294,Astringent taste,Dry/puckering sensation,Vata,Mouth,Low,0,none,0,0,1,rest,majja,0
+295,Pungent taste,Spicy/burning sensation,Pitta,Mouth,Low,0,none,0,0,1,oral rehydration,meda,0
+296,Sour taste,Acidic taste perception,Pitta,Mouth,Low,0,none,0,0,1,rest,rakta,0
+297,Salt taste,Salty flavor perception,Kapha,Mouth,Low,0,none,0,0,1,rest,meda,0
+298,Numb tongue,Loss of tongue sensation,Vata,Nervous system,Medium,1,none,0,0,0,herbal decoction,shukra,1
+299,Thick saliva,Dense salivary secretion,Kapha,Mouth,Low,0,none,0,0,0,warm compress,rakta,0
+300,Dry mouth,Lack of saliva production,Vata,Mouth,Low,0,none,0,0,0,rest,meda,0
+301,Excessive saliva,Saliva overproduction,Kapha,Mouth,Low,0,none,0,0,0,oral rehydration,shukra,0
+302,Foul breath,Halitosis,Kapha,Mouth,Low,0,none,0,0,0,warm compress,meda,0
+303,Mouth sores,Lesions in oral cavity,Pitta,Mouth,Medium,1,none,0,0,0,herbal decoction,rasa,1
+304,Gum swelling,Inflamed gums,"Pitta,Kapha",Mouth,Low,2,none,0,0,0,warm compress,asthi,0
+305,Tooth sensitivity,Pain from hot/cold substances,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,light food,rasa,1
+306,Loose teeth,Mobility of teeth,"Vata,Kapha",Unspecified,High,2,none,0,0,0,oral rehydration,asthi,2
+307,Jaw pain,Pain in jaw area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,cooling diet,asthi,1
+308,Neck pain,Pain in neck region,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,light food,rakta,1
+309,Shoulder pain,Pain in shoulder area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,warm compress,asthi,1
+310,Elbow pain,Pain in elbow joint,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,herbal decoction,asthi,1
+311,Wrist pain,Pain in wrist area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,herbal decoction,asthi,1
+312,Hand pain,Pain in hand,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,rest,mamsa,1
+313,Finger pain,Pain in fingers,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,herbal decoction,mamsa,0
+314,Back pain,Pain in back region,"Vata,Kapha",Unspecified,High,2,none,0,0,0,warm compress,mamsa,2
+315,Waist pain,Pain in腰部,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,warm compress,asthi,1
+316,Hip pain,Pain in hip area,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,cold compress,mamsa,1
+317,Thigh pain,Pain in thigh,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,cold compress,mamsa,1
+318,Knee pain,Pain in knee joint,"Vata,Kapha",Unspecified,High,2,none,0,0,0,cold compress,asthi,2
+319,Calf pain,Pain in calf muscle,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,light food,shukra,1
+320,Ankle pain,Pain in ankle,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,warm compress,rakta,1
+321,Foot pain,Pain in foot,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,cooling diet,meda,1
+322,Toe pain,Pain in toes,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,rest,majja,0
+323,Menstrual cramps,Pain during menstruation,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,rasa,2
+324,Irregular periods,Abnormal menstrual cycle,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,cooling diet,asthi,1
+325,Heavy bleeding,Excessive menstrual flow,"Pitta,Vata",Unspecified,High,2,none,0,0,0,warm compress,meda,2
+326,Light bleeding,Minimal menstrual flow,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,light food,majja,0
+327,Absent periods,No menstrual flow,"Vata,Kapha",Unspecified,High,2,none,0,0,0,cold compress,mamsa,2
+328,Painful periods,Dysmenorrhea,"Vata,Kapha",Unspecified,High,2,none,0,0,0,cold compress,mamsa,2
+329,Early periods,Premature menstrual flow,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,light food,mamsa,1
+330,Late periods,Delayed menstrual flow,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,light food,asthi,1
+331,Spotting,Bleeding between periods,"Pitta,Vata",Unspecified,Medium,1,none,0,0,0,cooling diet,meda,1
+332,Premenstrual syndrome,Mood/physical changes before period,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,cold compress,rakta,1
+333,Hot flushes,Sudden heat waves,Pitta,Upper body,Medium,1,better_with_cold,0,0,0,rest,shukra,1
+334,Night sweats,Sweating during sleep,Pitta,Whole body,Medium,1,none,0,0,0,rest,rakta,1
+335,Vaginal dryness,Lack of lubrication,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,cooling diet,rasa,0
+336,Vaginal itching,Pruritus in vaginal area,"Pitta,Kapha",Unspecified,Low,0,none,0,0,0,cooling diet,asthi,0
+337,Vaginal discharge,Secretion from vagina,Kapha,Vagina,Low,0,none,0,0,0,warm compress,meda,0
+338,Breast tenderness,Soreness in breasts,"Vata,Kapha",Breasts,Low,2,none,0,0,0,cold compress,shukra,0
+339,Breast lumps,Masses in breast tissue,"Vata,Kapha",Breasts,High,2,none,0,0,0,cold compress,majja,0
+340,Nipple discharge,Secretion from nipples,Kapha,Breasts,Low,0,none,0,0,0,herbal decoction,asthi,0
+341,Low libido,Reduced sexual desire,"Vata,Kapha",Unspecified,Low,0,none,0,0,0,oral rehydration,majja,0
+342,Erectile dysfunction,Impotence,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,majja,2
+343,Premature ejaculation,Early climax,"Vata,Pitta",Unspecified,Medium,1,none,0,0,0,herbal decoction,shukra,1
+344,Delayed ejaculation,Late climax,"Vata,Kapha",Unspecified,Medium,1,none,0,0,0,herbal decoction,rasa,1
+345,Painful intercourse,Dyspareunia,"Vata,Kapha",Unspecified,High,2,none,0,0,0,warm compress,asthi,2
+346,Vaginismus,Involuntary muscle contraction,"Vata,Kapha",Unspecified,High,2,none,0,0,0,light food,majja,2
+347,Infertility,Inability to conceive,"Vata,Kapha",Unspecified,High,2,none,0,0,0,oral rehydration,majja,2
+348,Recurrent miscarriage,Repeated pregnancy loss,"Vata,Kapha",Unspecified,High,2,none,0,0,0,rest,mamsa,2
+349,Morning sickness,Nausea during pregnancy,"Kapha,Vata",Unspecified,Medium,1,none,0,0,0,rest,shukra,1
+350,Swelling during pregnancy,Edema in pregnancy,Kapha,Whole body,Medium,1,none,0,0,0,cold compress,shukra,1

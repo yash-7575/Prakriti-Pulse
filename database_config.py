@@ -1,176 +1,164 @@
-"""
-Database configuration for Prakriti Pulse Flask application
-"""
-
-import mysql.connector
-from mysql.connector import Error
-import os
-from flask import current_app
+from neo4j import GraphDatabase
+from datetime import datetime
 
 class DatabaseConfig:
-    """Database configuration and connection management"""
-    
     def __init__(self):
-        self.host = os.environ.get('DB_HOST', 'localhost')
-        self.user = os.environ.get('DB_USER', 'root')
-        self.password = os.environ.get('DB_PASSWORD', '')
-        self.database = os.environ.get('DB_NAME', 'Prakriti_Pulse')
-        self.charset = 'utf8mb4'
-        self.collation = 'utf8mb4_unicode_ci'
-    
-    def get_connection(self):
-        """Get database connection"""
-        try:
-            connection = mysql.connector.connect(
-                host=self.host,
-                user=self.user,
-                password=self.password,
-                database=self.database,
-                charset=self.charset,
-                collation=self.collation,
-                autocommit=True
-            )
+        # Connect to the local Neo4j Database
+        self.uri = "neo4j://localhost:7687"
+        self.auth = ("neo4j", "ayurveda_password")
+        self.driver = GraphDatabase.driver(self.uri, auth=self.auth)
+
+    def close(self):
+        self.driver.close()
+
+    def get_herbs(self):
+        """
+        Return all nodes labeled :Herb.
+        """
+        query = """
+        MATCH (h:Herb)
+        RETURN h.herb_id as herb_id,
+               h.name as herb_name_english,
+               h.sanskrit_name as herb_name_sanskrit,
+               h.scientific_name as scientific_name,
+               h.rasa as rasa,
+               h.virya as virya,
+               h.vipaka as vipaka,
+               h.prabhava as prabhava,
+               h.vata_effect as vata_effect,
+               h.pitta_effect as pitta_effect,
+               h.kapha_effect as kapha_effect,
+               h.part_used as part_used,
+               h.dosage as dosage,
+               h.preparation_method as preparation_method,
+               h.contraindications as contraindications,
+               h.description as description
+        """
+        with self.driver.session() as session:
+            result = session.run(query)
+            return [record.data() for record in result]
+
+    def get_symptoms(self):
+        """
+        Return all nodes labeled :Symptom.
+        """
+        query = """
+        MATCH (s:Symptom)
+        RETURN s.symptom_id as symptom_id,
+               s.name as symptom_name,
+               s.category as symptom_category,
+               s.description as description
+        """
+        with self.driver.session() as session:
+            result = session.run(query)
+            return [record.data() for record in result]
+
+    def add_patient_profile(self, age, gender, prakriti_type, symptoms, severity, treatment_history, effectiveness, practitioner_notes):
+        """
+        Create a node (:Patient) and save these as properties.
+        """
+        query = """
+        CREATE (p:Patient {
+            age: $age,
+            gender: $gender,
+            prakriti_type: $prakriti_type,
+            symptoms: $symptoms,
+            severity: $severity,
+            treatment_history: $treatment_history,
+            effectiveness: $effectiveness,
+            practitioner_notes: $practitioner_notes,
+            created_at: $created_at
+        })
+        RETURN id(p) as patient_id
+        """
+        with self.driver.session() as session:
+            result = session.run(query, 
+                               age=age, 
+                               gender=gender, 
+                               prakriti_type=prakriti_type, 
+                               symptoms=symptoms, 
+                               severity=severity,
+                               treatment_history=treatment_history,
+                               effectiveness=effectiveness,
+                               practitioner_notes=practitioner_notes,
+                               created_at=datetime.now().isoformat())
+            record = result.single()
+            return record["patient_id"] if record else None
+
+    def get_herbs_for_symptom(self, symptom_id):
+        """
+        Finds herbs connected to that symptom (or via a condition).
+        Assuming symptom_id is passed, but if it's a name we might need to adjust.
+        Based on app.py usage, it seems to be an ID or name from the form.
+        Let's assume it matches the 'symptom_id' property or 'name' if passed as string.
+        """
+        query = """
+        MATCH (s:Symptom) WHERE toString(s.symptom_id) = toString($symptom_id) OR s.name = $symptom_id
+        MATCH (h:Herb)-[:TREATS]->(c:Condition)-[:MANIFESTS_AS]->(s)
+        RETURN DISTINCT h.herb_id as herb_id,
+                        h.name as herb_name_english,
+                        h.sanskrit_name as herb_name_sanskrit,
+                        h.scientific_name as scientific_name,
+                        h.rasa as rasa,
+                        h.virya as virya,
+                        h.vipaka as vipaka,
+                        h.prabhava as prabhava,
+                        h.vata_effect as vata_effect,
+                        h.pitta_effect as pitta_effect,
+                        h.kapha_effect as kapha_effect,
+                        h.part_used as part_used,
+                        h.dosage as dosage,
+                        h.preparation_method as preparation_method,
+                        h.contraindications as contraindications,
+                        h.description as description,
+                        1.0 as effectiveness_score 
+        """
+        # Note: effectiveness_score is hardcoded for now as it wasn't in the original schema explicitly
+        with self.driver.session() as session:
+            result = session.run(query, symptom_id=symptom_id)
+            return [record.data() for record in result]
+
+    def get_symptoms_for_herb(self, herb_id):
+        """
+        Find symptoms treated by a specific herb.
+        """
+        query = """
+        MATCH (h:Herb) WHERE toString(h.herb_id) = toString($herb_id)
+        MATCH (h)-[:TREATS]->(c:Condition)-[:MANIFESTS_AS]->(s:Symptom)
+        RETURN DISTINCT s.symptom_id as symptom_id,
+                        s.name as symptom_name,
+                        s.category as symptom_category,
+                        s.description as description
+        """
+        with self.driver.session() as session:
+            result = session.run(query, herb_id=herb_id)
+            return [record.data() for record in result]
+
+    def get_formulations(self):
+        """
+        Return all formulations.
+        """
+        query = """
+        MATCH (f:Formulation)
+        RETURN f.name as name, f.description as description
+        """
+        with self.driver.session() as session:
+            result = session.run(query)
+            return [record.data() for record in result]
             
-            if connection.is_connected():
-                return connection
-            else:
-                return None
-                
-        except Error as e:
-            print(f"Database connection error: {e}")
-            return None
-    
-    def execute_query(self, query, params=None, fetch=False):
-        """Execute a database query"""
-        connection = None
-        cursor = None
+    def get_prakriti_profile_by_scores(self, vata, pitta, kapha):
+        """
+        Determine prakriti profile based on scores.
+        This is a placeholder logic or could be a DB lookup if you have profiles stored.
+        """
+        # Simple logic to determine dominant dosha
+        scores = {'vata': vata, 'pitta': pitta, 'kapha': kapha}
+        dominant = max(scores, key=scores.get)
         
-        try:
-            connection = self.get_connection()
-            if not connection:
-                return None
-            
-            cursor = connection.cursor(dictionary=True)
-            cursor.execute(query, params or ())
-            
-            if fetch:
-                return cursor.fetchall()
-            else:
-                connection.commit()
-                return cursor.rowcount
-                
-        except Error as e:
-            print(f"Query execution error: {e}")
-            return None
-        finally:
-            if cursor:
-                cursor.close()
-            if connection and connection.is_connected():
-                connection.close()
-
-# Database helper functions
-def get_herbs():
-    """Get all herbs from database"""
-    db = DatabaseConfig()
-    query = "SELECT * FROM herbs ORDER BY herb_name_english"
-    return db.execute_query(query, fetch=True)
-
-def get_symptoms():
-    """Get all symptoms from database"""
-    db = DatabaseConfig()
-    query = "SELECT * FROM symptoms ORDER BY symptom_name"
-    return db.execute_query(query, fetch=True)
-
-def get_prakriti_profiles():
-    """Get all prakriti profiles from database"""
-    db = DatabaseConfig()
-    query = "SELECT * FROM prakriti_profiles ORDER BY profile_id"
-    return db.execute_query(query, fetch=True)
-
-def get_herb_symptom_relationships():
-    """Get herb-symptom relationships"""
-    db = DatabaseConfig()
-    query = """
-    SELECT hsr.*, h.herb_name_english, s.symptom_name 
-    FROM herb_symptom_relationships hsr
-    JOIN herbs h ON hsr.herb_id = h.herb_id
-    JOIN symptoms s ON hsr.symptom_id = s.symptom_id
-    ORDER BY hsr.effectiveness_score DESC
-    """
-    return db.execute_query(query, fetch=True)
-
-def get_formulations():
-    """Get all formulations from database"""
-    db = DatabaseConfig()
-    query = "SELECT * FROM formulations ORDER BY formulation_name"
-    return db.execute_query(query, fetch=True)
-
-def get_herbs_for_symptom(symptom_id):
-    """Get herbs recommended for a specific symptom"""
-    db = DatabaseConfig()
-    query = """
-    SELECT h.*, hsr.effectiveness_score, hsr.dosage_for_symptom, 
-           hsr.preparation_method, hsr.duration_of_treatment
-    FROM herbs h
-    JOIN herb_symptom_relationships hsr ON h.herb_id = hsr.herb_id
-    WHERE hsr.symptom_id = %s
-    ORDER BY hsr.effectiveness_score DESC
-    """
-    return db.execute_query(query, (symptom_id,), fetch=True)
-
-def get_symptoms_for_herb(herb_id):
-    """Get symptoms that a specific herb can help with"""
-    db = DatabaseConfig()
-    query = """
-    SELECT s.*, hsr.effectiveness_score, hsr.dosage_for_symptom,
-           hsr.preparation_method, hsr.duration_of_treatment
-    FROM symptoms s
-    JOIN herb_symptom_relationships hsr ON s.symptom_id = hsr.symptom_id
-    WHERE hsr.herb_id = %s
-    ORDER BY hsr.effectiveness_score DESC
-    """
-    return db.execute_query(query, (herb_id,), fetch=True)
-
-def get_prakriti_profile_by_scores(vata_score, pitta_score, kapha_score):
-    """Get prakriti profile based on dosha scores"""
-    db = DatabaseConfig()
-    query = """
-    SELECT * FROM prakriti_profiles 
-    WHERE vata_score = %s AND pitta_score = %s AND kapha_score = %s
-    LIMIT 1
-    """
-    return db.execute_query(query, (vata_score, pitta_score, kapha_score), fetch=True)
-
-def add_patient_profile(age, gender, prakriti_type, current_symptoms, 
-                       symptom_severity, treatment_history, effectiveness_rating, 
-                       practitioner_notes):
-    """Add a new patient profile"""
-    db = DatabaseConfig()
-    query = """
-    INSERT INTO patient_profiles 
-    (age, gender, prakriti_type, current_symptoms, symptom_severity, 
-     treatment_history, effectiveness_rating, practitioner_notes)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-    """
-    return db.execute_query(query, (age, gender, prakriti_type, current_symptoms,
-                                   symptom_severity, treatment_history, 
-                                   effectiveness_rating, practitioner_notes))
-
-def get_patient_profiles():
-    """Get all patient profiles"""
-    db = DatabaseConfig()
-    query = "SELECT * FROM patient_profiles ORDER BY patient_id DESC"
-    return db.execute_query(query, fetch=True)
-
-# Test database connection
-def test_connection():
-    """Test database connection"""
-    db = DatabaseConfig()
-    connection = db.get_connection()
-    if connection:
-        print("✅ Database connection successful!")
-        connection.close()
-        return True
-    else:
-        print("❌ Database connection failed!")
-        return False
+        return [{
+            'dominant_dosha': dominant,
+            'constitution_type': f"{dominant.title()} Dominant",
+            'characteristics': f"High {dominant} characteristics.",
+            'common_ailments': "Varies based on imbalance.",
+            'recommended_lifestyle': "Balance with opposite qualities."
+        }]
