@@ -10,7 +10,6 @@ from flask import (
 )
 from database_config import DatabaseConfig
 import json
-from ai_engine.predictor import AyurvedaPredictor
 
 app = Flask(__name__)
 app.secret_key = "ayurveda_secret_key"  # Change this in production
@@ -18,39 +17,6 @@ app.secret_key = "ayurveda_secret_key"  # Change this in production
 # Initialize Database Connection
 db = DatabaseConfig()
 
-# app.py updates
-from ai_engine.predictor import AyurvedaPredictor
-
-# Initialize ONCE (Global variable)
-# Ensure paths are correct relative to app.py
-ai_brain = AyurvedaPredictor(
-    model_path='ai_engine/ayurveda_gnn_model.pth',
-    data_path='ai_engine/graph_data.pt',
-    artifacts_path='ai_engine/gnn_artifacts.pkl'
-)
-
-@app.route('/api/recommend', methods=['POST'])
-def api_recommend():
-    data = request.get_json()
-    symptoms = data.get('symptoms', []) # This might be a list, retrieve the string name
-    prakriti = data.get('prakriti_type', '')
-    
-    # If multiple symptoms, maybe iterate or pick primary
-    primary_symptom = symptoms[0] if symptoms else ""
-
-    # RUN AI PREDICTION
-    results = ai_brain.predict(primary_symptom, prakriti)
-    
-    if not results:
-        # Fallback to Neo4j logic if AI is unsure
-        return jsonify({'success': True, 'source': 'Database', 'recommendations': []}) # Or call db.get_herbs...
-
-    return jsonify({
-        'success': True, 
-        'source': 'AI_GNN', 
-        'recommendations': results
-    })
-    
 # --- ROUTES ---
 
 
