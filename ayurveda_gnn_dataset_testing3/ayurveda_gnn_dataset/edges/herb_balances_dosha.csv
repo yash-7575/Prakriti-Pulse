@@ -1,0 +1,1501 @@
+sourcenodeid,targetnodeid,relationshiptype,effecttype,intensity,primaryaction,secondaryaction
+1,1,herbbalancesdosha,Balancing,High,Grounding,Calming
+1,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+2,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+2,3,herbbalancesdosha,Balancing,Medium,Drying,Lightening
+3,1,herbbalancesdosha,Balancing,Medium,Drying,Lightening
+3,2,herbbalancesdosha,Balancing,High,Cooling,Digestive stimulant
+3,3,herbbalancesdosha,Balancing,High,Drying,Lightening
+4,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+4,3,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+5,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+5,3,herbbalancesdosha,Balancing,Medium,Drying,Anti-bacterial
+6,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+6,3,herbbalancesdosha,Balancing,High,Warming,Drying
+7,2,herbbalancesdosha,Balancing,High,Cooling,Rejuvenating
+8,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+8,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+9,1,herbbalancesdosha,Balancing,High,Grounding,Drying
+9,3,herbbalancesdosha,Balancing,High,Drying,Lightening
+10,1,herbbalancesdosha,Balancing,Medium,Grounding,Warming
+10,3,herbbalancesdosha,Balancing,High,Warming,Drying
+11,2,herbbalancesdosha,Balancing,High,Cooling,Astringent
+11,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+12,1,herbbalancesdosha,Balancing,High,Drying,Astringent
+12,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+13,2,herbbalancesdosha,Balancing,Medium,Cooling,Astringent
+13,3,herbbalancesdosha,Balancing,High,Drying,Astringent
+14,2,herbbalancesdosha,Balancing,High,Cooling,Moistening
+14,1,herbbalancesdosha,Balancing,Medium,Grounding,Moistening
+15,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+15,2,herbbalancesdosha,Balancing,High,Warming,Stimulating
+16,1,herbbalancesdosha,Balancing,Medium,Drying,Diuretic
+16,3,herbbalancesdosha,Balancing,High,Drying,Diuretic
+17,1,herbbalancesdosha,Balancing,High,Grounding,Calming
+17,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+18,1,herbbalancesdosha,Balancing,High,Grounding,Calming
+18,3,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+19,2,herbbalancesdosha,Balancing,High,Cooling,Hair nourishing
+19,3,herbbalancesdosha,Balancing,Medium,Drying,Hair nourishing
+20,2,herbbalancesdosha,Balancing,High,Cooling,Blood purifying
+20,3,herbbalancesdosha,Balancing,Medium,Drying,Blood purifying
+21,2,herbbalancesdosha,Balancing,High,Cooling,Liver protective
+21,3,herbbalancesdosha,Balancing,Medium,Drying,Liver protective
+22,1,herbbalancesdosha,Balancing,Medium,Grounding,Immune boosting
+22,2,herbbalancesdosha,Balancing,High,Cooling,Immune boosting
+22,3,herbbalancesdosha,Balancing,Medium,Drying,Immune boosting
+23,2,herbbalancesdosha,Balancing,High,Cooling,Rejuvenating
+23,1,herbbalancesdosha,Balancing,Medium,Grounding,Rejuvenating
+24,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+24,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+25,1,herbbalancesdosha,Balancing,High,Drying,Diuretic
+25,3,herbbalancesdosha,Balancing,Medium,Drying,Diuretic
+26,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+26,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+27,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+27,3,herbbalancesdosha,Balancing,Medium,Drying,Lightening
+28,2,herbbalancesdosha,Balancing,High,Cooling,Liver protective
+28,3,herbbalancesdosha,Balancing,Medium,Drying,Liver protective
+29,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+29,3,herbbalancesdosha,Balancing,High,Warming,Drying
+30,2,herbbalancesdosha,Balancing,High,Cooling,Moistening
+30,1,herbbalancesdosha,Balancing,Medium,Grounding,Moistening
+31,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+31,3,herbbalancesdosha,Balancing,High,Warming,Drying
+32,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+32,3,herbbalancesdosha,Balancing,Medium,Drying,Nourishing
+33,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+33,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+34,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+34,3,herbbalancesdosha,Balancing,Medium,Drying,Nourishing
+35,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+35,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+36,1,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+36,3,herbbalancesdosha,Balancing,High,Warming,Drying
+37,1,herbbalancesdosha,Balancing,Medium,Warming,Laxative
+37,2,herbbalancesdosha,Balancing,High,Warming,Laxative
+38,1,herbbalancesdosha,Balancing,Medium,Warming,Analgesic
+38,3,herbbalancesdosha,Balancing,High,Warming,Drying
+39,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+39,2,herbbalancesdosha,Balancing,High,Warming,Stimulating
+40,1,herbbalancesdosha,Balancing,High,Grounding,Bone healing
+40,3,herbbalancesdosha,Balancing,Medium,Drying,Bone healing
+41,2,herbbalancesdosha,Balancing,High,Cooling,Anti-diabetic
+41,3,herbbalancesdosha,Balancing,Medium,Drying,Anti-diabetic
+42,2,herbbalancesdosha,Balancing,High,Cooling,Moistening
+42,1,herbbalancesdosha,Balancing,Medium,Grounding,Moistening
+43,1,herbbalancesdosha,Balancing,Medium,Warming,Analgesic
+43,3,herbbalancesdosha,Balancing,High,Warming,Drying
+44,1,herbbalancesdosha,Balancing,High,Grounding,Strengthening
+44,3,herbbalancesdosha,Balancing,Medium,Drying,Strengthening
+45,1,herbbalancesdosha,Balancing,High,Grounding,Strengthening
+45,3,herbbalancesdosha,Balancing,Medium,Drying,Strengthening
+46,1,herbbalancesdosha,Balancing,Medium,Warming,Expectorant
+46,3,herbbalancesdosha,Balancing,High,Warming,Drying
+47,2,herbbalancesdosha,Balancing,High,Cooling,Rejuvenating
+47,1,herbbalancesdosha,Balancing,Medium,Grounding,Rejuvenating
+48,2,herbbalancesdosha,Balancing,High,Cooling,Astringent
+48,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+49,2,herbbalancesdosha,Balancing,Medium,Cooling,Astringent
+49,3,herbbalancesdosha,Balancing,High,Drying,Astringent
+50,2,herbbalancesdosha,Balancing,Medium,Cooling,Astringent
+50,3,herbbalancesdosha,Balancing,High,Drying,Astringent
+51,2,herbbalancesdosha,Balancing,High,Cooling,Astringent
+51,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+52,1,herbbalancesdosha,Balancing,Medium,Warming,Analgesic
+52,3,herbbalancesdosha,Balancing,High,Warming,Drying
+53,1,herbbalancesdosha,Balancing,High,Drying,Diuretic
+53,2,herbbalancesdosha,Balancing,Medium,Cooling,Diuretic
+54,2,herbbalancesdosha,Balancing,High,Cooling,Astringent
+54,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+55,1,herbbalancesdosha,Balancing,High,Grounding,Rejuvenating
+55,2,herbbalancesdosha,Balancing,Medium,Cooling,Rejuvenating
+56,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+56,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+57,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+57,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+58,1,herbbalancesdosha,Balancing,Medium,Warming,Laxative
+58,2,herbbalancesdosha,Balancing,High,Warming,Laxative
+59,1,herbbalancesdosha,Balancing,High,Grounding,Stimulating
+59,3,herbbalancesdosha,Balancing,Medium,Drying,Stimulating
+60,1,herbbalancesdosha,Balancing,High,Grounding,Calming
+60,3,herbbalancesdosha,Balancing,Medium,Drying,Calming
+61,2,herbbalancesdosha,Balancing,High,Cooling,Rejuvenating
+61,1,herbbalancesdosha,Balancing,Medium,Grounding,Rejuvenating
+62,2,herbbalancesdosha,Balancing,Medium,Cooling,Astringent
+62,3,herbbalancesdosha,Balancing,High,Drying,Astringent
+63,1,herbbalancesdosha,Balancing,High,Drying,Astringent
+63,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+64,2,herbbalancesdosha,Balancing,High,Cooling,Hair nourishing
+64,3,herbbalancesdosha,Balancing,Medium,Drying,Hair nourishing
+65,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+65,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+66,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+66,2,herbbalancesdosha,Balancing,High,Warming,Stimulating
+67,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+67,3,herbbalancesdosha,Balancing,High,Warming,Drying
+68,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+68,3,herbbalancesdosha,Balancing,High,Warming,Drying
+69,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+69,3,herbbalancesdosha,Balancing,High,Warming,Drying
+70,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+70,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+71,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+71,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+72,2,herbbalancesdosha,Balancing,High,Cooling,Calming
+72,3,herbbalancesdosha,Balancing,Medium,Drying,Calming
+73,2,herbbalancesdosha,Balancing,High,Cooling,Aromatic
+73,3,herbbalancesdosha,Balancing,Medium,Drying,Aromatic
+74,1,herbbalancesdosha,Balancing,High,Grounding,Calming
+74,3,herbbalancesdosha,Balancing,Medium,Drying,Calming
+75,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+75,3,herbbalancesdosha,Balancing,High,Drying,Anti-inflammatory
+76,2,herbbalancesdosha,Balancing,High,Cooling,Astringent
+76,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+77,2,herbbalancesdosha,Balancing,High,Cooling,Liver protective
+77,3,herbbalancesdosha,Balancing,Medium,Drying,Liver protective
+78,2,herbbalancesdosha,Balancing,High,Cooling,Anti-diabetic
+78,3,herbbalancesdosha,Balancing,Medium,Drying,Anti-diabetic
+79,1,herbbalancesdosha,Balancing,Medium,Warming,Laxative
+79,2,herbbalancesdosha,Balancing,High,Warming,Laxative
+80,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+80,2,herbbalancesdosha,Balancing,High,Warming,Stimulating
+81,2,herbbalancesdosha,Balancing,High,Cooling,Astringent
+81,3,herbbalancesdosha,Balancing,Medium,Drying,Astringent
+82,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+82,2,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+83,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+83,3,herbbalancesdosha,Balancing,High,Warming,Drying
+84,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+84,3,herbbalancesdosha,Balancing,High,Warming,Drying
+85,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+85,2,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+86,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+86,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+87,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+87,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+88,2,herbbalancesdosha,Balancing,High,Cooling,Digestive stimulant
+88,3,herbbalancesdosha,Balancing,Medium,Drying,Digestive stimulant
+89,1,herbbalancesdosha,Balancing,High,Drying,Diuretic
+89,3,herbbalancesdosha,Balancing,Medium,Drying,Diuretic
+90,1,herbbalancesdosha,Balancing,High,Drying,Diuretic
+90,3,herbbalancesdosha,Balancing,Medium,Drying,Diuretic
+91,1,herbbalancesdosha,Balancing,Medium,Drying,Diuretic
+91,3,herbbalancesdosha,Balancing,High,Drying,Diuretic
+92,1,herbbalancesdosha,Balancing,High,Drying,Diuretic
+92,3,herbbalancesdosha,Balancing,Medium,Drying,Diuretic
+93,1,herbbalancesdosha,Balancing,Medium,Grounding,Immune boosting
+93,2,herbbalancesdosha,Balancing,High,Cooling,Immune boosting
+93,3,herbbalancesdosha,Balancing,Medium,Drying,Immune boosting
+94,2,herbbalancesdosha,Balancing,High,Cooling,Anti-diabetic
+94,3,herbbalancesdosha,Balancing,Medium,Drying,Anti-diabetic
+95,2,herbbalancesdosha,Balancing,High,Cooling,Digestive stimulant
+95,3,herbbalancesdosha,Balancing,Medium,Drying,Digestive stimulant
+96,1,herbbalancesdosha,Balancing,Medium,Warming,Stimulating
+96,3,herbbalancesdosha,Balancing,High,Warming,Drying
+97,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+97,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant
+98,1,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+98,2,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+99,1,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+99,2,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+100,1,herbbalancesdosha,Balancing,Medium,Warming,Digestive stimulant
+100,3,herbbalancesdosha,Balancing,High,Warming,Digestive stimulant203,3,herbbalancesdosha,Balancing,High,Warming,Drying 
+203,1,herbbalancesdosha,Balancing,High,Warming,Drying 
+204,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing 
+204,3,herbbalancesdosha,Balancing,High,Grounding,Nourishing 
+205,1,herbbalancesdosha,Balancing,High,Grounding,Stimulating 
+205,3,herbbalancesdosha,Balancing,High,Grounding,Stimulating 
+1,3,herbbalancesdosha,Balancing,High,Cooling,Lightening
+2,1,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+4,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+5,1,herbbalancesdosha,Balancing,Low,Grounding,Calming
+6,2,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+7,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+7,3,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+8,3,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+9,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+10,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+11,1,herbbalancesdosha,Balancing,High,Cooling,Calming
+12,2,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+13,1,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+14,3,herbbalancesdosha,Balancing,Medium,Astringent,Calming
+15,3,herbbalancesdosha,Balancing,Low,Cooling,Calming
+16,2,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+17,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+18,2,herbbalancesdosha,Balancing,High,Grounding,Calming
+19,1,herbbalancesdosha,Balancing,High,Cooling,Calming
+20,1,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+21,1,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+23,3,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+24,2,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+25,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+26,2,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+27,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+28,1,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+29,2,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+30,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+31,2,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+32,2,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+33,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+34,2,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+35,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+36,2,herbbalancesdosha,Balancing,High,Grounding,Calming
+37,3,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+38,2,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+39,3,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+40,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+41,1,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+42,3,herbbalancesdosha,Balancing,Low,Warming,Lightening
+43,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+44,2,herbbalancesdosha,Balancing,High,Astringent,Lightening
+45,2,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+46,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Calming
+47,3,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+48,1,herbbalancesdosha,Balancing,Medium,Warming,Calming
+49,1,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+50,1,herbbalancesdosha,Balancing,Medium,Astringent,Calming
+51,1,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+52,2,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+53,3,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+54,1,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+55,3,herbbalancesdosha,Balancing,High,Warming,Calming
+56,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+57,3,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+58,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+59,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+60,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+61,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+62,1,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+63,2,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+64,1,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+65,2,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+66,3,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+67,2,herbbalancesdosha,Balancing,High,Warming,Nourishing
+68,2,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+69,2,herbbalancesdosha,Balancing,Low,Cooling,Calming
+70,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+71,2,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+72,1,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+73,1,herbbalancesdosha,Balancing,High,Astringent,Calming
+74,2,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+75,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+76,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+77,1,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+78,1,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+79,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+80,3,herbbalancesdosha,Balancing,Medium,Astringent,Calming
+81,1,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+82,3,herbbalancesdosha,Balancing,Low,Warming,Diuretic
+83,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+84,2,herbbalancesdosha,Balancing,Low,Astringent,Calming
+85,3,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+86,2,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+87,2,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+88,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+89,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+90,2,herbbalancesdosha,Balancing,Low,Cooling,Lightening
+91,2,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+92,2,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+94,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+95,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+96,2,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+97,2,herbbalancesdosha,Balancing,Low,Diuretic,Lightening
+98,3,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+99,3,herbbalancesdosha,Balancing,Medium,Warming,Calming
+100,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+101,1,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+101,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+101,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+102,1,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+102,2,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+102,3,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+103,1,herbbalancesdosha,Balancing,High,Astringent,Calming
+103,2,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+103,3,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+104,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+104,2,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+104,3,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+105,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+105,2,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+105,3,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+106,1,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+106,2,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+106,3,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+107,1,herbbalancesdosha,Balancing,High,Warming,Nourishing
+107,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+107,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+108,1,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+108,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+108,3,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+109,1,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+109,2,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+109,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+110,1,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+110,2,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+110,3,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+111,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+111,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+111,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+112,1,herbbalancesdosha,Balancing,Low,Astringent,Anti-inflammatory
+112,2,herbbalancesdosha,Balancing,High,Grounding,Lightening
+112,3,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+113,1,herbbalancesdosha,Balancing,Medium,Warming,Calming
+113,2,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+113,3,herbbalancesdosha,Balancing,Low,Warming,Lightening
+114,1,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+114,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+114,3,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+115,1,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+115,2,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+115,3,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+116,1,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+116,2,herbbalancesdosha,Balancing,Low,Grounding,Diuretic
+116,3,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+117,1,herbbalancesdosha,Balancing,High,Astringent,Lightening
+117,2,herbbalancesdosha,Balancing,Low,Cooling,Diuretic
+117,3,herbbalancesdosha,Balancing,Low,Cooling,Calming
+118,1,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+118,2,herbbalancesdosha,Balancing,High,Astringent,Lightening
+118,3,herbbalancesdosha,Balancing,Low,Cooling,Calming
+119,1,herbbalancesdosha,Balancing,Medium,Grounding,Lightening
+119,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+119,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+120,1,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+120,2,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+120,3,herbbalancesdosha,Balancing,High,Cooling,Lightening
+121,1,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+121,2,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+121,3,herbbalancesdosha,Balancing,High,Grounding,Lightening
+122,1,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+122,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+122,3,herbbalancesdosha,Balancing,High,Astringent,Lightening
+123,1,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+123,2,herbbalancesdosha,Balancing,High,Cooling,Lightening
+123,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+124,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+124,2,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+124,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+125,1,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+125,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+125,3,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+126,1,herbbalancesdosha,Balancing,Low,Cooling,Anti-inflammatory
+126,2,herbbalancesdosha,Balancing,Medium,Warming,Calming
+126,3,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+127,1,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+127,2,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+127,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+128,1,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+128,2,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+128,3,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+129,1,herbbalancesdosha,Balancing,High,Warming,Calming
+129,2,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+129,3,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+130,1,herbbalancesdosha,Balancing,Medium,Astringent,Nourishing
+130,2,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+130,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+131,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+131,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+131,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+132,1,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+132,2,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+132,3,herbbalancesdosha,Balancing,Low,Grounding,Diuretic
+133,1,herbbalancesdosha,Balancing,Low,Warming,Nourishing
+133,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+133,3,herbbalancesdosha,Balancing,High,Astringent,Immunomodulatory
+134,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Diuretic
+134,2,herbbalancesdosha,Balancing,Medium,Grounding,Lightening
+134,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+135,1,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+135,2,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+135,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+136,1,herbbalancesdosha,Balancing,Low,Warming,Calming
+136,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Nourishing
+136,3,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+137,1,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+137,2,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+137,3,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+138,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+138,2,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+138,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+139,1,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+139,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Lightening
+139,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+140,1,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+140,2,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+140,3,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+141,1,herbbalancesdosha,Balancing,Medium,Cooling,Diuretic
+141,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+141,3,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+142,1,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+142,2,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+142,3,herbbalancesdosha,Balancing,Low,Astringent,Calming
+143,1,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+143,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Nourishing
+143,3,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+144,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+144,2,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+144,3,herbbalancesdosha,Balancing,High,Warming,Diuretic
+145,1,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+145,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+145,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+146,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+146,2,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+146,3,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+147,1,herbbalancesdosha,Balancing,Low,Cooling,Calming
+147,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+147,3,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+148,1,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+148,2,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+148,3,herbbalancesdosha,Balancing,Low,Warming,Lightening
+149,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+149,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+149,3,herbbalancesdosha,Balancing,High,Astringent,Lightening
+150,1,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+150,2,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+150,3,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+151,1,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+151,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+151,3,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+152,1,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+152,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+152,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Calming
+153,1,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+153,2,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+153,3,herbbalancesdosha,Balancing,High,Cooling,Lightening
+154,1,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+154,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+154,3,herbbalancesdosha,Balancing,High,Grounding,Lightening
+155,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Diuretic
+155,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+155,3,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+156,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+156,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+156,3,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+157,1,herbbalancesdosha,Balancing,High,Astringent,Lightening
+157,2,herbbalancesdosha,Balancing,Low,Warming,Nourishing
+157,3,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+158,1,herbbalancesdosha,Balancing,Low,Diuretic,Lightening
+158,2,herbbalancesdosha,Balancing,Low,Grounding,Calming
+158,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+159,1,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+159,2,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+159,3,herbbalancesdosha,Balancing,Medium,Warming,Calming
+160,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+160,2,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+160,3,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+161,1,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+161,2,herbbalancesdosha,Balancing,High,Warming,Calming
+161,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+162,1,herbbalancesdosha,Balancing,High,Rejuvenating,Lightening
+162,2,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+162,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+163,1,herbbalancesdosha,Balancing,High,Cooling,Calming
+163,2,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+163,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+164,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+164,2,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+164,3,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+165,1,herbbalancesdosha,Balancing,Medium,Cooling,Calming
+165,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+165,3,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+166,1,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+166,2,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+166,3,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+167,1,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+167,2,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+167,3,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+168,1,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+168,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+168,3,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+169,1,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+169,2,herbbalancesdosha,Balancing,High,Grounding,Lightening
+169,3,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+170,1,herbbalancesdosha,Balancing,High,Grounding,Calming
+170,2,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+170,3,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+171,1,herbbalancesdosha,Balancing,Low,Cooling,Diuretic
+171,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+171,3,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+172,1,herbbalancesdosha,Balancing,Low,Grounding,Diuretic
+172,2,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+172,3,herbbalancesdosha,Balancing,High,Warming,Nourishing
+173,1,herbbalancesdosha,Balancing,Low,Warming,Lightening
+173,2,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+173,3,herbbalancesdosha,Balancing,Low,Warming,Lightening
+174,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+174,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+174,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+175,1,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+175,2,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+175,3,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+176,1,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+176,2,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+176,3,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+177,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+177,2,herbbalancesdosha,Balancing,Low,Astringent,Calming
+177,3,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+178,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+178,2,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+178,3,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+179,1,herbbalancesdosha,Balancing,Low,Warming,Calming
+179,2,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+179,3,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+180,1,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+180,2,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+180,3,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+181,1,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+181,2,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+181,3,herbbalancesdosha,Balancing,High,Warming,Diuretic
+182,1,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+182,2,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+182,3,herbbalancesdosha,Balancing,Low,Diuretic,Lightening
+183,1,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+183,2,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+183,3,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+184,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+184,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+184,3,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+185,1,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+185,2,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+185,3,herbbalancesdosha,Balancing,Low,Warming,Lightening
+186,1,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+186,2,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+186,3,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+187,1,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+187,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+187,3,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+188,1,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+188,2,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+188,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Nourishing
+189,1,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+189,2,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+189,3,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+190,1,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+190,2,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+190,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+191,1,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+191,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+191,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+192,1,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+192,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Calming
+192,3,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+193,1,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+193,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+193,3,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+194,1,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+194,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+194,3,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+195,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+195,2,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+195,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Nourishing
+196,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+196,2,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+196,3,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+197,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+197,2,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+197,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+198,1,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+198,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+198,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+199,1,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+199,2,herbbalancesdosha,Balancing,Low,Astringent,Anti-inflammatory
+199,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+200,1,herbbalancesdosha,Balancing,Low,Astringent,Anti-inflammatory
+200,2,herbbalancesdosha,Balancing,High,Cooling,Calming
+200,3,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+201,1,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+201,2,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+201,3,herbbalancesdosha,Balancing,Medium,Grounding,Lightening
+202,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+202,2,herbbalancesdosha,Balancing,Medium,Grounding,Lightening
+202,3,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+203,2,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+203,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+204,2,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+205,2,herbbalancesdosha,Balancing,Medium,Astringent,Nourishing
+1762,1,herbbalancesdosha,Balancing,High,Warming,Nourishing
+1329,1,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+313,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Nourishing
+598,1,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+1366,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+251,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+304,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+1715,1,herbbalancesdosha,Balancing,High,Grounding,Lightening
+1591,2,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+1386,1,herbbalancesdosha,Balancing,Low,Warming,Diuretic
+292,1,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+920,1,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+1663,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+1316,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+423,2,herbbalancesdosha,Balancing,Low,Cooling,Calming
+222,3,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+428,3,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+615,2,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+1246,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+878,1,herbbalancesdosha,Balancing,High,Warming,Diuretic
+314,1,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+416,3,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+1627,1,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+680,2,herbbalancesdosha,Balancing,Low,Grounding,Calming
+1651,1,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+487,2,herbbalancesdosha,Balancing,Low,Warming,Lightening
+566,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+1480,3,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+1782,2,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+1036,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+1553,2,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+1299,1,herbbalancesdosha,Balancing,Medium,Astringent,Nourishing
+383,1,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+547,1,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+402,2,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+1643,1,herbbalancesdosha,Balancing,High,Warming,Diuretic
+690,3,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+281,3,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+1004,1,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+1217,1,herbbalancesdosha,Balancing,Medium,Warming,Calming
+1354,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+273,3,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+358,1,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+432,3,herbbalancesdosha,Balancing,Low,Cooling,Anti-inflammatory
+1040,3,herbbalancesdosha,Balancing,High,Diuretic,Calming
+734,2,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+277,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1215,2,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+635,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+911,2,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+930,1,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+304,1,herbbalancesdosha,Balancing,Low,Cooling,Lightening
+1111,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+969,2,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+1434,1,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+1043,3,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+773,1,herbbalancesdosha,Balancing,Low,Grounding,Calming
+236,3,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+1513,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+1200,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+381,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+455,1,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+849,3,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+1173,1,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+1377,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+434,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+676,3,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+1562,3,herbbalancesdosha,Balancing,High,Astringent,Lightening
+1408,2,herbbalancesdosha,Balancing,High,Cooling,Lightening
+1676,3,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+1547,3,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+845,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+1443,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+1243,1,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+1050,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+1260,2,herbbalancesdosha,Balancing,Medium,Cooling,Calming
+870,1,herbbalancesdosha,Balancing,Low,Astringent,Immunomodulatory
+1769,1,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+864,2,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+1728,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+811,3,herbbalancesdosha,Balancing,Medium,Astringent,Immunomodulatory
+1574,1,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+438,1,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+1332,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+1287,2,herbbalancesdosha,Balancing,Low,Cooling,Anti-inflammatory
+688,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+1242,2,herbbalancesdosha,Balancing,High,Cooling,Calming
+1302,1,herbbalancesdosha,Balancing,Low,Grounding,Diuretic
+821,3,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+1634,2,herbbalancesdosha,Balancing,High,Astringent,Immunomodulatory
+604,2,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+1286,2,herbbalancesdosha,Balancing,High,Warming,Lightening
+942,2,herbbalancesdosha,Balancing,Low,Astringent,Immunomodulatory
+1403,2,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+373,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+1787,1,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+773,3,herbbalancesdosha,Balancing,High,Diuretic,Calming
+696,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+244,2,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+1112,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+1184,2,herbbalancesdosha,Balancing,Low,Cooling,Calming
+1103,2,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+477,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+473,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+745,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+1108,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+902,3,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+1625,3,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+613,3,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+989,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+1571,3,herbbalancesdosha,Balancing,Low,Cooling,Lightening
+1195,1,herbbalancesdosha,Balancing,High,Cooling,Lightening
+1401,2,herbbalancesdosha,Balancing,Low,Astringent,Immunomodulatory
+1603,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+1150,3,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+1484,1,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+878,2,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+456,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+471,3,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+1167,3,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+829,1,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+1698,3,herbbalancesdosha,Balancing,Low,Cooling,Anti-inflammatory
+1665,3,herbbalancesdosha,Balancing,Low,Cooling,Calming
+1795,2,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+1090,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1688,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+844,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Diuretic
+1001,2,herbbalancesdosha,Balancing,High,Grounding,Calming
+1012,3,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+1231,2,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+1355,2,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+479,3,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+303,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1490,2,herbbalancesdosha,Balancing,High,Cooling,Lightening
+897,3,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+903,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+296,1,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+736,1,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+369,3,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+1791,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+767,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+759,3,herbbalancesdosha,Balancing,Low,Astringent,Calming
+931,2,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+1240,3,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+815,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+522,3,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+1045,3,herbbalancesdosha,Balancing,Medium,Warming,Calming
+232,1,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+1423,3,herbbalancesdosha,Balancing,Medium,Astringent,Immunomodulatory
+1350,2,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+1003,3,herbbalancesdosha,Balancing,Low,Astringent,Immunomodulatory
+1015,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Calming
+1298,3,herbbalancesdosha,Balancing,Medium,Cooling,Calming
+1476,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Nourishing
+418,2,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+534,3,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+1561,3,herbbalancesdosha,Balancing,Medium,Cooling,Diuretic
+1208,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1372,2,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+1680,3,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+834,2,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+1167,2,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+1768,2,herbbalancesdosha,Balancing,Low,Warming,Lightening
+1507,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+1769,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+997,3,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+1542,3,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+1670,2,herbbalancesdosha,Balancing,High,Warming,Lightening
+1248,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+718,2,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+537,1,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+715,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+256,2,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+1164,2,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+560,1,herbbalancesdosha,Balancing,Low,Warming,Diuretic
+1568,1,herbbalancesdosha,Balancing,High,Grounding,Calming
+1084,1,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+408,2,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+1342,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+934,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+909,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+1396,2,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+1046,3,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+241,2,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+852,3,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+1390,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+1720,1,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+1104,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+273,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+1200,1,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+1153,1,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+531,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+1343,1,herbbalancesdosha,Balancing,High,Cooling,Calming
+1092,3,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+881,1,herbbalancesdosha,Balancing,Low,Warming,Calming
+1156,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Diuretic
+1778,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+833,3,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+826,1,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+1008,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+607,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+1435,3,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+420,1,herbbalancesdosha,Balancing,Low,Grounding,Calming
+1149,3,herbbalancesdosha,Balancing,High,Warming,Diuretic
+556,2,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+653,3,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+739,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+1049,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+1091,3,herbbalancesdosha,Balancing,High,Astringent,Calming
+1234,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Calming
+1449,1,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+539,2,herbbalancesdosha,Balancing,Low,Warming,Calming
+1139,3,herbbalancesdosha,Balancing,Medium,Astringent,Calming
+1662,2,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+1787,2,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+1143,3,herbbalancesdosha,Balancing,Low,Warming,Nourishing
+790,1,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+1031,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1428,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+401,1,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+1113,1,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+384,1,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+297,1,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+397,3,herbbalancesdosha,Balancing,Low,Warming,Calming
+832,3,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+1751,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+210,3,herbbalancesdosha,Balancing,Low,Cooling,Diuretic
+939,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+878,3,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+716,3,herbbalancesdosha,Balancing,Low,Cooling,Anti-inflammatory
+1245,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+998,3,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+1143,2,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+518,1,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+1006,2,herbbalancesdosha,Balancing,Medium,Astringent,Immunomodulatory
+330,1,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+392,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+737,3,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+978,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+832,1,herbbalancesdosha,Balancing,High,Grounding,Lightening
+1000,1,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+936,2,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+388,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+870,2,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+949,1,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+1735,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+457,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+534,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+1253,2,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+1346,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+1322,3,herbbalancesdosha,Balancing,Low,Astringent,Calming
+957,3,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+1007,1,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+1557,3,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+1440,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+435,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+1462,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+1194,1,herbbalancesdosha,Balancing,High,Astringent,Immunomodulatory
+665,2,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+419,2,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+553,3,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+1228,1,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+500,2,herbbalancesdosha,Balancing,Low,Warming,Calming
+746,2,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+1214,1,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+1103,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+958,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+263,3,herbbalancesdosha,Balancing,High,Diuretic,Calming
+955,1,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+880,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+607,3,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+328,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+1611,3,herbbalancesdosha,Balancing,High,Warming,Diuretic
+1382,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+1154,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+1679,2,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+1086,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+654,2,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+251,3,herbbalancesdosha,Balancing,Low,Cooling,Diuretic
+302,1,herbbalancesdosha,Balancing,High,Warming,Lightening
+1706,3,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+283,3,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+262,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+1233,2,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+539,3,herbbalancesdosha,Balancing,Low,Cooling,Calming
+234,3,herbbalancesdosha,Balancing,High,Warming,Lightening
+691,2,herbbalancesdosha,Balancing,High,Cooling,Calming
+1641,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+1461,3,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+311,2,herbbalancesdosha,Balancing,Low,Warming,Diuretic
+462,2,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+980,3,herbbalancesdosha,Balancing,Low,Warming,Calming
+243,3,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+1383,2,herbbalancesdosha,Balancing,High,Diuretic,Calming
+1690,1,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+1067,2,herbbalancesdosha,Balancing,Low,Warming,Lightening
+291,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+1375,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+476,1,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+1634,3,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+1697,2,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+492,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+1460,3,herbbalancesdosha,Balancing,Low,Warming,Calming
+1560,3,herbbalancesdosha,Balancing,High,Astringent,Lightening
+1237,2,herbbalancesdosha,Balancing,Medium,Warming,Calming
+1776,1,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+1541,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+463,2,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+1543,1,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+1593,2,herbbalancesdosha,Balancing,Low,Astringent,Anti-inflammatory
+567,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+373,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+1462,2,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+220,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Calming
+890,1,herbbalancesdosha,Balancing,Low,Grounding,Calming
+707,1,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+868,1,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+1646,2,herbbalancesdosha,Balancing,High,Grounding,Calming
+294,3,herbbalancesdosha,Balancing,Medium,Astringent,Immunomodulatory
+446,1,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+919,1,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+562,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+964,3,herbbalancesdosha,Balancing,Low,Astringent,Calming
+349,1,herbbalancesdosha,Balancing,Low,Grounding,Diuretic
+1059,3,herbbalancesdosha,Balancing,Medium,Cooling,Diuretic
+260,3,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+1152,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+1027,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+328,2,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+709,1,herbbalancesdosha,Balancing,High,Astringent,Lightening
+371,1,herbbalancesdosha,Balancing,Low,Astringent,Anti-inflammatory
+1032,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+1580,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+1615,1,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+735,1,herbbalancesdosha,Balancing,Low,Astringent,Anti-inflammatory
+936,3,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+1384,2,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+1517,2,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+1201,1,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+1421,3,herbbalancesdosha,Balancing,Medium,Cooling,Diuretic
+1142,3,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+403,1,herbbalancesdosha,Balancing,High,Warming,Diuretic
+1095,1,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+831,2,herbbalancesdosha,Balancing,High,Cooling,Calming
+438,2,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+657,3,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+1235,3,herbbalancesdosha,Balancing,High,Astringent,Lightening
+1481,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+1464,3,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+1110,2,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+1222,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+774,2,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+787,2,herbbalancesdosha,Balancing,High,Rejuvenating,Diuretic
+1522,3,herbbalancesdosha,Balancing,High,Grounding,Lightening
+269,2,herbbalancesdosha,Balancing,High,Astringent,Calming
+1077,3,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+495,3,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+1573,3,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+1197,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Diuretic
+269,3,herbbalancesdosha,Balancing,High,Warming,Nourishing
+1177,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Diuretic
+326,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+1577,2,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+244,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+1362,3,herbbalancesdosha,Balancing,Low,Cooling,Calming
+1377,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+519,1,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+1312,1,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+1046,2,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+768,2,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+535,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1034,3,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+943,3,herbbalancesdosha,Balancing,Low,Warming,Calming
+746,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+333,1,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+676,1,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+1156,1,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+857,3,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+700,1,herbbalancesdosha,Balancing,Medium,Cooling,Calming
+501,3,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+1484,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+443,2,herbbalancesdosha,Balancing,High,Grounding,Lightening
+1437,1,herbbalancesdosha,Balancing,Medium,Astringent,Nourishing
+1751,2,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+1604,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+328,3,herbbalancesdosha,Balancing,High,Astringent,Calming
+1598,3,herbbalancesdosha,Balancing,Low,Astringent,Anti-inflammatory
+1180,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+1012,2,herbbalancesdosha,Balancing,High,Rejuvenating,Diuretic
+1652,3,herbbalancesdosha,Balancing,High,Cooling,Calming
+388,3,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+612,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+1281,2,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+1575,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+896,3,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+1303,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Nourishing
+1791,2,herbbalancesdosha,Balancing,High,Warming,Diuretic
+399,1,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+1011,2,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+976,2,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+1387,2,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+1551,1,herbbalancesdosha,Balancing,High,Rejuvenating,Diuretic
+532,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+382,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+343,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+523,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+381,1,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+1097,2,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+1071,1,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+1273,3,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+1212,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+745,1,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+1511,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+1773,3,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+460,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+623,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+1466,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Calming
+612,3,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+1526,2,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+907,2,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+588,1,herbbalancesdosha,Balancing,High,Warming,Nourishing
+665,3,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+1074,2,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+321,1,herbbalancesdosha,Balancing,High,Warming,Diuretic
+532,3,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+776,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+1702,2,herbbalancesdosha,Balancing,High,Rejuvenating,Diuretic
+974,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+1321,2,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+626,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+521,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+1081,3,herbbalancesdosha,Balancing,Medium,Warming,Calming
+316,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+1550,3,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+1720,3,herbbalancesdosha,Balancing,High,Cooling,Calming
+816,1,herbbalancesdosha,Balancing,Low,Warming,Calming
+671,2,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+1046,1,herbbalancesdosha,Balancing,High,Astringent,Immunomodulatory
+482,1,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+332,1,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+534,1,herbbalancesdosha,Balancing,High,Cooling,Calming
+768,3,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+467,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+1149,1,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+631,1,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+1677,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+1082,1,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+1595,2,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+633,1,herbbalancesdosha,Balancing,Low,Warming,Lightening
+370,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+1254,1,herbbalancesdosha,Balancing,High,Grounding,Lightening
+442,1,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+293,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+987,3,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+536,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+1771,1,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+1347,1,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+1713,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+512,1,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+211,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+1444,2,herbbalancesdosha,Balancing,High,Astringent,Immunomodulatory
+518,3,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+396,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+554,3,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+1269,1,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+970,3,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+1443,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+1463,1,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+1204,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+546,3,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+1723,3,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+551,3,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+440,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+841,1,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+1431,2,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+955,2,herbbalancesdosha,Balancing,High,Grounding,Calming
+674,2,herbbalancesdosha,Balancing,High,Cooling,Lightening
+879,2,herbbalancesdosha,Balancing,High,Warming,Nourishing
+245,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Calming
+766,2,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+1767,1,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+1139,2,herbbalancesdosha,Balancing,Low,Warming,Diuretic
+576,3,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+209,3,herbbalancesdosha,Balancing,High,Grounding,Lightening
+224,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+486,1,herbbalancesdosha,Balancing,Low,Cooling,Anti-inflammatory
+1734,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Anti-inflammatory
+483,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+554,1,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+274,2,herbbalancesdosha,Balancing,High,Rejuvenating,Diuretic
+255,3,herbbalancesdosha,Balancing,Medium,Astringent,Immunomodulatory
+426,3,herbbalancesdosha,Balancing,High,Grounding,Lightening
+859,1,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+714,1,herbbalancesdosha,Balancing,High,Warming,Diuretic
+737,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+322,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+782,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+1006,1,herbbalancesdosha,Balancing,High,Rejuvenating,Calming
+1131,2,herbbalancesdosha,Balancing,Low,Warming,Nourishing
+312,2,herbbalancesdosha,Balancing,High,Grounding,Calming
+1621,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Calming
+1102,1,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+1421,2,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+1251,2,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+1723,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Lightening
+1532,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+1097,3,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+857,1,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+285,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+721,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+1774,3,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+1434,3,herbbalancesdosha,Balancing,Low,Diuretic,Lightening
+1257,3,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+1044,3,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+1757,3,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+1459,3,herbbalancesdosha,Balancing,Medium,Cooling,Calming
+998,1,herbbalancesdosha,Balancing,High,Cooling,Calming
+1213,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+496,1,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+459,1,herbbalancesdosha,Balancing,High,Warming,Diuretic
+500,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+1477,2,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+992,2,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+1235,2,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+365,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+929,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+1105,2,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+418,3,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+529,3,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+1296,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Nourishing
+543,1,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+1333,3,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+217,2,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+544,3,herbbalancesdosha,Balancing,High,Rejuvenating,Diuretic
+845,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+649,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Lightening
+1555,2,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+1588,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+764,2,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+1643,2,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+1556,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+539,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+1354,1,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+1654,2,herbbalancesdosha,Balancing,Medium,Diuretic,Anti-inflammatory
+683,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+825,1,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+1500,3,herbbalancesdosha,Balancing,Low,Astringent,Calming
+449,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+995,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+1231,3,herbbalancesdosha,Balancing,Low,Diuretic,Lightening
+589,3,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+1301,3,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+1191,2,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+819,1,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+921,1,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+528,2,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+1509,3,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+1398,1,herbbalancesdosha,Balancing,Low,Astringent,Calming
+267,1,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+624,2,herbbalancesdosha,Balancing,Medium,Astringent,Calming
+1068,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+1527,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1723,2,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+341,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+1513,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+1161,1,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+1426,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+1390,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Calming
+1544,2,herbbalancesdosha,Balancing,High,Diuretic,Calming
+618,1,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+713,3,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+744,1,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+252,2,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+1539,2,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+455,2,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+299,3,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+1627,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+1333,1,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+229,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+366,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+1250,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+1145,2,herbbalancesdosha,Balancing,High,Warming,Diuretic
+460,2,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+970,2,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+730,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+1639,1,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+451,1,herbbalancesdosha,Balancing,High,Cooling,Lightening
+1535,1,herbbalancesdosha,Balancing,Low,Cooling,Calming
+285,3,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+877,1,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+284,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+1273,1,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+1521,2,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+1725,3,herbbalancesdosha,Balancing,Low,Astringent,Calming
+241,3,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+396,2,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+1327,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+771,2,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+1073,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+1169,1,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+795,2,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+331,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+414,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+883,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+395,1,herbbalancesdosha,Balancing,High,Astringent,Calming
+1162,2,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+343,3,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+981,3,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+504,3,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+1240,2,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+466,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+949,3,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+1409,1,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+754,3,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+1250,3,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+251,2,herbbalancesdosha,Balancing,High,Warming,Diuretic
+1052,2,herbbalancesdosha,Balancing,High,Warming,Diuretic
+821,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+556,1,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+388,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+1091,1,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+1457,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1579,1,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+887,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Calming
+1373,1,herbbalancesdosha,Balancing,High,Astringent,Nourishing
+397,1,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+378,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+1040,1,herbbalancesdosha,Balancing,High,Rejuvenating,Lightening
+789,2,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+443,3,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+229,3,herbbalancesdosha,Balancing,Low,Grounding,Diuretic
+905,3,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+751,3,herbbalancesdosha,Balancing,Low,Diuretic,Lightening
+1255,3,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+1423,2,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+1305,3,herbbalancesdosha,Balancing,High,Grounding,Anti-inflammatory
+320,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+1534,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+1230,2,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+1673,3,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+284,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+970,1,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+609,1,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+1569,3,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+1315,2,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+212,1,herbbalancesdosha,Balancing,High,Astringent,Calming
+787,3,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+1521,1,herbbalancesdosha,Balancing,High,Grounding,Immunomodulatory
+1496,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+837,1,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+1309,3,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+1745,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+892,3,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+1199,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+1716,2,herbbalancesdosha,Balancing,Low,Diuretic,Immunomodulatory
+644,1,herbbalancesdosha,Balancing,High,Cooling,Lightening
+1709,2,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+547,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Nourishing
+606,1,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+1402,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+579,3,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+1387,1,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+367,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+1298,2,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+559,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Calming
+253,1,herbbalancesdosha,Balancing,High,Astringent,Anti-inflammatory
+969,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+1572,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+258,1,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+876,2,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+1637,2,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+560,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+639,2,herbbalancesdosha,Balancing,High,Warming,Calming
+1476,2,herbbalancesdosha,Balancing,Low,Warming,Diuretic
+1106,1,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+1744,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Immunomodulatory
+725,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+808,2,herbbalancesdosha,Balancing,High,Cooling,Anti-inflammatory
+914,3,herbbalancesdosha,Balancing,High,Grounding,Lightening
+239,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+1606,1,herbbalancesdosha,Balancing,Medium,Astringent,Calming
+1071,3,herbbalancesdosha,Balancing,High,Warming,Diuretic
+1628,1,herbbalancesdosha,Balancing,Medium,Cooling,Nourishing
+1186,2,herbbalancesdosha,Balancing,Medium,Warming,Lightening
+551,1,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+362,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Immunomodulatory
+419,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+724,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+1739,2,herbbalancesdosha,Balancing,Low,Grounding,Calming
+448,1,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+1309,2,herbbalancesdosha,Balancing,Medium,Warming,Calming
+1741,2,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+1262,2,herbbalancesdosha,Balancing,High,Cooling,Nourishing
+422,3,herbbalancesdosha,Balancing,High,Cooling,Diuretic
+855,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+1233,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+1132,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+315,2,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+1569,2,herbbalancesdosha,Balancing,Medium,Cooling,Calming
+679,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+903,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+1133,3,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+1013,3,herbbalancesdosha,Balancing,High,Grounding,Lightening
+1308,1,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+1558,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+671,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+595,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+971,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+244,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+1328,1,herbbalancesdosha,Balancing,Low,Grounding,Diuretic
+1620,1,herbbalancesdosha,Balancing,Medium,Astringent,Nourishing
+267,2,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+786,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Diuretic
+589,1,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+1462,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+1721,3,herbbalancesdosha,Balancing,Low,Astringent,Calming
+473,1,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+703,1,herbbalancesdosha,Balancing,Medium,Warming,Calming
+377,1,herbbalancesdosha,Balancing,Medium,Astringent,Immunomodulatory
+1356,3,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+572,3,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+616,3,herbbalancesdosha,Balancing,Medium,Warming,Nourishing
+1540,1,herbbalancesdosha,Balancing,Low,Astringent,Calming
+1416,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+1746,2,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+743,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+1395,1,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+476,3,herbbalancesdosha,Balancing,Low,Astringent,Diuretic
+891,1,herbbalancesdosha,Balancing,High,Astringent,Calming
+276,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+565,1,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1440,1,herbbalancesdosha,Balancing,High,Grounding,Lightening
+1778,3,herbbalancesdosha,Balancing,Medium,Astringent,Lightening
+1106,2,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+235,3,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+1630,1,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+663,1,herbbalancesdosha,Balancing,Medium,Astringent,Anti-inflammatory
+1126,3,herbbalancesdosha,Balancing,High,Cooling,Lightening
+1587,3,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+1283,2,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+494,3,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+572,2,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+583,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+222,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Calming
+1050,1,herbbalancesdosha,Balancing,Low,Warming,Diuretic
+1351,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+1660,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+772,1,herbbalancesdosha,Balancing,High,Warming,Anti-inflammatory
+590,1,herbbalancesdosha,Balancing,Medium,Grounding,Calming
+433,1,herbbalancesdosha,Balancing,High,Rejuvenating,Diuretic
+1181,1,herbbalancesdosha,Balancing,High,Astringent,Calming
+1145,3,herbbalancesdosha,Balancing,Medium,Cooling,Immunomodulatory
+931,3,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+326,3,herbbalancesdosha,Balancing,Medium,Warming,Immunomodulatory
+886,2,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+1710,1,herbbalancesdosha,Balancing,Medium,Warming,Diuretic
+838,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+1584,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+600,2,herbbalancesdosha,Balancing,High,Astringent,Diuretic
+1430,2,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+336,2,herbbalancesdosha,Balancing,High,Diuretic,Calming
+1075,3,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+1247,1,herbbalancesdosha,Balancing,High,Astringent,Immunomodulatory
+943,2,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+612,2,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+684,1,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+1122,3,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+1691,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+702,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Nourishing
+640,3,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+1787,3,herbbalancesdosha,Balancing,High,Cooling,Immunomodulatory
+1009,2,herbbalancesdosha,Balancing,Medium,Grounding,Diuretic
+1546,3,herbbalancesdosha,Balancing,Low,Warming,Nourishing
+942,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+1101,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+249,1,herbbalancesdosha,Balancing,High,Warming,Calming
+962,1,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+515,1,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+439,1,herbbalancesdosha,Balancing,High,Warming,Diuretic
+1449,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Anti-inflammatory
+1325,1,herbbalancesdosha,Balancing,High,Diuretic,Lightening
+1674,2,herbbalancesdosha,Balancing,Low,Astringent,Calming
+628,3,herbbalancesdosha,Balancing,Medium,Warming,Anti-inflammatory
+1733,2,herbbalancesdosha,Balancing,High,Warming,Calming
+1749,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+763,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Anti-inflammatory
+1640,3,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+483,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Immunomodulatory
+1299,2,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+613,1,herbbalancesdosha,Balancing,Low,Cooling,Anti-inflammatory
+632,3,herbbalancesdosha,Balancing,Low,Diuretic,Anti-inflammatory
+466,2,herbbalancesdosha,Balancing,Medium,Grounding,Anti-inflammatory
+1740,3,herbbalancesdosha,Balancing,High,Grounding,Calming
+430,3,herbbalancesdosha,Balancing,High,Warming,Nourishing
+1446,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+254,3,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+315,1,herbbalancesdosha,Balancing,High,Warming,Calming
+689,3,herbbalancesdosha,Balancing,High,Diuretic,Anti-inflammatory
+561,3,herbbalancesdosha,Balancing,High,Diuretic,Calming
+505,3,herbbalancesdosha,Balancing,High,Astringent,Calming
+975,3,herbbalancesdosha,Balancing,Medium,Astringent,Nourishing
+1225,3,herbbalancesdosha,Balancing,Low,Rejuvenating,Lightening
+1172,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Calming
+565,2,herbbalancesdosha,Balancing,Low,Grounding,Calming
+312,1,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+241,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+430,1,herbbalancesdosha,Balancing,Low,Astringent,Lightening
+285,1,herbbalancesdosha,Balancing,Medium,Grounding,Immunomodulatory
+1693,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Nourishing
+1487,1,herbbalancesdosha,Balancing,Low,Grounding,Anti-inflammatory
+928,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+811,1,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+472,2,herbbalancesdosha,Balancing,High,Grounding,Nourishing
+723,3,herbbalancesdosha,Balancing,Low,Cooling,Diuretic
+799,3,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+661,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+1404,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+1360,1,herbbalancesdosha,Balancing,Low,Astringent,Nourishing
+1266,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+615,1,herbbalancesdosha,Balancing,Low,Digestive stimulant,Nourishing
+625,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+1166,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+1614,2,herbbalancesdosha,Balancing,High,Warming,Diuretic
+1597,2,herbbalancesdosha,Balancing,Medium,Diuretic,Immunomodulatory
+1258,2,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+1798,3,herbbalancesdosha,Balancing,High,Warming,Calming
+682,3,herbbalancesdosha,Balancing,Low,Grounding,Immunomodulatory
+1028,1,herbbalancesdosha,Balancing,Medium,Rejuvenating,Anti-inflammatory
+706,1,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+255,2,herbbalancesdosha,Balancing,High,Diuretic,Nourishing
+236,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+1800,2,herbbalancesdosha,Balancing,Medium,Diuretic,Lightening
+392,2,herbbalancesdosha,Balancing,Medium,Diuretic,Calming
+511,2,herbbalancesdosha,Balancing,Low,Warming,Calming
+491,1,herbbalancesdosha,Balancing,Low,Diuretic,Diuretic
+1314,2,herbbalancesdosha,Balancing,Low,Rejuvenating,Immunomodulatory
+1042,1,herbbalancesdosha,Balancing,High,Rejuvenating,Lightening
+436,3,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+248,1,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+1463,2,herbbalancesdosha,Balancing,Low,Cooling,Lightening
+1086,2,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+516,3,herbbalancesdosha,Balancing,Low,Grounding,Lightening
+895,3,herbbalancesdosha,Balancing,High,Rejuvenating,Anti-inflammatory
+628,1,herbbalancesdosha,Balancing,Low,Warming,Anti-inflammatory
+856,3,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+721,1,herbbalancesdosha,Balancing,Medium,Astringent,Immunomodulatory
+282,3,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+896,2,herbbalancesdosha,Balancing,Low,Digestive stimulant,Lightening
+1701,1,herbbalancesdosha,Balancing,Low,Cooling,Diuretic
+802,2,herbbalancesdosha,Balancing,High,Diuretic,Immunomodulatory
+1454,3,herbbalancesdosha,Balancing,Medium,Warming,Calming
+1626,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Immunomodulatory
+365,1,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Calming
+625,2,herbbalancesdosha,Balancing,High,Rejuvenating,Immunomodulatory
+873,1,herbbalancesdosha,Balancing,High,Warming,Immunomodulatory
+1277,2,herbbalancesdosha,Balancing,Medium,Diuretic,Diuretic
+1469,3,herbbalancesdosha,Balancing,Medium,Grounding,Lightening
+1780,2,herbbalancesdosha,Balancing,Low,Diuretic,Nourishing
+1736,1,herbbalancesdosha,Balancing,Low,Warming,Calming
+287,1,herbbalancesdosha,Balancing,Low,Rejuvenating,Diuretic
+1262,3,herbbalancesdosha,Balancing,High,Astringent,Immunomodulatory
+1185,1,herbbalancesdosha,Balancing,High,Diuretic,Diuretic
+1037,3,herbbalancesdosha,Balancing,Medium,Rejuvenating,Diuretic
+835,3,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+1485,1,herbbalancesdosha,Balancing,High,Digestive stimulant,Diuretic
+694,1,herbbalancesdosha,Balancing,Medium,Diuretic,Nourishing
+1265,2,herbbalancesdosha,Balancing,Medium,Astringent,Diuretic
+667,1,herbbalancesdosha,Balancing,High,Cooling,Lightening
+409,3,herbbalancesdosha,Balancing,Medium,Digestive stimulant,Lightening
+1313,2,herbbalancesdosha,Balancing,Low,Cooling,Nourishing
+702,2,herbbalancesdosha,Balancing,High,Rejuvenating,Nourishing
+1208,3,herbbalancesdosha,Balancing,Low,Grounding,Nourishing
+275,1,herbbalancesdosha,Balancing,Medium,Grounding,Nourishing
+477,2,herbbalancesdosha,Balancing,High,Digestive stimulant,Calming
+1407,3,herbbalancesdosha,Balancing,High,Grounding,Diuretic
+1401,3,herbbalancesdosha,Balancing,Low,Digestive stimulant,Anti-inflammatory
+621,3,herbbalancesdosha,Balancing,Medium,Cooling,Lightening
+429,1,herbbalancesdosha,Balancing,Medium,Cooling,Anti-inflammatory
+1499,3,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+750,1,herbbalancesdosha,Balancing,Low,Cooling,Immunomodulatory
+542,3,herbbalancesdosha,Balancing,Low,Warming,Immunomodulatory
+1737,2,herbbalancesdosha,Balancing,Low,Diuretic,Calming
+810,2,herbbalancesdosha,Balancing,Medium,Rejuvenating,Lightening
+1145,1,herbbalancesdosha,Balancing,Medium,Cooling,Calming
+259,3,herbbalancesdosha,Balancing,High,Diuretic,Diuretic

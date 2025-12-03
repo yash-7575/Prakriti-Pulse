@@ -6,6 +6,25 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import re
+import os
+import pandas as pd
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+# Load environment variables
+load_dotenv()
+
+# Configure Gemini
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_AVAILABLE = False
+
+if GEMINI_API_KEY:
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        GEMINI_AVAILABLE = True
+        print("✅ Gemini API configured successfully")
+    except Exception as e:
+        print(f"⚠️ Error configuring Gemini API: {e}")
 
 # Import database functions with error handling
 try:
@@ -39,6 +58,11 @@ class RAGChatbotService:
         )
         self.knowledge_base = []
         self.knowledge_vectors = None
+        self.gemini_model = None
+        
+        if GEMINI_AVAILABLE:
+            self.gemini_model = genai.GenerativeModel('gemini-pro')
+            
         self._build_knowledge_base()
     
     def _get_mock_data(self):
@@ -258,7 +282,7 @@ class RAGChatbotService:
         return herbs, symptoms, prakriti_profiles, relationships
     
     def _build_knowledge_base(self):
-        """Build knowledge base from database or mock data"""
+        """Build knowledge base from database, mock data, and custom files"""
         try:
             # Get data from database or use mock data
             herbs_data = None
@@ -360,20 +384,170 @@ class RAGChatbotService:
                     }
                     self.knowledge_base.append(entry)
             
+            # Process custom data file
+            try:
+                if os.path.exists('rag_data.txt'):
+                    with open('rag_data.txt', 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        # Split by double newlines to create chunks
+                        chunks = [chunk.strip() for chunk in content.split('\n\n') if chunk.strip()]
+                        for i, chunk in enumerate(chunks):
+                            entry = {
+                                'type': 'custom',
+                                'id': f'custom_{i}',
+                                'text': chunk
+                            }
+                            self.knowledge_base.append(entry)
+                    print(f"✅ Loaded {len(chunks)} custom data entries")
+            except Exception as e:
+                print(f"Error loading custom data: {e}")
+
+            # Load GNN Dataset
+            self._load_gnn_dataset()
+
             # Vectorize the knowledge base
             if self.knowledge_base:
                 texts = [item['text'] for item in self.knowledge_base]
-                self.knowledge_vectors = self.vectorizer.fit_transform(texts)
+                
+                # Use Gemini embeddings if available, otherwise TF-IDF
+                if GEMINI_AVAILABLE:
+                    try:
+                        # Batch processing for embeddings to avoid rate limits
+                        self.knowledge_vectors = []
+                        batch_size = 10
+                        for i in range(0, len(texts), batch_size):
+                            batch = texts[i:i+batch_size]
+                            embeddings = [genai.embed_content(
+                                model="models/embedding-001",
+                                content=text,
+                                task_type="retrieval_document"
+                            )['embedding'] for text in batch]
+                            self.knowledge_vectors.extend(embeddings)
+                        self.knowledge_vectors = np.array(self.knowledge_vectors)
+                        print("✅ Generated Gemini embeddings")
+                    except Exception as e:
+                        print(f"⚠️ Error generating Gemini embeddings: {e}")
+                        print("Fallback to TF-IDF")
+                        self.knowledge_vectors = self.vectorizer.fit_transform(texts)
+                else:
+                    self.knowledge_vectors = self.vectorizer.fit_transform(texts)
+                
                 print(f"✅ Knowledge base built with {len(self.knowledge_base)} entries")
             else:
                 print("⚠️ Knowledge base is empty")
                 
         except Exception as e:
+            import traceback
             print(f"Error building knowledge base: {e}")
+            print(traceback.format_exc())
             # Fallback to empty knowledge base
             self.knowledge_base = []
             self.knowledge_vectors = None
-    
+
+    def _load_gnn_dataset(self):
+        """Load data from the Ayurveda GNN dataset"""
+        dataset_path = os.path.join(os.path.dirname(__file__), 'ayurveda_gnn_dataset_testing3', 'ayurveda_gnn_dataset')
+        
+        if not os.path.exists(dataset_path):
+            print(f"⚠️ GNN Dataset not found at {dataset_path}")
+            return
+
+        try:
+            print("Loading GNN Dataset...")
+            
+            # Load Herbs
+            herbs_path = os.path.join(dataset_path, 'nodes', 'herbs.csv')
+            if os.path.exists(herbs_path):
+                try:
+                    df_herbs = pd.read_csv(herbs_path, on_bad_lines='skip', engine='python')
+                except Exception as e:
+                    print(f"Error reading herbs.csv: {e}")
+                    df_herbs = pd.DataFrame()
+                
+                for _, row in df_herbs.iterrows():
+                    text = f"""
+                    Herb: {row.get('name', '')}
+                    Scientific Name: {row.get('scientificname', '')}
+                    Taste: {row.get('taste', '')}
+                    Energy: {row.get('energy', '')}
+                    Post-digestive effect: {row.get('postdigestiveeffect', '')}
+                    Properties: {row.get('properties', '')}
+                    Uses: {row.get('uses', '')}
+                    Contraindications: {row.get('contraindications', '')}
+                    """
+                    entry = {
+                        'type': 'herb',
+                        'id': f"gnn_herb_{row.get('nodeid', '')}",
+                        'name': row.get('name', ''),
+                        'sanskrit_name': row.get('name', ''), # Assuming name is Sanskrit/Common
+                        'scientific_name': row.get('scientificname', ''),
+                        'rasa': row.get('taste', ''),
+                        'virya': row.get('energy', ''),
+                        'vipaka': row.get('postdigestiveeffect', ''),
+                        'description': str(row.get('properties', '')) + " " + str(row.get('uses', '')),
+                        'contraindications': row.get('contraindications', ''),
+                        'text': text
+                    }
+                    self.knowledge_base.append(entry)
+                print(f"✅ Loaded {len(df_herbs)} herbs from GNN dataset")
+
+            # Load Health Conditions
+            conditions_path = os.path.join(dataset_path, 'nodes', 'health_conditions.csv')
+            if os.path.exists(conditions_path):
+                try:
+                    df_conditions = pd.read_csv(conditions_path, on_bad_lines='skip', engine='python')
+                except Exception as e:
+                    print(f"Error reading health_conditions.csv: {e}")
+                    df_conditions = pd.DataFrame()
+
+                for _, row in df_conditions.iterrows():
+                    text = f"""
+                    Condition: {row.get('name', '')}
+                    Description: {row.get('description', '')}
+                    Dosha Imbalance: {row.get('primarydoshaimbalance', '')} (Primary), {row.get('secondarydoshaimbalance', '')} (Secondary)
+                    Affected Systems: {row.get('affectedbodysystems', '')}
+                    Severity: {row.get('severitylevel', '')}
+                    """
+                    entry = {
+                        'type': 'condition',
+                        'id': f"gnn_condition_{row.get('nodeid', '')}",
+                        'name': row.get('name', ''),
+                        'description': row.get('description', ''),
+                        'dosha_imbalance': f"{row.get('primarydoshaimbalance', '')}, {row.get('secondarydoshaimbalance', '')}",
+                        'text': text
+                    }
+                    self.knowledge_base.append(entry)
+                print(f"✅ Loaded {len(df_conditions)} conditions from GNN dataset")
+
+            # Load Herb-Condition Relationships
+            edges_path = os.path.join(dataset_path, 'edges', 'herb_treats_condition.csv')
+            if os.path.exists(edges_path):
+                try:
+                    df_edges = pd.read_csv(edges_path, on_bad_lines='skip', engine='python')
+                except Exception as e:
+                    print(f"Error reading herb_treats_condition.csv: {e}")
+                    df_edges = pd.DataFrame()
+
+                for _, row in df_edges.iterrows():
+                    text = f"""
+                    Relationship: Herb treats Condition
+                    Herb ID: {row.get('from_nodeid', '')}
+                    Condition ID: {row.get('to_nodeid', '')}
+                    """
+                    entry = {
+                        'type': 'relationship',
+                        'herb_id': row.get('from_nodeid', ''),
+                        'condition_id': row.get('to_nodeid', ''),
+                        'text': text
+                    }
+                    self.knowledge_base.append(entry)
+                print(f"✅ Loaded {len(df_edges)} relationships from GNN dataset")
+
+        except Exception as e:
+            print(f"Error loading GNN dataset: {e}")
+            import traceback
+            print(traceback.format_exc())
+
     def _create_herb_text(self, herb):
         """Create text representation for herb"""
         return f"""
@@ -412,7 +586,7 @@ class RAGChatbotService:
         Common Ailments: {profile.get('common_ailments', '')}
         Recommended Lifestyle: {profile.get('recommended_lifestyle', '')}
         """
-    
+
     def _create_relationship_text(self, rel):
         """Create text representation for herb-symptom relationship"""
         return f"""
@@ -436,38 +610,97 @@ class RAGChatbotService:
         return query
     
     def _find_relevant_knowledge(self, query, top_k=3):
-        """Find relevant knowledge using TF-IDF and cosine similarity"""
+        """Find relevant knowledge using Gemini embeddings or TF-IDF"""
         if not self.knowledge_base or self.knowledge_vectors is None:
             return []
         
         # Preprocess query
         processed_query = self._preprocess_query(query)
         
-        # Vectorize query
-        query_vector = self.vectorizer.transform([processed_query])
-        
-        # Calculate cosine similarities
-        similarities = cosine_similarity(query_vector, self.knowledge_vectors).flatten()
-        
-        # Get top-k most similar entries
-        top_indices = np.argsort(similarities)[::-1][:top_k]
-        
-        # Filter out low similarity results
-        relevant_knowledge = []
-        for idx in top_indices:
-            if similarities[idx] > 0.1:  # Threshold for relevance
-                relevant_knowledge.append({
-                    'knowledge': self.knowledge_base[idx],
-                    'similarity': similarities[idx]
-                })
-        
-        return relevant_knowledge
+        try:
+            if GEMINI_AVAILABLE and isinstance(self.knowledge_vectors, np.ndarray):
+                # Use Gemini embeddings
+                query_embedding = genai.embed_content(
+                    model="models/embedding-001",
+                    content=processed_query,
+                    task_type="retrieval_query"
+                )['embedding']
+                
+                # Calculate cosine similarities
+                # Reshape query_embedding to (1, -1)
+                query_vector = np.array(query_embedding).reshape(1, -1)
+                similarities = cosine_similarity(query_vector, self.knowledge_vectors).flatten()
+            else:
+                # Use TF-IDF
+                query_vector = self.vectorizer.transform([processed_query])
+                similarities = cosine_similarity(query_vector, self.knowledge_vectors).flatten()
+            
+            # Get top-k most similar entries
+            top_indices = np.argsort(similarities)[::-1][:top_k]
+
+            # Filter out low similarity results
+            relevant_knowledge = []
+            for idx in top_indices:
+                if similarities[idx] > 0.1:  # Threshold for relevance
+                    relevant_knowledge.append({
+                        'knowledge': self.knowledge_base[idx],
+                        'similarity': float(similarities[idx])
+                    })
+            
+            return relevant_knowledge
+            
+        except Exception as e:
+            print(f"Error finding relevant knowledge: {e}")
+            return []
     
     def _generate_rag_response(self, query, relevant_knowledge):
-        """Generate response using retrieved knowledge"""
+        """Generate response using retrieved knowledge and Gemini"""
         if not relevant_knowledge:
+            if GEMINI_AVAILABLE:
+                # If no specific knowledge found, let Gemini answer with general knowledge but with a disclaimer
+                try:
+                    prompt = f"""
+                    You are an Ayurvedic expert assistant for Prakriti Pulse.
+                    User Query: {query}
+                    
+                    Please answer the query based on general Ayurvedic principles. 
+                    Disclaimer: Mention that this is general information and they should consult a practitioner.
+                    """
+                    response = self.gemini_model.generate_content(prompt)
+                    return response.text
+                except Exception as e:
+                    return "I don't have specific information about that. You might want to consult with an Ayurvedic practitioner for personalized advice."
             return "I don't have specific information about that. You might want to consult with an Ayurvedic practitioner for personalized advice."
         
+        # Prepare context from relevant knowledge
+        context_parts = []
+        for item in relevant_knowledge:
+            knowledge = item['knowledge']
+            context_parts.append(f"--- Info (Type: {knowledge.get('type', 'General')}) ---\n{knowledge['text']}")
+        
+        context = "\n\n".join(context_parts)
+        
+        if GEMINI_AVAILABLE:
+            try:
+                # Construct prompt carefully to avoid syntax errors
+                prompt = "You are an Ayurvedic expert assistant for Prakriti Pulse.\n"
+                prompt += "Use the following context to answer the user's question.\n\n"
+                prompt += f"Context:\n{context}\n\n"
+                prompt += f"User Query: {query}\n\n"
+                prompt += "Instructions:\n"
+                prompt += "1. Answer the query using ONLY the provided context if possible.\n"
+                prompt += "2. If the context doesn't fully answer it, you can use your general knowledge but prioritize the context.\n"
+                prompt += "3. Format the response with HTML tags for better readability (e.g., <b>, <ul>, <li>, <p>).\n"
+                prompt += "4. Be helpful, empathetic, and professional.\n"
+                prompt += "5. If recommending herbs, mention contraindications if available in context.\n"
+                
+                response = self.gemini_model.generate_content(prompt)
+                return response.text
+            except Exception as e:
+                print(f"Gemini generation error: {e}")
+                # Fallback to manual response generation
+        
+        # Fallback manual response generation (existing logic)
         response_parts = []
         
         # Sort by similarity
@@ -482,57 +715,67 @@ class RAGChatbotService:
             knowledge = item['knowledge']
             similarity = item['similarity']
             
-            if knowledge['type'] == 'herb':
-                herb_info = f"""
-                <div class="herb-info bg-green-50 p-4 rounded-lg mb-3">
-                    <h4 class="font-bold text-green-800">{knowledge['name']} ({knowledge['sanskrit_name']})</h4>
-                    <p><strong>Scientific Name:</strong> {knowledge['scientific_name']}</p>
-                    <p><strong>Description:</strong> {knowledge['description']}</p>
-                    <p><strong>Taste:</strong> {knowledge['rasa']} | <strong>Energy:</strong> {knowledge['virya']}</p>
-                    <p><strong>Dosage:</strong> {knowledge['dosage']}</p>
-                    <p><strong>Preparation:</strong> {knowledge['preparation_method']}</p>
-                    {f'<p><strong>Contraindications:</strong> {knowledge["contraindications"]}</p>' if knowledge['contraindications'] else ''}
-                </div>
-                """
-                response_parts.append(herb_info)
-                herbs_mentioned.append(knowledge['name'])
+            try:
+                if knowledge.get('type') == 'custom':
+                     response_parts.append(f"<div class='custom-info bg-gray-50 p-4 rounded-lg mb-3'><p>{knowledge.get('text', '')}</p></div>")
                 
-            elif knowledge['type'] == 'symptom':
-                symptom_info = f"""
-                <div class="symptom-info bg-blue-50 p-4 rounded-lg mb-3">
-                    <h4 class="font-bold text-blue-800">{knowledge['name']}</h4>
-                    <p><strong>Category:</strong> {knowledge['category']}</p>
-                    <p><strong>Associated Dosha:</strong> {knowledge['associated_dosha']}</p>
-                    <p><strong>Description:</strong> {knowledge['description']}</p>
-                </div>
-                """
-                response_parts.append(symptom_info)
-                symptoms_mentioned.append(knowledge['name'])
-                
-            elif knowledge['type'] == 'prakriti':
-                prakriti_info = f"""
-                <div class="prakriti-info bg-purple-50 p-4 rounded-lg mb-3">
-                    <h4 class="font-bold text-purple-800">{knowledge['constitution_type']}</h4>
-                    <p><strong>Dominant Dosha:</strong> {knowledge['dominant_dosha']}</p>
-                    <p><strong>Characteristics:</strong> {knowledge['characteristics']}</p>
-                    <p><strong>Common Ailments:</strong> {knowledge['common_ailments']}</p>
-                    <p><strong>Recommended Lifestyle:</strong> {knowledge['recommended_lifestyle']}</p>
-                </div>
-                """
-                response_parts.append(prakriti_info)
-                prakriti_types.append(knowledge['constitution_type'])
-                
-            elif knowledge['type'] == 'relationship':
-                relationship_info = f"""
-                <div class="relationship-info bg-yellow-50 p-4 rounded-lg mb-3">
-                    <h4 class="font-bold text-yellow-800">{knowledge['herb_name']} for {knowledge['symptom_name']}</h4>
-                    <p><strong>Effectiveness:</strong> {knowledge['effectiveness_score']}/1.00</p>
-                    <p><strong>Dosage:</strong> {knowledge['dosage_for_symptom']}</p>
-                    <p><strong>Preparation:</strong> {knowledge['preparation_method']}</p>
-                    <p><strong>Treatment Duration:</strong> {knowledge['duration_of_treatment']}</p>
-                </div>
-                """
-                response_parts.append(relationship_info)
+                elif knowledge.get('type') == 'herb':
+                    herb_info = f"""
+                    <div class="herb-info bg-green-50 p-4 rounded-lg mb-3">
+                        <h4 class="font-bold text-green-800">{knowledge.get('name', 'Unknown Herb')} ({knowledge.get('sanskrit_name', '')})</h4>
+                        <p><strong>Scientific Name:</strong> {knowledge.get('scientific_name', '')}</p>
+                        <p><strong>Description:</strong> {knowledge.get('description', '')}</p>
+                        <p><strong>Taste:</strong> {knowledge.get('rasa', '')} | <strong>Energy:</strong> {knowledge.get('virya', '')}</p>
+                        <p><strong>Dosage:</strong> {knowledge.get('dosage', '')}</p>
+                        <p><strong>Preparation:</strong> {knowledge.get('preparation_method', '')}</p>
+                        {f'<p><strong>Contraindications:</strong> {knowledge.get("contraindications", "")}</p>' if knowledge.get('contraindications') else ''}
+                    </div>
+                    """
+                    response_parts.append(herb_info)
+                    if knowledge.get('name'):
+                        herbs_mentioned.append(knowledge['name'])
+                    
+                elif knowledge.get('type') == 'symptom':
+                    symptom_info = f"""
+                    <div class="symptom-info bg-blue-50 p-4 rounded-lg mb-3">
+                        <h4 class="font-bold text-blue-800">{knowledge.get('name', 'Unknown Symptom')}</h4>
+                        <p><strong>Category:</strong> {knowledge.get('category', '')}</p>
+                        <p><strong>Associated Dosha:</strong> {knowledge.get('associated_dosha', '')}</p>
+                        <p><strong>Description:</strong> {knowledge.get('description', '')}</p>
+                    </div>
+                    """
+                    response_parts.append(symptom_info)
+                    if knowledge.get('name'):
+                        symptoms_mentioned.append(knowledge['name'])
+                    
+                elif knowledge.get('type') == 'prakriti':
+                    prakriti_info = f"""
+                    <div class="prakriti-info bg-purple-50 p-4 rounded-lg mb-3">
+                        <h4 class="font-bold text-purple-800">{knowledge.get('constitution_type', 'Unknown Type')}</h4>
+                        <p><strong>Dominant Dosha:</strong> {knowledge.get('dominant_dosha', '')}</p>
+                        <p><strong>Characteristics:</strong> {knowledge.get('characteristics', '')}</p>
+                        <p><strong>Common Ailments:</strong> {knowledge.get('common_ailments', '')}</p>
+                        <p><strong>Recommended Lifestyle:</strong> {knowledge.get('recommended_lifestyle', '')}</p>
+                    </div>
+                    """
+                    response_parts.append(prakriti_info)
+                    if knowledge.get('constitution_type'):
+                        prakriti_types.append(knowledge['constitution_type'])
+                    
+                elif knowledge.get('type') == 'relationship':
+                    relationship_info = f"""
+                    <div class="relationship-info bg-yellow-50 p-4 rounded-lg mb-3">
+                        <h4 class="font-bold text-yellow-800">{knowledge.get('herb_name', '')} for {knowledge.get('symptom_name', '')}</h4>
+                        <p><strong>Effectiveness:</strong> {knowledge.get('effectiveness_score', 0)}/1.00</p>
+                        <p><strong>Dosage:</strong> {knowledge.get('dosage_for_symptom', '')}</p>
+                        <p><strong>Preparation:</strong> {knowledge.get('preparation_method', '')}</p>
+                        <p><strong>Treatment Duration:</strong> {knowledge.get('duration_of_treatment', '')}</p>
+                    </div>
+                    """
+                    response_parts.append(relationship_info)
+            except Exception as item_error:
+                print(f"Error processing knowledge item: {item_error}")
+                continue
         
         # Create a comprehensive response
         response = "<p>Based on your query, here's what I found:</p>"
