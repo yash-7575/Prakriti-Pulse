@@ -13,6 +13,14 @@ import json
 from datetime import datetime
 from database_config import DatabaseConfig
 from ai_engine.predictor import AyurvedaPredictor
+from ai_engine.inference import AyurvedicAI
+
+# Initialize the Brain
+try:
+    ai_engine = AyurvedicAI()
+except Exception as e:
+    print(f"Warning: Could not load AI Engine. {e}")
+    ai_engine = None
 
 # Global variables for RAG chatbot service
 RAG_AVAILABLE = False
@@ -46,11 +54,11 @@ db = DatabaseConfig()
 
 # Initialize AI Brain
 # Ensure paths are correct relative to app.py
-ai_brain = AyurvedaPredictor(
-    model_path="ai_engine/ayurveda_gnn_model.pth",
-    data_path="ai_engine/graph_data.pt",
-    artifacts_path="ai_engine/gnn_artifacts.pkl",
-)
+# ai_brain = AyurvedaPredictor(
+#     model_path="ai_engine/ayurveda_gnn_model.pth",
+#     data_path="ai_engine/graph_data.pt",
+#     artifacts_path="ai_engine/gnn_artifacts.pkl",
+# )
 
 # --- ROUTES ---
 
@@ -168,80 +176,73 @@ def symptom_entry():
     return render_template("symptom_entry.html", symptoms=symptoms)
 
 
-@app.route("/recommendations")
+@app.route("/recommendations", methods=["GET", "POST"])
 def recommendations():
     """
-    The Core Engine: Fetches Herbs from Neo4j based on Session Data.
+    Recommendations Page.
+    Fetches recommendations using the Graph Database.
     """
-    selected_symptoms = session.get("selected_symptoms", [])
-    user_prakriti = session.get("prakriti", "")
-    symptom_severities = session.get("symptom_severities", {})
+    if request.method == "POST":
+        # Get symptoms from form
+        selected_symptoms = request.form.getlist("symptoms")
 
-    final_recommendations = []
+        # Save to session for persistence
+        session["selected_symptoms"] = selected_symptoms
+
+    else:  # GET request
+        # Retrieve from session
+        selected_symptoms = session.get("selected_symptoms", [])
+
+    if not selected_symptoms:
+        # If no symptoms selected (or session expired), show empty state
+        return render_template("recommendations.html", herbs=[])
 
     try:
-        if selected_symptoms:
-            # 1. Iterate through symptoms and query Neo4j
-            for symptom_name in selected_symptoms:
-                # This calls the method we wrote in database_config.py
-                # Note: get_herbs_for_symptom handles both ID and Name lookup
-                herbs = db.get_herbs_for_symptom(symptom_name)
+        # Get recommendations from AI Engine
+        recommendations = []
+        seen_herbs = set()
 
-                # 2. Filter or Flag based on Prakriti (Basic Logic)
-                for herb in herbs:
-                    # Add a 'suitability' flag if it matches the user's Dosha
-                    # We check if user_prakriti is mentioned in the herb's effects
-                    # This is a simple heuristic
-                    is_match = False
-                    if user_prakriti:
-                        prakriti_lower = user_prakriti.lower()
-                        if (
-                            prakriti_lower in herb.get("vata_effect", "").lower()
-                            or prakriti_lower in herb.get("pitta_effect", "").lower()
-                            or prakriti_lower in herb.get("kapha_effect", "").lower()
-                        ):
-                            is_match = True
+        if ai_engine:
+            for symptom in selected_symptoms:
+                # Get AI results for each symptom
+                results = ai_engine.get_recommendations(symptom, top_k=5)
 
-                    herb["is_perfect_match"] = is_match
-                    final_recommendations.append(herb)
+                for res in results:
+                    if res["name"] not in seen_herbs:
+                        recommendations.append(res)
+                        seen_herbs.add(res["name"])
 
-            # 3. Deduplicate (If an herb treats multiple symptoms, show it once)
-            # Deduplication by herb_name_english
-            seen = set()
-            unique_recs = []
-            for h in final_recommendations:
-                name = h.get("herb_name_english")
-                if name and name not in seen:
-                    unique_recs.append(h)
-                    seen.add(name)
+            # Sort by score descending
+            recommendations.sort(key=lambda x: x["score"], reverse=True)
 
-            final_recommendations = unique_recs
+        else:
+            # Fallback if AI engine failed to load
+            print("AI Engine not available, falling back to DB")
+            recommendations = db.get_graph_recommendations(selected_symptoms)
 
-            # Sort by effectiveness if available
-            final_recommendations.sort(
-                key=lambda x: x.get("effectiveness_score", 0), reverse=True
-            )
+        return render_template("recommendations.html", herbs=recommendations)
 
     except Exception as e:
-        flash(f"Error fetching recommendations: {e}", "error")
+        print(f"Error getting recommendations: {e}")
+        flash(f"Error generating recommendations: {str(e)}", "error")
+        return render_template("recommendations.html", herbs=[])
 
-    # Construct a minimal prakriti_results object for the template if possible
-    prakriti_results = None
-    if user_prakriti:
-        prakriti_results = {
-            "dominant_dosha": user_prakriti,
-            "vata_score": "-",  # Scores not available in this flow
-            "pitta_score": "-",
-            "kapha_score": "-",
-        }
 
-    return render_template(
-        "recommendations.html",
-        recommendations=final_recommendations,
-        prakriti_results=prakriti_results,
-        selected_symptoms=selected_symptoms,
-        symptom_severities=symptom_severities,
-    )
+@app.route("/get_ai_recommendations", methods=["POST"])
+def get_ai_recommendations():
+    if not ai_engine:
+        return jsonify({"error": "AI Engine not active"}), 503
+
+    data = request.json
+    symptom = data.get("symptom")  # e.g., "Insomnia"
+    prakriti = data.get("prakriti")  # e.g., "Vata"
+
+    # Get results from the Brain
+    results = ai_engine.get_recommendations(symptom, prakriti)
+
+    # If AI finds nothing, maybe fallback to DB query here?
+
+    return jsonify(results)
 
 
 @app.route("/herbs")
@@ -321,28 +322,50 @@ def chatbot():
 # --- API ROUTES ---
 
 
+# @app.route("/api/recommend", methods=["POST"])
 @app.route("/api/recommend", methods=["POST"])
 def api_recommend():
-    """API endpoint for getting recommendations using AI Engine"""
-    data = request.get_json()
-    symptoms = data.get(
-        "symptoms", []
-    )  # This might be a list, retrieve the string name
-    prakriti = data.get("prakriti_type", "")
+    """
+    Endpoint to get herb recommendations.
+    Current Mode: Graph Database Query (Neo4j)
+    Future Mode: GNN Inference
+    """
+    try:
+        data = request.get_json()
+        symptoms = data.get("symptoms", [])  # List of Symptom IDs (e.g., ['1', '5'])
+        prakriti_type = data.get("prakriti_type", "")
 
-    # If multiple symptoms, maybe iterate or pick primary
-    primary_symptom = symptoms[0] if symptoms else ""
+        # 1. FETCH FROM DATABASE (The "Rule-Based" Fallback)
+        recommendations = db.get_graph_recommendations(symptoms)
 
-    # RUN AI PREDICTION
-    results = ai_brain.predict(primary_symptom, prakriti)
+        # 2. Fallback if database returns nothing
+        if not recommendations:
+            return jsonify(
+                {
+                    "success": True,
+                    "source": "fallback_rule",
+                    "recommendations": [
+                        {
+                            "herb_name": "Triphala",
+                            "dosage": "1 tsp with warm water",
+                            "reason": "General detoxification and balance (Default recommendation)",
+                            "contraindications": "None",
+                        }
+                    ],
+                }
+            )
 
-    if not results:
-        # Fallback to Neo4j logic if AI is unsure
         return jsonify(
-            {"success": True, "source": "Database", "recommendations": []}
-        )  # Or call db.get_herbs...
+            {
+                "success": True,
+                "source": "neo4j_graph",  # Flag to let you know it came from DB
+                "recommendations": recommendations,
+            }
+        )
 
-    return jsonify({"success": True, "source": "AI_GNN", "recommendations": results})
+    except Exception as e:
+        print(f"Error in recommendation: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 @app.route("/api/symptoms")
