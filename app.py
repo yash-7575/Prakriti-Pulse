@@ -463,6 +463,66 @@ def api_herbs():
             'error': str(e)
         }), 500
 
+# Import chatbot service
+try:
+    from chatbot_service import get_rag_chatbot_response
+except ImportError:
+    print("Chatbot service not available")
+    def get_rag_chatbot_response(query, context=None):
+        return "Chatbot service is currently unavailable."
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    """Chatbot endpoint"""
+    try:
+        data = request.get_json()
+        message = data.get('message', '')
+        
+        if not message:
+            return jsonify({'success': False, 'error': 'No message provided'}), 400
+        
+        # Build context from session
+        context = {}
+        
+        # Add Prakriti info
+        prakriti_results = session.get('prakriti_results')
+        if prakriti_results:
+            context['prakriti'] = f"{prakriti_results.get('dominant_dosha', 'Unknown')} ({prakriti_results.get('profile', {}).get('constitution_type', '')})"
+            
+        # Add Symptoms info
+        selected_symptoms = session.get('selected_symptoms')
+        if selected_symptoms:
+            # We need symptom names, not just IDs
+            try:
+                all_symptoms = get_symptoms()
+                symptom_names = []
+                if all_symptoms:
+                    for s_id in selected_symptoms:
+                        # Find symptom name
+                        name = next((s['symptom_name'] for s in all_symptoms if str(s['symptom_id']) == str(s_id)), None)
+                        if name:
+                            symptom_names.append(name)
+                
+                if symptom_names:
+                    context['symptoms'] = ", ".join(symptom_names)
+            except Exception as e:
+                print(f"Error getting symptom names for context: {e}")
+        
+        # Get response from chatbot service
+        response = get_rag_chatbot_response(message, context)
+        
+        return jsonify({
+            'success': True,
+            'response': response
+        })
+        
+    except Exception as e:
+        print(f"Chat error: {e}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
 # Error handlers
 @app.errorhandler(404)
 def not_found(error):

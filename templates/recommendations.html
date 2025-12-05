@@ -9,7 +9,8 @@
         <div class="text-center mb-12">
             <h1 class="text-4xl font-bold text-gray-900 mb-4">Your Personalized Herb Recommendations</h1>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Based on your symptoms and Prakriti assessment, here are the most suitable Ayurvedic herbs for your wellness.
+                Based on your symptoms and Prakriti assessment, here are the most suitable Ayurvedic herbs for your
+                wellness.
             </p>
         </div>
 
@@ -55,113 +56,120 @@
         <!-- Herb Recommendations -->
         <div class="space-y-6">
             <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Recommended Herbs</h2>
-            
+
             {% if recommendations %}
-                {% for herb in recommendations %}
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <!-- Herb Image/Icon -->
-                        <div class="text-center lg:text-left">
-                            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-4">
-                                <span class="text-4xl">🌿</span>
+            {% for herb in recommendations %}
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Herb Image/Icon -->
+                    <div class="text-center lg:text-left">
+                        <div
+                            class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-4">
+                            <span class="text-4xl">🌿</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ herb.herb_name_english }}</h3>
+                        <p class="text-gray-600 mb-2">{{ herb.herb_name_sanskrit }}</p>
+                        <p class="text-sm text-gray-500">{{ herb.scientific_name }}</p>
+                    </div>
+
+                    <!-- Herb Details -->
+                    <div class="lg:col-span-2">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Basic Properties -->
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Properties</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div><span class="font-medium">Rasa:</span> {{ herb.rasa }}</div>
+                                    <div><span class="font-medium">Virya:</span> {{ herb.virya }}</div>
+                                    <div><span class="font-medium">Vipaka:</span> {{ herb.vipaka }}</div>
+                                    <div><span class="font-medium">Prabhava:</span> {{ herb.prabhava }}</div>
+                                </div>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ herb.herb_name_english }}</h3>
-                            <p class="text-gray-600 mb-2">{{ herb.herb_name_sanskrit }}</p>
-                            <p class="text-sm text-gray-500">{{ herb.scientific_name }}</p>
+
+                            <!-- Dosha Effects -->
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Dosha Effects</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div><span class="font-medium text-purple-600">Vata:</span> {{ herb.vata_effect }}
+                                    </div>
+                                    <div><span class="font-medium text-orange-600">Pitta:</span> {{ herb.pitta_effect }}
+                                    </div>
+                                    <div><span class="font-medium text-blue-600">Kapha:</span> {{ herb.kapha_effect }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Herb Details -->
-                        <div class="lg:col-span-2">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <!-- Basic Properties -->
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-3">Properties</h4>
-                                    <div class="space-y-2 text-sm">
-                                        <div><span class="font-medium">Rasa:</span> {{ herb.rasa }}</div>
-                                        <div><span class="font-medium">Virya:</span> {{ herb.virya }}</div>
-                                        <div><span class="font-medium">Vipaka:</span> {{ herb.vipaka }}</div>
-                                        <div><span class="font-medium">Prabhava:</span> {{ herb.prabhava }}</div>
+                        <!-- Dosage and Preparation -->
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Dosage & Preparation</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div><span class="font-medium">Dosage:</span> {{ herb.dosage_for_symptom or
+                                        herb.dosage }}</div>
+                                    <div><span class="font-medium">Preparation:</span> {{ herb.preparation_method }}
                                     </div>
-                                </div>
-
-                                <!-- Dosha Effects -->
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-3">Dosha Effects</h4>
-                                    <div class="space-y-2 text-sm">
-                                        <div><span class="font-medium text-purple-600">Vata:</span> {{ herb.vata_effect }}</div>
-                                        <div><span class="font-medium text-orange-600">Pitta:</span> {{ herb.pitta_effect }}</div>
-                                        <div><span class="font-medium text-blue-600">Kapha:</span> {{ herb.kapha_effect }}</div>
-                                    </div>
+                                    <div><span class="font-medium">Duration:</span> {{ herb.duration_of_treatment or 'As
+                                        directed' }}</div>
                                 </div>
                             </div>
 
-                            <!-- Dosage and Preparation -->
-                            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-3">Dosage & Preparation</h4>
-                                    <div class="space-y-2 text-sm">
-                                        <div><span class="font-medium">Dosage:</span> {{ herb.dosage_for_symptom or herb.dosage }}</div>
-                                        <div><span class="font-medium">Preparation:</span> {{ herb.preparation_method }}</div>
-                                        <div><span class="font-medium">Duration:</span> {{ herb.duration_of_treatment or 'As directed' }}</div>
-                                    </div>
-                                </div>
-
-                                <div>
+                            <!-- <div>
                                     <h4 class="font-semibold text-gray-900 mb-3">Effectiveness</h4>
                                     <div class="flex items-center mb-2">
                                         <span class="text-sm font-medium text-gray-700 mr-2">Score:</span>
                                         <div class="flex-1 bg-gray-200 rounded-full h-2">
                                             <div class="bg-green-500 h-2 rounded-full" style="width: {{ (herb.effectiveness_score * 100)|round }}%"></div>
                                         </div>
-                                        <span class="text-sm text-gray-600 ml-2">{{ (herb.effectiveness_score * 100)|round }}%</span>
-                                    </div>
-                                </div>
-                            </div>
+                                         <span class="text-sm text-gray-600 ml-2">{{ (herb.effectiveness_score * 100)|round }}%</span> 
+                                    </div> 
+                                </div> -->
+                        </div>
 
-                            <!-- Description -->
-                            {% if herb.description %}
-                            <div class="mt-6">
-                                <h4 class="font-semibold text-gray-900 mb-3">Description</h4>
-                                <p class="text-gray-700 text-sm">{{ herb.description }}</p>
-                            </div>
-                            {% endif %}
+                        <!-- Description -->
+                        {% if herb.description %}
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">Description</h4>
+                            <p class="text-gray-700 text-sm">{{ herb.description }}</p>
+                        </div>
+                        {% endif %}
 
-                            <!-- Contraindications -->
-                            {% if herb.contraindications %}
-                            <div class="mt-6">
-                                <h4 class="font-semibold text-red-600 mb-3">⚠️ Contraindications</h4>
-                                <p class="text-red-700 text-sm">{{ herb.contraindications }}</p>
-                            </div>
-                            {% endif %}
+                        <!-- Contraindications -->
+                        {% if herb.contraindications %}
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-red-600 mb-3">⚠️ Contraindications</h4>
+                            <p class="text-red-700 text-sm">{{ herb.contraindications }}</p>
+                        </div>
+                        {% endif %}
 
-                            <!-- Action Buttons -->
-                            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                                <a href="{{ url_for('herb_details', herb_id=herb.herb_id) }}" 
-                                   class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 text-center">
-                                    View Details
-                                </a>
-                                <button onclick="addToFavorites({{ herb.herb_id }})" 
-                                        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200">
-                                    Add to Favorites
-                                </button>
-                            </div>
+                        <!-- Action Buttons -->
+                        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                            <a href="{{ url_for('herb_details', herb_id=herb.herb_id) }}"
+                                class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 text-center">
+                                View Details
+                            </a>
+                            <button onclick="addToFavorites({{ herb.herb_id }})"
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200">
+                                Add to Favorites
+                            </button>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+            </div>
+            {% endfor %}
             {% else %}
-                <div class="bg-white rounded-2xl shadow-xl p-8 text-center">
-                    <div class="text-6xl mb-4">🌿</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">No Specific Recommendations</h3>
-                    <p class="text-gray-600 mb-6">
-                        Based on your current symptoms, we recommend consulting with an Ayurvedic practitioner 
-                        for personalized recommendations.
-                    </p>
-                    <a href="{{ url_for('symptom_entry') }}" 
-                       class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200">
-                        Update Symptoms
-                    </a>
-                </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8 text-center">
+                <div class="text-6xl mb-4">🌿</div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">No Specific Recommendations</h3>
+                <p class="text-gray-600 mb-6">
+                    Based on your current symptoms, we recommend consulting with an Ayurvedic practitioner
+                    for personalized recommendations.
+                </p>
+                <a href="{{ url_for('symptom_entry') }}"
+                    class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200">
+                    Update Symptoms
+                </a>
+            </div>
             {% endif %}
         </div>
 
@@ -192,16 +200,16 @@
 
         <!-- Action Buttons -->
         <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ url_for('symptom_entry') }}" 
-               class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 text-center">
+            <a href="{{ url_for('symptom_entry') }}"
+                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 text-center">
                 Update Symptoms
             </a>
-            <a href="{{ url_for('prakriti_quiz') }}" 
-               class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 text-center">
+            <a href="{{ url_for('prakriti_quiz') }}"
+                class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 text-center">
                 Retake Quiz
             </a>
-            <a href="{{ url_for('feedback') }}" 
-               class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 text-center">
+            <a href="{{ url_for('feedback') }}"
+                class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 text-center">
                 Provide Feedback
             </a>
         </div>
@@ -209,9 +217,9 @@
 </div>
 
 <script>
-function addToFavorites(herbId) {
-    // This would typically make an API call to save favorites
-    alert('Herb added to favorites! (This feature will be implemented in the future)');
-}
+    function addToFavorites(herbId) {
+        // This would typically make an API call to save favorites
+        alert('Herb added to favorites! (This feature will be implemented in the future)');
+    }
 </script>
 {% endblock %}
