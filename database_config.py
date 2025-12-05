@@ -58,6 +58,7 @@ class DatabaseConfig:
         self,
         age,
         gender,
+        state,
         prakriti_type,
         symptoms,
         severity,
@@ -72,6 +73,7 @@ class DatabaseConfig:
         CREATE (p:Patient {
             age: $age,
             gender: $gender,
+            state: $state,
             prakriti_type: $prakriti_type,
             symptoms: $symptoms,
             severity: $severity,
@@ -87,6 +89,7 @@ class DatabaseConfig:
                 query,
                 age=age,
                 gender=gender,
+                state=state,
                 prakriti_type=prakriti_type,
                 symptoms=symptoms,
                 severity=severity,

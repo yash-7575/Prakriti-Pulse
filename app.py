@@ -82,6 +82,7 @@ def register():
             # Extract form data
             age = int(request.form["age"])
             gender = request.form["gender"]
+            state = request.form.get("state", "")
             prakriti_type = request.form.get("prakriti_type", "")
 
             # Note: Current symptoms in this form are basic. Detailed entry happens next.
@@ -100,6 +101,7 @@ def register():
             db.add_patient_profile(
                 age=age,
                 gender=gender,
+                state=state,
                 prakriti_type=prakriti_type,
                 symptoms=symptoms_str,
                 severity=symptom_severity,
