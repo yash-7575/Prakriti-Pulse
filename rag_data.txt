@@ -1,5 +1,39 @@
-# Add your custom data here for the chatbot to learn from.
-# Each section can be separated by newlines.
-# Example:
-# Ayurveda is an ancient system of medicine from India.
-# Doshas are the three energies that govern the body: Vata, Pitta, and Kapha.
+
+Herb Availability in Kerala:
+Kerala has a tropical, humid climate ideal for spices and medicinal herbs.
+Commonly available herbs: Turmeric (Haridra), Black Pepper (Maricha), Ginger (Ardrakam), Brahmi, Shankhpushpi, and Tulsi.
+Ayurvedic treatments in Kerala often focus on Panchakarma and oil massages (Abhyanga) due to the favorable humid climate which helps open pores.
+
+Herb Availability in Maharashtra:
+Maharashtra has a varied climate, ranging from the humid Konkan coast to the dry interior (Vidarbha/Marathwada).
+Commonly available herbs: Tulsi, Neem, Aloe Vera (Kumari), Shatavari, Adulsa (Vasaka), and Giloy (Guduchi).
+In the dry regions, cooling and moisturizing herbs like Shatavari and Aloe Vera are often recommended to balance Vata and Pitta.
+
+Herb Availability in Assam:
+Assam has a subtropical climate with heavy rainfall and high humidity.
+Commonly available herbs: Turmeric (especially the potent Lakadong variety), Pippali (Long Pepper), Brahmi, and Hibiscus.
+The climate favors herbs that balance Kapha and Vata, preventing dampness-related issues.
+
+Herbs for Humid Climates:
+In humid climates (like Kerala, Assam, Konkan coast), Kapha dosha can easily get aggravated, leading to congestion and sluggishness.
+Recommended herbs: Tulsi, Ginger, Turmeric, Black Pepper, and Triphala. These help dry up excess moisture and boost digestion (Agni).
+
+Herbs for Dry Climates:
+In dry climates (like interior Maharashtra, Rajasthan), Vata dosha tends to increase, causing dryness and dehydration.
+Recommended herbs: Shatavari, Ashwagandha, Licorice (Yashtimadhu), and Aloe Vera. These are nourishing and moisturizing (Snigdha).
+
+Ashwagandha (Withania somnifera):
+Dosha Effect: Balances Vata and Kapha.
+Benefits: Adaptogen for stress, improves stamina, supports sleep.
+Contraindications: Avoid in high Pitta (can cause heat), pregnancy, and congestion.
+Availability: Widely available across India, grows well in drier regions like Madhya Pradesh and Rajasthan.
+
+Tulsi (Holy Basil):
+Dosha Effect: Balances Vata and Kapha. Increases Pitta slightly.
+Benefits: Respiratory support, immunity booster, anti-microbial.
+Availability: Found in almost every Indian household, grows well in most climates.
+
+Guduchi (Giloy / Tinospora cordifolia):
+Dosha Effect: Tridoshic (Balances Vata, Pitta, and Kapha).
+Benefits: Powerful immunomodulator, fever reducer, blood purifier.
+Availability: Grows as a climber in tropical and subtropical regions (Maharashtra, Kerala, etc.).

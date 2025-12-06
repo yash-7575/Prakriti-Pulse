@@ -13,7 +13,6 @@ import google.generativeai as genai
 
 # Load environment variables
 load_dotenv()
-
 # Configure Gemini
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_AVAILABLE = False
@@ -22,9 +21,9 @@ if GEMINI_API_KEY:
     try:
         genai.configure(api_key=GEMINI_API_KEY)
         GEMINI_AVAILABLE = True
-        print("✅ Gemini API configured successfully")
+        print("Gemini API configured successfully")
     except Exception as e:
-        print(f"⚠️ Error configuring Gemini API: {e}")
+        print(f"Error configuring Gemini API: {e}")
 
 # Import database functions with error handling
 try:
@@ -61,7 +60,7 @@ class RAGChatbotService:
         self.gemini_model = None
         
         if GEMINI_AVAILABLE:
-            self.gemini_model = genai.GenerativeModel('gemini-pro')
+            self.gemini_model = genai.GenerativeModel('gemini-2.5-flash')
             
         self._build_knowledge_base()
     
@@ -398,7 +397,7 @@ class RAGChatbotService:
                                 'text': chunk
                             }
                             self.knowledge_base.append(entry)
-                    print(f"✅ Loaded {len(chunks)} custom data entries")
+                    print(f"Loaded {len(chunks)} custom data entries")
             except Exception as e:
                 print(f"Error loading custom data: {e}")
 
@@ -424,17 +423,17 @@ class RAGChatbotService:
                             )['embedding'] for text in batch]
                             self.knowledge_vectors.extend(embeddings)
                         self.knowledge_vectors = np.array(self.knowledge_vectors)
-                        print("✅ Generated Gemini embeddings")
+                        print("Generated Gemini embeddings")
                     except Exception as e:
-                        print(f"⚠️ Error generating Gemini embeddings: {e}")
+                        print(f"Error generating Gemini embeddings: {e}")
                         print("Fallback to TF-IDF")
                         self.knowledge_vectors = self.vectorizer.fit_transform(texts)
                 else:
                     self.knowledge_vectors = self.vectorizer.fit_transform(texts)
                 
-                print(f"✅ Knowledge base built with {len(self.knowledge_base)} entries")
+                print(f"Knowledge base built with {len(self.knowledge_base)} entries")
             else:
-                print("⚠️ Knowledge base is empty")
+                print("Knowledge base is empty")
                 
         except Exception as e:
             import traceback
@@ -449,7 +448,7 @@ class RAGChatbotService:
         dataset_path = os.path.join(os.path.dirname(__file__), 'ayurveda_gnn_dataset_testing3', 'ayurveda_gnn_dataset')
         
         if not os.path.exists(dataset_path):
-            print(f"⚠️ GNN Dataset not found at {dataset_path}")
+            print(f"GNN Dataset not found at {dataset_path}")
             return
 
         try:
@@ -489,7 +488,7 @@ class RAGChatbotService:
                         'text': text
                     }
                     self.knowledge_base.append(entry)
-                print(f"✅ Loaded {len(df_herbs)} herbs from GNN dataset")
+                print(f"Loaded {len(df_herbs)} herbs from GNN dataset")
 
             # Load Health Conditions
             conditions_path = os.path.join(dataset_path, 'nodes', 'health_conditions.csv')
@@ -517,7 +516,7 @@ class RAGChatbotService:
                         'text': text
                     }
                     self.knowledge_base.append(entry)
-                print(f"✅ Loaded {len(df_conditions)} conditions from GNN dataset")
+                print(f"Loaded {len(df_conditions)} conditions from GNN dataset")
 
             # Load Herb-Condition Relationships
             edges_path = os.path.join(dataset_path, 'edges', 'herb_treats_condition.csv')
@@ -541,7 +540,7 @@ class RAGChatbotService:
                         'text': text
                     }
                     self.knowledge_base.append(entry)
-                print(f"✅ Loaded {len(df_edges)} relationships from GNN dataset")
+                print(f"Loaded {len(df_edges)} relationships from GNN dataset")
 
         except Exception as e:
             print(f"Error loading GNN dataset: {e}")
@@ -653,8 +652,17 @@ class RAGChatbotService:
             print(f"Error finding relevant knowledge: {e}")
             return []
     
-    def _generate_rag_response(self, query, relevant_knowledge):
+    def _generate_rag_response(self, query, relevant_knowledge, context=None):
         """Generate response using retrieved knowledge and Gemini"""
+        
+        # Prepare user context string
+        user_context_str = ""
+        if context:
+            if context.get('prakriti'):
+                user_context_str += f"User Prakriti: {context['prakriti']}\n"
+            if context.get('symptoms'):
+                user_context_str += f"User Symptoms: {context['symptoms']}\n"
+        
         if not relevant_knowledge:
             if GEMINI_AVAILABLE:
                 # If no specific knowledge found, let Gemini answer with general knowledge but with a disclaimer
@@ -662,6 +670,7 @@ class RAGChatbotService:
                     prompt = f"""
                     You are an Ayurvedic expert assistant for Prakriti Pulse.
                     User Query: {query}
+                    {user_context_str}
                     
                     Please answer the query based on general Ayurvedic principles. 
                     Disclaimer: Mention that this is general information and they should consult a practitioner.
@@ -678,21 +687,31 @@ class RAGChatbotService:
             knowledge = item['knowledge']
             context_parts.append(f"--- Info (Type: {knowledge.get('type', 'General')}) ---\n{knowledge['text']}")
         
-        context = "\n\n".join(context_parts)
+        knowledge_context = "\n\n".join(context_parts)
         
         if GEMINI_AVAILABLE:
             try:
                 # Construct prompt carefully to avoid syntax errors
                 prompt = "You are an Ayurvedic expert assistant for Prakriti Pulse.\n"
                 prompt += "Use the following context to answer the user's question.\n\n"
-                prompt += f"Context:\n{context}\n\n"
+                
+                if user_context_str:
+                    prompt += f"USER CONTEXT:\n{user_context_str}\n"
+                    prompt += "IMPORTANT: Tailor your answer to the user's Prakriti and symptoms if relevant.\n\n"
+                
+                prompt += f"KNOWLEDGE CONTEXT:\n{knowledge_context}\n\n"
                 prompt += f"User Query: {query}\n\n"
                 prompt += "Instructions:\n"
                 prompt += "1. Answer the query using ONLY the provided context if possible.\n"
                 prompt += "2. If the context doesn't fully answer it, you can use your general knowledge but prioritize the context.\n"
-                prompt += "3. Format the response with HTML tags for better readability (e.g., <b>, <ul>, <li>, <p>).\n"
-                prompt += "4. Be helpful, empathetic, and professional.\n"
-                prompt += "5. If recommending herbs, mention contraindications if available in context.\n"
+                prompt += "3. Format the response with HTML tags (<b>, <ul>, <li>, <p>).\n"
+                prompt += "4. STRICTLY use bullet points (<ul><li>) for the entire answer. Do not use paragraphs.\n"
+                prompt += "5. Keep each bullet point SHORT (max 2 sentences).\n"
+                prompt += "6. Do NOT include introductory or concluding fluff (e.g., 'Here are the recommendations...'). Start directly with the points.\n"
+                prompt += "7. Explain 'Why' briefly within the bullet points.\n"
+                prompt += "8. Mention confidence level and alternatives briefly as bullet points.\n"
+                prompt += "9. If recommending herbs, mention contraindications if available.\n"
+                prompt += "10. Be helpful but extremely CONCISE.\n"
                 
                 response = self.gemini_model.generate_content(prompt)
                 return response.text
@@ -791,14 +810,14 @@ class RAGChatbotService:
         
         return response
     
-    def get_response(self, query):
+    def get_response(self, query, context=None):
         """Get RAG response for user query"""
         try:
             # Find relevant knowledge
             relevant_knowledge = self._find_relevant_knowledge(query, top_k=5)
             
             # Generate response using retrieved knowledge
-            response = self._generate_rag_response(query, relevant_knowledge)
+            response = self._generate_rag_response(query, relevant_knowledge, context)
             
             return response
             
@@ -809,6 +828,6 @@ class RAGChatbotService:
 # Initialize the RAG chatbot service
 rag_chatbot_service = RAGChatbotService()
 
-def get_rag_chatbot_response(query):
+def get_rag_chatbot_response(query, context=None):
     """Get RAG chatbot response for a query"""
-    return rag_chatbot_service.get_response(query)
+    return rag_chatbot_service.get_response(query, context)
