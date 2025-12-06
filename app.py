@@ -134,7 +134,6 @@ def register():
 
     return render_template("register.html", symptoms=symptoms)
 
-
 @app.route("/prakriti_quiz")
 def prakriti_quiz():
     """
@@ -142,7 +141,6 @@ def prakriti_quiz():
     No data entry here.
     """
     return render_template("prakriti_quiz.html")
-
 
 @app.route("/symptom_entry", methods=["GET", "POST"])
 def symptom_entry():
@@ -176,7 +174,6 @@ def symptom_entry():
         symptoms = []
 
     return render_template("symptom_entry.html", symptoms=symptoms)
-
 
 @app.route("/recommendations", methods=["GET", "POST"])
 def recommendations():
