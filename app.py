@@ -1,476 +1,626 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, session
-import os
-from database_config import (
-    get_herbs, get_symptoms, get_prakriti_profiles, get_herb_symptom_relationships,
-    get_formulations, get_herbs_for_symptom, get_symptoms_for_herb, 
-    get_prakriti_profile_by_scores, add_patient_profile, get_patient_profiles,
-    DatabaseConfig
+from flask import (
+    Flask,
+    render_template,
+    request,
+    jsonify,
+    redirect,
+    url_for,
+    flash,
+    session,
 )
+import os
 import json
 from datetime import datetime
+from database_config import DatabaseConfig
+from ai_engine.predictor import AyurvedaPredictor
+from ai_engine.inference import AyurvedicAI
+
+# Initialize the Brain
+try:
+    ai_engine = AyurvedicAI()
+except Exception as e:
+    print(f"Warning: Could not load AI Engine. {e}")
+    ai_engine = None
+
+# Global variables for RAG chatbot service
+RAG_AVAILABLE = False
+get_rag_chatbot_response = None
+
+# Import RAG chatbot service
+try:
+    from chatbot_service import get_rag_chatbot_response
+
+    RAG_AVAILABLE = True
+except ImportError:
+    print(
+        "RAG chatbot service not available. Install required packages with: pip install scikit-learn numpy scipy"
+    )
+
+# Import RL Service
+try:
+    from rl_service import rl_service
+
+    RL_AVAILABLE = True
+except ImportError:
+    print("RL service not available.")
+    RL_AVAILABLE = False
 
 app = Flask(__name__)
+app.secret_key = "ayurveda_secret_key"  # Change this in production
+app.config["DEBUG"] = True
 
-# Configuration
-app.config['SECRET_KEY'] = 'your-secret-key-here'
-app.config['DEBUG'] = True
-
-# Initialize database
+# Initialize Database Connection
 db = DatabaseConfig()
 
-# Routes
-@app.route('/')
-def home():
-    """Home page with introduction to Ayurveda and system purpose"""
-    return render_template('home.html')
+# Initialize AI Brain
+# Ensure paths are correct relative to app.py
+# ai_brain = AyurvedaPredictor(
+#     model_path="ai_engine/ayurveda_gnn_model.pth",
+#     data_path="ai_engine/graph_data.pt",
+#     artifacts_path="ai_engine/gnn_artifacts.pkl",
+# )
 
-@app.route('/register', methods=['GET', 'POST'])
+# --- ROUTES ---
+
+
+@app.route("/")
+def home():
+    """Home page."""
+    return render_template("home.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
 def register():
-    """Patient Registration Page"""
-    if request.method == 'POST':
+    """
+    Patient Registration.
+    - Saves profile to Neo4j.
+    - Redirects to Symptom Entry (if Prakriti known).
+    - Redirects to Procedure Page (if Prakriti unknown).
+    """
+    if request.method == "POST":
         try:
             # Extract form data
-            age = int(request.form['age'])
-            gender = request.form['gender']
-            prakriti_type = request.form.get('prakriti_type', '')
-            current_symptoms = request.form.getlist('current_symptoms')
-            symptom_severity = request.form['symptom_severity']
-            treatment_history = request.form.get('treatment_history', '')
-            effectiveness_rating = request.form.get('effectiveness_rating')
-            practitioner_notes = request.form.get('practitioner_notes', '')
-            
-            # Convert symptoms list to string
-            symptoms_str = ', '.join(current_symptoms) if current_symptoms else ''
-            
-            # Convert effectiveness rating to float if provided
-            effectiveness_float = float(effectiveness_rating) if effectiveness_rating else None
-            
-            # Add patient profile to database
-            result = add_patient_profile(
-                age, gender, prakriti_type, symptoms_str, symptom_severity,
-                treatment_history, effectiveness_float, practitioner_notes
+            age = int(request.form["age"])
+            gender = request.form["gender"]
+            state = request.form.get("state", "")
+            prakriti_type = request.form.get("prakriti_type", "")
+
+            # Note: Current symptoms in this form are basic. Detailed entry happens next.
+            current_symptoms = request.form.getlist("current_symptoms")
+            symptoms_str = ", ".join(current_symptoms) if current_symptoms else ""
+
+            symptom_severity = request.form["symptom_severity"]
+            treatment_history = request.form.get("treatment_history", "")
+
+            effectiveness = request.form.get("effectiveness_rating")
+            effectiveness_float = float(effectiveness) if effectiveness else 0.0
+
+            practitioner_notes = request.form.get("practitioner_notes", "")
+
+            # Save to Neo4j using existing method signature
+            db.add_patient_profile(
+                age=age,
+                gender=gender,
+                state=state,
+                prakriti_type=prakriti_type,
+                symptoms=symptoms_str,
+                severity=symptom_severity,
+                treatment_history=treatment_history,
+                effectiveness=effectiveness_float,
+                practitioner_notes=practitioner_notes,
             )
-            
-            if result:
-                flash('Patient profile registered successfully!', 'success')
-                return redirect(url_for('prakriti_quiz'))
+
+            # Store critical info in Session for the recommendation engine
+            session["prakriti"] = prakriti_type
+
+            flash("Profile registered successfully!", "success")
+
+            # LOGIC: Where to go next?
+            if prakriti_type and prakriti_type != "":
+                return redirect(url_for("symptom_entry"))
             else:
-                flash('Error registering patient profile. Please try again.', 'error')
-                
+                return redirect(url_for("prakriti_quiz"))
+
         except Exception as e:
-            flash(f'Error: {str(e)}', 'error')
-    
-    # Get symptoms for the form
+            flash(f"Error registering: {str(e)}", "error")
+
+    # GET request: Load symptoms for the checkboxes
     try:
-        symptoms = get_symptoms()
+        symptoms = db.get_symptoms()
         if symptoms is None:
             symptoms = []
-    except Exception as e:
-        print(f"Error getting symptoms: {e}")
-        # Provide mock data when database is not available
-        symptoms = [
-            {'symptom_id': 1, 'symptom_name': 'Headache', 'symptom_category': 'Neurological', 'description': 'Pain in the head or scalp area'},
-            {'symptom_id': 2, 'symptom_name': 'Fatigue', 'symptom_category': 'General', 'description': 'Persistent tiredness and low energy'},
-            {'symptom_id': 3, 'symptom_name': 'Indigestion', 'symptom_category': 'Digestive', 'description': 'Discomfort after eating; bloating'},
-            {'symptom_id': 4, 'symptom_name': 'Joint Pain', 'symptom_category': 'Musculoskeletal', 'description': 'Pain, stiffness in joints'},
-            {'symptom_id': 5, 'symptom_name': 'Insomnia', 'symptom_category': 'Neurological', 'description': 'Difficulty falling or staying asleep'}
-        ]
-    
-    return render_template('register.html', symptoms=symptoms)
+    except:
+        symptoms = []
 
-@app.route('/prakriti_quiz', methods=['GET', 'POST'])
+    return render_template("register.html", symptoms=symptoms)
+
+
+@app.route("/prakriti_quiz")
 def prakriti_quiz():
-    """Prakriti Quiz Page"""
-    if request.method == 'POST':
-        try:
-            # Calculate dosha scores based on quiz responses
-            vata_score = 0
-            pitta_score = 0
-            kapha_score = 0
-            
-            # Process quiz responses (simplified scoring)
-            for key, value in request.form.items():
-                if key.startswith('question_'):
-                    if value == 'vata':
-                        vata_score += 1
-                    elif value == 'pitta':
-                        pitta_score += 1
-                    elif value == 'kapha':
-                        kapha_score += 1
-            
-            # Determine dominant dosha
-            scores = {'vata': vata_score, 'pitta': pitta_score, 'kapha': kapha_score}
-            dominant_dosha = max(scores, key=scores.get)
-            
-            # Get prakriti profile
-            prakriti_profile = get_prakriti_profile_by_scores(vata_score, pitta_score, kapha_score)
-            
-            if not prakriti_profile:
-                # Create a basic profile if exact match not found
-                constitution_type = f"Mixed {dominant_dosha.title()}"
-                prakriti_profile = [{
-                    'dominant_dosha': dominant_dosha,
-                    'constitution_type': constitution_type,
-                    'characteristics': f"Based on your responses, you show {dominant_dosha} dominance.",
-                    'common_ailments': "Consult with an Ayurvedic practitioner for specific recommendations.",
-                    'recommended_lifestyle': "Follow {dominant_dosha}-balancing lifestyle practices."
-                }]
-            
-            # Store in session for later use
-            session['prakriti_results'] = {
-                'vata_score': vata_score,
-                'pitta_score': pitta_score,
-                'kapha_score': kapha_score,
-                'dominant_dosha': dominant_dosha,
-                'profile': prakriti_profile[0] if prakriti_profile else None
-            }
-            
-            flash('Prakriti assessment completed successfully!', 'success')
-            return render_template('prakriti_results.html', 
-                                 vata_score=vata_score, 
-                                 pitta_score=pitta_score, 
-                                 kapha_score=kapha_score,
-                                 dominant_dosha=dominant_dosha,
-                                 profile=prakriti_profile[0] if prakriti_profile else None)
-            
-        except Exception as e:
-            flash(f'Error processing quiz: {str(e)}', 'error')
-    
-    return render_template('prakriti_quiz.html')
+    """
+    Informational Page: Official Assessment Procedure.
+    No data entry here.
+    """
+    return render_template("prakriti_quiz.html")
 
-@app.route('/symptom_entry', methods=['GET', 'POST'])
+
+@app.route("/symptom_entry", methods=["GET", "POST"])
 def symptom_entry():
-    """Symptom Entry Page"""
-    if request.method == 'POST':
-        try:
-            selected_symptoms = request.form.getlist('symptoms')
-            symptom_severities = {}
-            
-            # Get severity for each symptom
-            for symptom in selected_symptoms:
-                severity_key = f'severity_{symptom}'
-                if severity_key in request.form:
-                    symptom_severities[symptom] = request.form[severity_key]
-            
-            # Store in session
-            session['selected_symptoms'] = selected_symptoms
-            session['symptom_severities'] = symptom_severities
-            
-            flash('Symptoms recorded successfully!', 'success')
-            return redirect(url_for('recommendations'))
-            
-        except Exception as e:
-            flash(f'Error recording symptoms: {str(e)}', 'error')
-    
+    """
+    Detailed Symptom Selection.
+    """
+    if request.method == "POST":
+        selected_symptoms = request.form.getlist("symptoms")
+
+        # Save to session so we can query DB in the next step
+        session["selected_symptoms"] = selected_symptoms
+
+        # Also capture severities if needed
+        symptom_severities = {}
+        for symptom in selected_symptoms:
+            severity_key = f"severity_{symptom}"
+            if severity_key in request.form:
+                symptom_severities[symptom] = request.form[severity_key]
+        session["symptom_severities"] = symptom_severities
+
+        flash("Symptoms recorded. Generating recommendations...", "success")
+        return redirect(url_for("recommendations"))
+
+    # Load all symptoms from Neo4j to populate the form
     try:
-        symptoms = get_symptoms()
+        symptoms = db.get_symptoms()
         if symptoms is None:
             symptoms = []
     except Exception as e:
-        print(f"Error getting symptoms: {e}")
-        # Provide mock data when database is not available
-        symptoms = [
-            {'symptom_id': 1, 'symptom_name': 'Headache', 'symptom_category': 'Neurological', 'description': 'Pain in the head or scalp area'},
-            {'symptom_id': 2, 'symptom_name': 'Fatigue', 'symptom_category': 'General', 'description': 'Persistent tiredness and low energy'},
-            {'symptom_id': 3, 'symptom_name': 'Indigestion', 'symptom_category': 'Digestive', 'description': 'Discomfort after eating; bloating'},
-            {'symptom_id': 4, 'symptom_name': 'Joint Pain', 'symptom_category': 'Musculoskeletal', 'description': 'Pain, stiffness in joints'},
-            {'symptom_id': 5, 'symptom_name': 'Insomnia', 'symptom_category': 'Neurological', 'description': 'Difficulty falling or staying asleep'},
-            {'symptom_id': 6, 'symptom_name': 'Cough', 'symptom_category': 'Respiratory', 'description': 'Expulsion of air with sound, may be dry/productive'},
-            {'symptom_id': 7, 'symptom_name': 'Skin Rash', 'symptom_category': 'Dermatological', 'description': 'Red, itchy skin patches'},
-            {'symptom_id': 8, 'symptom_name': 'Fever', 'symptom_category': 'Infectious', 'description': 'Raised body temperature often with malaise'},
-            {'symptom_id': 9, 'symptom_name': 'Constipation', 'symptom_category': 'Digestive', 'description': 'Infrequent or difficult bowel movements'},
-            {'symptom_id': 10, 'symptom_name': 'Acidity', 'symptom_category': 'Digestive', 'description': 'Burning sensation in stomach/oesophagus'}
-        ]
-    
-    return render_template('symptom_entry.html', symptoms=symptoms)
+        print(f"DB Error: {e}")
+        symptoms = []
 
-@app.route('/recommendations')
+    return render_template("symptom_entry.html", symptoms=symptoms)
+
+
+@app.route("/recommendations", methods=["GET", "POST"])
 def recommendations():
-    """Recommendations Page - displays herb recommendations based on symptoms and prakriti"""
-    try:
-        # Get symptoms from session
-        selected_symptoms = session.get('selected_symptoms', [])
-        symptom_severities = session.get('symptom_severities', {})
-        prakriti_results = session.get('prakriti_results', {})
-        
-        if not selected_symptoms:
-            # Provide mock recommendations when no symptoms are selected
-            mock_recommendations = [
-                {
-                    'herb_id': 1,
-                    'herb_name_english': 'Ashwagandha',
-                    'herb_name_sanskrit': 'Ashwagandha',
-                    'scientific_name': 'Withania somnifera',
-                    'rasa': 'Bitter',
-                    'virya': 'Hot',
-                    'vipaka': 'Sweet',
-                    'prabhava': 'Rasayana (rejuvenator)',
-                    'vata_effect': 'Balances Vata',
-                    'pitta_effect': 'May increase Pitta in excess',
-                    'kapha_effect': 'Reduces Kapha',
-                    'part_used': 'Root',
-                    'dosage': '3-6g daily',
-                    'preparation_method': 'Powder/decoction',
-                    'contraindications': 'Avoid in pregnancy & high fever',
-                    'description': 'Stress adaptogen; increases strength and stamina',
-                    'effectiveness_score': 0.85
-                },
-                {
-                    'herb_id': 2,
-                    'herb_name_english': 'Tulsi',
-                    'herb_name_sanskrit': 'Tulasī',
-                    'scientific_name': 'Ocimum tenuiflorum',
-                    'rasa': 'Pungent',
-                    'virya': 'Hot',
-                    'vipaka': 'Sweet',
-                    'prabhava': 'Immunity enhancer',
-                    'vata_effect': 'Balances Vata',
-                    'pitta_effect': 'Reduces Pitta',
-                    'kapha_effect': 'Reduces Kapha',
-                    'part_used': 'Leaves',
-                    'dosage': '5-10 leaves or 1-2g powder',
-                    'preparation_method': 'Infusion/decoction',
-                    'contraindications': 'None common (use caution in pregnancy)',
-                    'description': 'Anti-microbial and respiratory support',
-                    'effectiveness_score': 0.80
-                }
-            ]
-            return render_template('recommendations.html', 
-                                 recommendations=mock_recommendations,
-                                 selected_symptoms=[],
-                                 symptom_severities={},
-                                 prakriti_results=prakriti_results)
-        
-        # Get herb recommendations for each symptom
-        recommendations = []
-        for symptom_id in selected_symptoms:
-            herbs = get_herbs_for_symptom(symptom_id)
-            if herbs:
-                recommendations.extend(herbs)
-        
-        # Remove duplicates and sort by effectiveness
-        unique_herbs = {}
-        for herb in recommendations:
-            herb_id = herb['herb_id']
-            if herb_id not in unique_herbs or herb['effectiveness_score'] > unique_herbs[herb_id]['effectiveness_score']:
-                unique_herbs[herb_id] = herb
-        
-        recommendations = list(unique_herbs.values())
-        recommendations.sort(key=lambda x: x['effectiveness_score'], reverse=True)
-        
-        return render_template('recommendations.html', 
-                             recommendations=recommendations,
-                             selected_symptoms=selected_symptoms,
-                             symptom_severities=symptom_severities,
-                             prakriti_results=prakriti_results)
-        
-    except Exception as e:
-        flash(f'Error generating recommendations: {str(e)}', 'error')
-        return redirect(url_for('home'))
+    """
+    Recommendations Page.
+    Fetches recommendations using the Graph Database.
+    """
+    if request.method == "POST":
+        # Get symptoms from form
+        selected_symptoms = request.form.getlist("symptoms")
 
-@app.route('/herb_details/<int:herb_id>')
+        # Save to session for persistence
+        session["selected_symptoms"] = selected_symptoms
+
+    else:  # GET request
+        # Retrieve from session
+        selected_symptoms = session.get("selected_symptoms", [])
+
+    if not selected_symptoms:
+        # If no symptoms selected (or session expired), show empty state
+        return render_template("recommendations.html", herbs=[])
+
+    try:
+        # Get recommendations from AI Engine
+        recommendations = []
+        seen_herbs = set()
+
+        if ai_engine:
+            for symptom in selected_symptoms:
+                # Get AI results for each symptom
+                results = ai_engine.get_recommendations(symptom, top_k=5)
+
+                for res in results:
+                    if res["name"] not in seen_herbs:
+                        recommendations.append(res)
+                        seen_herbs.add(res["name"])
+
+            # Sort by score descending
+            recommendations.sort(key=lambda x: x["score"], reverse=True)
+
+        else:
+            # Fallback if AI engine failed to load
+            print("AI Engine not available, falling back to DB")
+            recommendations = db.get_graph_recommendations(selected_symptoms)
+
+        return render_template("recommendations.html", herbs=recommendations)
+
+    except Exception as e:
+        print(f"Error getting recommendations: {e}")
+        flash(f"Error generating recommendations: {str(e)}", "error")
+        return render_template("recommendations.html", herbs=[])
+
+
+@app.route("/get_ai_recommendations", methods=["POST"])
+def get_ai_recommendations():
+    if not ai_engine:
+        return jsonify({"error": "AI Engine not active"}), 503
+
+    data = request.json
+    symptom = data.get("symptom")  # e.g., "Insomnia"
+    prakriti = data.get("prakriti")  # e.g., "Vata"
+
+    # Get results from the Brain
+    results = ai_engine.get_recommendations(symptom, prakriti)
+
+    # If AI finds nothing, maybe fallback to DB query here?
+
+    return jsonify(results)
+
+
+@app.route("/herbs")
+def herbs():
+    """List all herbs."""
+    try:
+        # Use existing method to get correct fields for template
+        herbs_list = db.get_herbs()
+        if herbs_list is None:
+            herbs_list = []
+    except Exception as e:
+        herbs_list = []
+        print(e)
+
+    return render_template("herbs.html", herbs=herbs_list)
+
+
+@app.route("/herb_details/<int:herb_id>")
 def herb_details(herb_id):
     """Herb Details Page - displays detailed information about a specific herb"""
     try:
         # Get herb details
-        herbs = get_herbs()
-        herb = next((h for h in herbs if h['herb_id'] == herb_id), None)
-        
+        herbs = db.get_herbs()
+        herb = next((h for h in herbs if h["herb_id"] == herb_id), None)
+
         if not herb:
-            flash('Herb not found.', 'error')
-            return redirect(url_for('herbs'))
-        
+            flash("Herb not found.", "error")
+            return redirect(url_for("herbs"))
+
         # Get symptoms this herb can help with
-        symptoms = get_symptoms_for_herb(herb_id)
-        
-        return render_template('herb_details.html', herb=herb, symptoms=symptoms)
-        
-    except Exception as e:
-        flash(f'Error loading herb details: {str(e)}', 'error')
-        return redirect(url_for('herbs'))
+        symptoms = db.get_symptoms_for_herb(herb_id)
 
-@app.route('/herbs')
-def herbs():
-    """Herbs Page - displays all available herbs"""
-    try:
-        herbs_list = get_herbs()
-        if herbs_list is None:
-            herbs_list = []
-    except Exception as e:
-        print(f"Error loading herbs: {e}")
-        herbs_list = []
-    
-    # Provide mock data when database is not available
-    if not herbs_list:
-        herbs_list = [
-            {
-                'herb_id': 1,
-                'herb_name_english': 'Ashwagandha',
-                'herb_name_sanskrit': 'Ashwagandha',
-                'scientific_name': 'Withania somnifera',
-                'rasa': 'Bitter',
-                'virya': 'Hot',
-                'vipaka': 'Sweet',
-                'prabhava': 'Rasayana (rejuvenator)',
-                'vata_effect': 'Balances Vata',
-                'pitta_effect': 'May increase Pitta in excess',
-                'kapha_effect': 'Reduces Kapha',
-                'part_used': 'Root',
-                'dosage': '3-6g daily',
-                'preparation_method': 'Powder/decoction',
-                'contraindications': 'Avoid in pregnancy & high fever',
-                'description': 'Stress adaptogen; increases strength and stamina'
-            },
-            {
-                'herb_id': 2,
-                'herb_name_english': 'Tulsi',
-                'herb_name_sanskrit': 'Tulasī',
-                'scientific_name': 'Ocimum tenuiflorum',
-                'rasa': 'Pungent',
-                'virya': 'Hot',
-                'vipaka': 'Sweet',
-                'prabhava': 'Immunity enhancer',
-                'vata_effect': 'Balances Vata',
-                'pitta_effect': 'Reduces Pitta',
-                'kapha_effect': 'Reduces Kapha',
-                'part_used': 'Leaves',
-                'dosage': '5-10 leaves or 1-2g powder',
-                'preparation_method': 'Infusion/decoction',
-                'contraindications': 'None common (use caution in pregnancy)',
-                'description': 'Anti-microbial and respiratory support'
-            },
-            {
-                'herb_id': 3,
-                'herb_name_english': 'Triphala',
-                'herb_name_sanskrit': 'Triphala',
-                'scientific_name': 'Mixture of Emblica/Terminalia chebula/Terminalia bellirica',
-                'rasa': 'Astringent',
-                'virya': 'Mild Hot',
-                'vipaka': 'Sweet',
-                'prabhava': 'Detoxifier',
-                'vata_effect': 'Balances Vata',
-                'pitta_effect': 'Balances Pitta',
-                'kapha_effect': 'Balances Kapha',
-                'part_used': 'Fruits (three)',
-                'dosage': '1-3g daily',
-                'preparation_method': 'Powder',
-                'contraindications': 'Caution in diarrhea',
-                'description': 'Digestive tonic and mild laxative'
-            }
-        ]
-    
-    return render_template('herbs.html', herbs=herbs_list)
+        return render_template("herb_details.html", herb=herb, symptoms=symptoms)
 
-@app.route('/feedback', methods=['GET', 'POST'])
+    except Exception as e:
+        flash(f"Error loading herb details: {str(e)}", "error")
+        return redirect(url_for("herbs"))
+
+
+@app.route("/feedback", methods=["GET", "POST"])
 def feedback():
     """Feedback Page - collects user feedback"""
-    if request.method == 'POST':
+    if request.method == "POST":
         try:
-            feedback_text = request.form['feedback']
-            rating = request.form.get('rating', 0)
-            user_type = request.form.get('user_type', 'patient')
-            
-            # Store feedback in database (you might want to create a feedback table)
-            # For now, we'll just show a success message
-            flash('Thank you for your feedback!', 'success')
-            return redirect(url_for('home'))
-            
+            flash("Thank you for your feedback!", "success")
+            return redirect(url_for("home"))
         except Exception as e:
-            flash(f'Error submitting feedback: {str(e)}', 'error')
-    
-    return render_template('feedback.html')
+            flash(f"Error submitting feedback: {str(e)}", "error")
+    return render_template("feedback.html")
 
-@app.route('/admin')
+
+@app.route("/admin")
 def admin():
     """Admin Data Entry Page - CRUD operations for herbs/symptoms/formulations"""
     try:
-        herbs_list = get_herbs()
-        symptoms_list = get_symptoms()
-        formulations_list = get_formulations()
-        
-        return render_template('admin.html', 
-                             herbs=herbs_list, 
-                             symptoms=symptoms_list, 
-                             formulations=formulations_list)
-    except Exception as e:
-        flash(f'Error loading admin data: {str(e)}', 'error')
-        return render_template('admin.html', herbs=[], symptoms=[], formulations=[])
+        herbs_list = db.get_herbs()
+        symptoms_list = db.get_symptoms()
+        formulations_list = db.get_formulations()
 
-# API routes for AJAX requests
-@app.route('/api/recommend', methods=['POST'])
+        return render_template(
+            "admin.html",
+            herbs=herbs_list,
+            symptoms=symptoms_list,
+            formulations=formulations_list,
+        )
+    except Exception as e:
+        flash(f"Error loading admin data: {str(e)}", "error")
+        return render_template("admin.html", herbs=[], symptoms=[], formulations=[])
+
+
+@app.route("/chatbot")
+def chatbot():
+    """Chatbot interface page"""
+    return render_template("chatbot.html")
+
+
+# --- API ROUTES ---
+
+
+# @app.route("/api/recommend", methods=["POST"])
+@app.route("/api/recommend", methods=["POST"])
 def api_recommend():
-    """API endpoint for getting recommendations (for future GNN integration)"""
+    """
+    Endpoint to get herb recommendations.
+    Current Mode: Graph Database Query (Neo4j)
+    Future Mode: GNN Inference
+    """
     try:
         data = request.get_json()
-        symptoms = data.get('symptoms', [])
-        prakriti_type = data.get('prakriti_type', '')
-        
-        # For now, return mock recommendations
-        # This is where the GNN model will be integrated later
-        mock_recommendations = [
-            {
-                'herb_name': 'Ashwagandha',
-                'dosage': '3-6g daily',
-                'reason': 'Excellent for stress and fatigue',
-                'contraindications': 'Avoid in pregnancy and high fever'
-            },
-            {
-                'herb_name': 'Tulsi',
-                'dosage': '5-10 leaves or 1-2g powder',
-                'reason': 'Great for respiratory health',
-                'contraindications': 'None common'
-            }
-        ]
-        
-        return jsonify({
-            'success': True,
-            'recommendations': mock_recommendations
-        })
-        
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
+        symptoms = data.get("symptoms", [])  # List of Symptom IDs (e.g., ['1', '5'])
+        prakriti_type = data.get("prakriti_type", "")
 
-@app.route('/api/symptoms')
+        # 1. FETCH FROM DATABASE (The "Rule-Based" Fallback)
+        recommendations = db.get_graph_recommendations(symptoms)
+
+        # 2. Fallback if database returns nothing
+        if not recommendations:
+            return jsonify(
+                {
+                    "success": True,
+                    "source": "fallback_rule",
+                    "recommendations": [
+                        {
+                            "herb_name": "Triphala",
+                            "dosage": "1 tsp with warm water",
+                            "reason": "General detoxification and balance (Default recommendation)",
+                            "contraindications": "None",
+                        }
+                    ],
+                }
+            )
+
+        return jsonify(
+            {
+                "success": True,
+                "source": "neo4j_graph",  # Flag to let you know it came from DB
+                "recommendations": recommendations,
+            }
+        )
+
+    except Exception as e:
+        print(f"Error in recommendation: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/symptoms")
 def api_symptoms():
     """API endpoint to get all symptoms"""
     try:
-        symptoms = get_symptoms()
-        return jsonify({
-            'success': True,
-            'symptoms': symptoms
-        })
+        symptoms = db.get_symptoms()
+        return jsonify({"success": True, "symptoms": symptoms})
     except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
-@app.route('/api/herbs')
+
+@app.route("/api/herbs")
 def api_herbs():
     """API endpoint to get all herbs"""
     try:
-        herbs = get_herbs()
-        return jsonify({
-            'success': True,
-            'herbs': herbs
-        })
+        herbs = db.get_herbs()
+        return jsonify({"success": True, "herbs": herbs})
     except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/feedback/chat", methods=["POST"])
+def api_chat_feedback():
+    """API endpoint for chat feedback (RL training)"""
+    try:
+        data = request.get_json()
+        query = data.get("query", "")
+        action = data.get("action", 0)
+        reward = data.get("reward", 0)  # 1 for positive, -1 for negative
+
+        if RL_AVAILABLE:
+            new_q = rl_service.update_feedback(query, action, reward)
+            return jsonify({"success": True, "new_q": new_q})
+
+        return jsonify({"success": False, "error": "RL not available"})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/chat", methods=["POST"])
+def api_chat():
+    """API endpoint for chatbot responses"""
+    try:
+        data = request.get_json()
+        user_message = data.get("message", "").lower()
+
+        # Simple rule-based chatbot responses
+        response = get_chatbot_response(user_message)
+
+        return jsonify({"success": True, "response": response})
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+def _get_rule_based_response(message):
+    """Helper for rule-based responses"""
+    if "vata" in message:
+        return "Vata is one of the three Doshas in Ayurveda, composed of Air and Ether elements. It governs movement, breathing, nerve impulses, and elimination. When balanced, Vata promotes creativity and vitality. When imbalanced, it can cause anxiety, insomnia, and digestive issues. Balancing Vata involves warm, nourishing foods and regular routines."
+
+    if "pitta" in message:
+        return "Pitta is one of the three Doshas in Ayurveda, composed of Fire and Water elements. It governs digestion, metabolism, and transformation in the body. When balanced, Pitta promotes intelligence and focus. When imbalanced, it can cause anger, acidity, and inflammation. Cooling foods and activities help balance Pitta."
+
+    if "kapha" in message:
+        return "Kapha is one of the three Doshas in Ayurveda, composed of Earth and Water elements. It governs structure, stability, and immunity. When balanced, Kapha promotes strength and calmness. When imbalanced, it can cause weight gain, congestion, and lethargy. Light, warming foods and stimulating activities help balance Kapha."
+
+    # Specific Symptom Advice
+    if "headache" in message:
+        return "For headaches, Ayurveda recommends cooling herbs like Brahmi and Sandalwood paste application. Drinking warm water and avoiding spicy foods can also help. If it's a migraine, it might be related to Pitta imbalance."
+
+    if "acidity" in message or "heartburn" in message:
+        return "For acidity, avoid spicy and sour foods. Cooling herbs like Amla, Coriander water, and Fennel seeds are very effective. Coconut water is also excellent for soothing the stomach lining."
+
+    if "fatigue" in message or "tired" in message:
+        return "Fatigue is often a sign of Vata imbalance. Ashwagandha is the best herb for boosting energy and vitality. Ensure you're getting enough rest and eating warm, nourishing foods."
+
+    if "insomnia" in message or "sleep" in message:
+        return "For better sleep, try drinking warm milk with a pinch of nutmeg before bed. Massaging your feet with warm sesame oil (Padabhyanga) is also very effective for calming Vata and inducing sleep."
+
+    if "joint pain" in message or "arthritis" in message:
+        return "Joint pain can be due to Vata aggravation. Turmeric milk (Golden Milk) is a powerful anti-inflammatory. Gentle yoga and applying warm Mahanarayan oil can also provide relief."
+
+    # Herb related
+    if any(
+        herb_word in message
+        for herb_word in [
+            "herb",
+            "medicine",
+            "remedy",
+            "treatment",
+            "ashwagandha",
+            "tulsi",
+            "triphala",
+        ]
+    ):
+        if "ashwagandha" in message:
+            return "Ashwagandha (Withania somnifera) is a powerful adaptogenic herb that helps the body adapt to stress. It's particularly beneficial for Vata imbalance, reduces fatigue, improves sleep quality, and enhances vitality. Typical dosage is 3-6g daily as powder or 1-2 capsules. It's especially helpful for those experiencing stress, anxiety, or exhaustion."
+        elif "tulsi" in message:
+            return "Tulsi (Holy Basil, Ocimum tenuiflorum) is revered in Ayurveda for its immune-enhancing properties. It helps with respiratory issues, reduces stress, and balances Kapha and Vata. You can consume 5-10 fresh leaves daily or as tea. Tulsi is excellent for colds, coughs, and respiratory infections."
+        elif "triphala" in message:
+            return "Triphala is a traditional Ayurvedic formula of three fruits: Amalaki, Bibhitaki, and Haritaki. It's a gentle detoxifier that balances all three Doshas, particularly effective for digestive health and natural cleansing. Typical dosage is 1-3g daily before bed. It's excellent for improving digestion and gentle bowel regulation."
+        else:
+            return "Ayurveda offers many healing herbs with specific properties. Popular herbs include Ashwagandha for stress relief, Tulsi for immunity, Triphala for digestion, Brahmi for memory, and Turmeric for inflammation. Each herb has unique tastes (Rasa), energies (Virya), and post-digestive effects (Vipaka) that influence its actions."
+
+    # Generic Symptom Help (Fallback)
+    if any(
+        symptom_word in message
+        for symptom_word in [
+            "symptom",
+            "feel",
+            "pain",
+            "ache",
+            "sick",
+            "illness",
+            "disease",
+        ]
+    ):
+        return "I can help you understand symptoms from an Ayurvedic perspective. For example, headaches are often related to Pitta imbalance, fatigue to Vata imbalance, and acidity to Pitta imbalance. Different herbs can help balance these conditions. Try asking about specific symptoms like 'What helps with headaches?' or 'How to reduce acidity naturally?'"
+
+    # Navigation
+    if "navigate" in message or "find" in message:
+        return "You can explore our Ayurvedic resources:<br>• Take the Prakriti Quiz to discover your constitution<br>• Check Symptoms to identify health concerns<br>• View Herbs to learn about medicinal plants<br>• Register to save your health journey<br>All these features help personalize your Ayurvedic wellness experience."
+
+    return None
+
+
+def get_chatbot_response(message):
+    """Generate chatbot response based on user message using RL"""
+    message = message.lower().strip()
+
+    # Default Action: 0 (RAG)
+    action = 0
+    if RL_AVAILABLE:
+        action, _ = rl_service.get_action(message)
+        print(f"RL Action Selected: {action}")
+
+    rag_response = None
+    rule_response = None
+
+    # Execute based on action
+    if action == 0:  # Prefer RAG
+        if RAG_AVAILABLE and get_rag_chatbot_response is not None:
+            try:
+                rag_response = get_rag_chatbot_response(message)
+                if rag_response and not rag_response.startswith(
+                    "I don't have specific information"
+                ):
+                    return rag_response
+            except Exception as e:
+                print(f"RAG Error: {e}")
+
+        # Fallback to rules if RAG failed
+        rule_response = _get_rule_based_response(message)
+        if rule_response:
+            return rule_response
+
+    elif action == 1:  # Prefer Rules
+        rule_response = _get_rule_based_response(message)
+        if rule_response:
+            return rule_response
+
+        # Fallback to RAG if rules failed
+        if RAG_AVAILABLE and get_rag_chatbot_response is not None:
+            try:
+                rag_response = get_rag_chatbot_response(message)
+                if rag_response and not rag_response.startswith(
+                    "I don't have specific information"
+                ):
+                    return rag_response
+            except Exception as e:
+                print(f"RAG Error: {e}")
+
+    # Action 2 or Fallback
+    return "I'm here to help with your Ayurvedic wellness journey. You can ask me specific questions about herbs, symptoms, or Doshas (Vata, Pitta, Kapha). For example:<br>• 'What helps with headaches?'<br>• 'Tell me about Pitta dosha'<br>• 'Benefits of Ashwagandha'<br>• 'How to balance Vata?'"
+
+
+# Import chatbot service
+try:
+    from chatbot_service import get_rag_chatbot_response
+except ImportError:
+    print("Chatbot service not available")
+
+    def get_rag_chatbot_response(query, context=None):
+        return "Chatbot service is currently unavailable."
+
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    """Chatbot endpoint"""
+    try:
+        data = request.get_json()
+        message = data.get("message", "")
+
+        if not message:
+            return jsonify({"success": False, "error": "No message provided"}), 400
+
+        # Build context from session
+        context = {}
+
+        # Add Prakriti info
+        prakriti_results = session.get("prakriti_results")
+        if prakriti_results:
+            context["prakriti"] = (
+                f"{prakriti_results.get('dominant_dosha', 'Unknown')} ({prakriti_results.get('profile', {}).get('constitution_type', '')})"
+            )
+
+        # Add Symptoms info
+        selected_symptoms = session.get("selected_symptoms")
+        if selected_symptoms:
+            # We need symptom names, not just IDs
+            try:
+                all_symptoms = get_symptoms()
+                symptom_names = []
+                if all_symptoms:
+                    for s_id in selected_symptoms:
+                        # Find symptom name
+                        name = next(
+                            (
+                                s["symptom_name"]
+                                for s in all_symptoms
+                                if str(s["symptom_id"]) == str(s_id)
+                            ),
+                            None,
+                        )
+                        if name:
+                            symptom_names.append(name)
+
+                if symptom_names:
+                    context["symptoms"] = ", ".join(symptom_names)
+            except Exception as e:
+                print(f"Error getting symptom names for context: {e}")
+
+        # Get response from chatbot service
+        response = get_rag_chatbot_response(message, context)
+
+        return jsonify({"success": True, "response": response})
+
+    except Exception as e:
+        print(f"Chat error: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
 
 # Error handlers
 @app.errorhandler(404)
 def not_found(error):
-    return render_template('404.html'), 404
+    return render_template("404.html"), 404
+
 
 @app.errorhandler(500)
 def internal_error(error):
-    return render_template('500.html'), 500
+    return render_template("500.html"), 500
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000)

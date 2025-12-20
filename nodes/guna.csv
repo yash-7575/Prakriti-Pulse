@@ -1,0 +1,21 @@
+node_id,name,description
+1,Light,Low weight; creates levity and mobility
+2,Heavy,"High weight; grounds and stabilizes, tends to increase kapha"
+3,Hot,Heating quality; stimulates metabolism and sharpens action
+4,Cold,Cooling quality; soothes heat and slows metabolic activity
+5,Oily,Lubricating and unctuous; moistens tissues and can increase kapha
+6,Dry,Absorbing and drying; increases vata and reduces moisture
+7,Smooth,Soft and even in texture; soothing and pacifying
+8,Rough,Coarse or abrasive; increases dryness and vata
+9,Stable,Fixed and steady; grounding and strengthening
+10,Mobile,"Active and moving; dispersing, increases vata"
+11,Dense,Compact and heavy in substance; consolidating and grounding
+12,Subtle,Fine and penetrating; light in action and often vata-associated
+13,Sharp,Piercing and cutting quality; stimulates pitta and vata
+14,Soft,Delicate and yielding; gentle and nourishing
+15,Liquid,Fluid and flowing; enhances transport and absorption
+16,Firm,Solid and resistant; stabilizes structure and function
+17,Clear,Transparent and purifying; supports clarity and lightness
+18,Cloudy,Opaque or turbid; can cause heaviness or obstruction
+19,Sticky,Adhesive and binding; increases kapha and may obstruct flow
+20,Bland,Mild and lacking pungency; often cooling and grounding

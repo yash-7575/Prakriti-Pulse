@@ -1,0 +1,13 @@
+nodeid,name,description,primarydoshaassociation,relatedsystems
+1,Brain,Control center of the nervous system,Vata,Nervous
+2,Heart,Muscular pump that circulates blood,Pitta,Cardiovascular
+3,Liver,Largest internal organ involved in detoxification,Pitta,Digestive
+4,Lungs,Organs responsible for respiration,Kapha,Respiratory
+5,Stomach,J-shaped organ for food digestion,Pitta,Digestive
+6,Intestines,Tube where nutrients are absorbed,Pitta,Digestive
+7,Skin,Largest organ protecting the body,Pitta,Integumentary
+8,Joints,Connection points between bones,Vata,Musculoskeletal
+9,Immune System,Defense mechanism against pathogens,Kapha,Immune
+10,Nervous System,Network for transmitting signals,Vata,Nervous
+11,Metabolic System,Processes for energy production,Pitta,Metabolic
+12,Reproductive System,Organs for reproduction,Kapha,Reproductive

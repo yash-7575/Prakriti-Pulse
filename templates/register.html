@@ -9,7 +9,8 @@
         <div class="text-center mb-12">
             <h1 class="text-4xl font-bold text-gray-900 mb-4">Patient Registration</h1>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Create your profile to get personalized Ayurvedic recommendations based on your unique constitution and symptoms.
+                Create your profile to get personalized Ayurvedic recommendations based on your unique constitution and
+                symptoms.
             </p>
         </div>
 
@@ -23,7 +24,7 @@
                             Age <span class="text-red-500">*</span>
                         </label>
                         <input type="number" id="age" name="age" required min="1" max="120"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
 
                     <div>
@@ -31,32 +32,89 @@
                             Gender <span class="text-red-500">*</span>
                         </label>
                         <select id="gender" name="gender" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                             <option value="">Select Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
+
+                    <div class="md:col-span-2">
+                        <label for="state" class="block text-sm font-medium text-gray-700 mb-2">
+                            State <span class="text-red-500">*</span>
+                        </label>
+                        <select id="state" name="state" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman
+                                and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Ladakh">Ladakh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        </select>
+                    </div>
                 </div>
 
                 <!-- Prakriti Type -->
                 <div>
-                    <label for="prakriti_type" class="block text-sm font-medium text-gray-700 mb-2">
-                        Prakriti Type (if known)
-                    </label>
+                    <div class="flex justify-between items-center mb-2">
+                        <label for="prakriti_type" class="block text-sm font-medium text-gray-700">
+                            Prakriti Type
+                        </label>
+                        <a href="{{ url_for('prakriti_quiz') }}" target="_blank"
+                            class="text-xs text-green-600 hover:text-green-800 font-semibold flex items-center">
+                            <span class="mr-1"></span> Don't know? Check Official Procedure
+                        </a>
+                    </div>
+
                     <select id="prakriti_type" name="prakriti_type"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                        <option value="">Not sure - will take quiz</option>
-                        <option value="Vata">Vata</option>
-                        <option value="Pitta">Pitta</option>
-                        <option value="Kapha">Kapha</option>
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="" selected>I don't know yet (Will update later)</option>
+                        <option value="Vata">Vata (Air & Ether)</option>
+                        <option value="Pitta">Pitta (Fire & Water)</option>
+                        <option value="Kapha">Kapha (Earth & Water)</option>
                         <option value="Vata-Pitta">Vata-Pitta</option>
                         <option value="Pitta-Vata">Pitta-Vata</option>
                         <option value="Kapha-Pitta">Kapha-Pitta</option>
                         <option value="Vata-Kapha">Vata-Kapha</option>
                         <option value="Pitta-Kapha">Pitta-Kapha</option>
                     </select>
+                    <p class="text-xs text-gray-500 mt-1">
+                        * Select "I don't know yet" if you haven't done your CCRAS assessment.
+                    </p>
                 </div>
 
                 <!-- Current Symptoms -->
@@ -66,9 +124,10 @@
                     </label>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {% for symptom in symptoms %}
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-green-50 cursor-pointer">
-                            <input type="checkbox" name="current_symptoms" value="{{ symptom.symptom_id }}" 
-                                   class="mr-3 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                        <label
+                            class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-green-50 cursor-pointer">
+                            <input type="checkbox" name="current_symptoms" value="{{ symptom.symptom_name }}"
+                                class="mr-3 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
                             <span class="text-sm text-gray-700">{{ symptom.symptom_name }}</span>
                         </label>
                         {% endfor %}
@@ -81,10 +140,11 @@
                         Overall Symptom Severity <span class="text-red-500">*</span>
                     </label>
                     <select id="symptom_severity" name="symptom_severity" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                         <option value="">Select Severity</option>
                         <option value="Mild">Mild - Minor discomfort, doesn't interfere with daily activities</option>
-                        <option value="Moderate">Moderate - Noticeable discomfort, some impact on daily activities</option>
+                        <option value="Moderate">Moderate - Noticeable discomfort, some impact on daily activities
+                        </option>
                         <option value="High">High - Significant discomfort, major impact on daily activities</option>
                     </select>
                 </div>
@@ -95,20 +155,19 @@
                         Treatment History
                     </label>
                     <textarea id="treatment_history" name="treatment_history" rows="4"
-                              placeholder="Please describe any previous treatments, medications, or therapies you have tried..."
-                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+                        placeholder="Please describe any previous treatments, medications, or therapies you have tried..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
                 </div>
 
                 <!-- Effectiveness Rating -->
-                <div>
+                <!-- <div>
                     <label for="effectiveness_rating" class="block text-sm font-medium text-gray-700 mb-2">
                         Effectiveness Rating of Previous Treatments (0-1)
                     </label>
-                    <input type="number" id="effectiveness_rating" name="effectiveness_rating" 
-                           min="0" max="1" step="0.1"
-                           placeholder="0.0 to 1.0 (0 = not effective, 1 = very effective)"
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                </div>
+                    <input type="number" id="effectiveness_rating" name="effectiveness_rating" min="0" max="1"
+                        step="0.1" placeholder="0.0 to 1.0 (0 = not effective, 1 = very effective)"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                </div> -->
 
                 <!-- Practitioner Notes -->
                 <div>
@@ -116,14 +175,14 @@
                         Practitioner Notes (if any)
                     </label>
                     <textarea id="practitioner_notes" name="practitioner_notes" rows="3"
-                              placeholder="Any additional notes from your healthcare provider..."
-                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+                        placeholder="Any additional notes from your healthcare provider..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
                 </div>
 
                 <!-- Submit Button -->
                 <div class="flex justify-center pt-6">
-                    <button type="submit" 
-                            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg">
+                    <button type="submit"
+                        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg">
                         Register & Continue to Prakriti Quiz
                     </button>
                 </div>
@@ -139,8 +198,10 @@
                 <div class="ml-3">
                     <h3 class="text-lg font-medium text-blue-800">Why Register?</h3>
                     <p class="mt-2 text-blue-700">
-                        Your registration helps us provide personalized Ayurvedic recommendations based on your unique constitution (Prakriti), 
-                        current symptoms, and health history. This information is essential for accurate herb recommendations and dosage suggestions.
+                        Your registration helps us provide personalized Ayurvedic recommendations based on your unique
+                        constitution (Prakriti),
+                        current symptoms, and health history. This information is essential for accurate herb
+                        recommendations and dosage suggestions.
                     </p>
                 </div>
             </div>
